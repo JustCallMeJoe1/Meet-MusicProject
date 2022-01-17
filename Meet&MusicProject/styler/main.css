@@ -167,6 +167,7 @@ footer {
     align-items: center;
     margin-top: auto;
     padding: 8px 12px 0px 25px;
+    justify-content: space-between;
     background-color: #222121;
     position: absolute;
     left: 0;
@@ -189,16 +190,20 @@ footer {
 footer ul {
     display: flex;
     align-items: center;
-    justify-content: space-around;
     list-style-type: none;
     padding-left: 0;
     
 }
 
-footer ul li {
+#footerInfo ul li {
     font-size: 14pt;
     font-family: Sitka Small, 'Times New Roman', Times, serif, Arial;
     color: #F3F0F0;
     padding-left: 20pt;
     padding-right: 20pt;
+}
+
+#socialMedia {
+    display: flex;
+    justify-content: flex-end;
 }
