@@ -96,7 +96,7 @@ a:hover {
     padding-right: 20pt;
 }
 
-/* Main content styling */
+/* CSS for the home page */
 main {
     display: flex;
     justify-content: space-around;
@@ -145,10 +145,6 @@ aside {
     padding-left: 0;
 }
 
-.imageCaption {
-    text-align: center;
-}
-
 #featureEvents ul li {
     font-size: 14pt;
     font-family: Sitka Small, 'Times New Roman', Times, serif, Arial;
@@ -158,6 +154,10 @@ aside {
     padding-right: 20pt;
     
 }
+
+/* CSS for the musicEvents page */
+
+
 
 /* Footer styling */
 /* Footing will be at the absolute bottom (Relative to the page wrapper), and has padding from the content  */
