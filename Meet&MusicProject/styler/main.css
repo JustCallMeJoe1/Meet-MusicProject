@@ -233,6 +233,67 @@ aside {
     margin-top: 2%;
 }
 
+/* CSS for the musicEvent page - specific page */
+#eventCard {
+    background-color: #8B0000;
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 3%;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    font-family: Sitka Small, 'Times New Roman', Times, serif, Arial;
+    color: #F3F0F0;
+}
+
+#eventHeadingSection {
+    background-color:#222121;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    
+}
+
+#buttonGroup {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.eventButton {
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 25px;
+    padding-right: 25px; 
+}
+
+#eventInformation {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+#eventCardImage {
+    margin-top: 3%;
+    border: 3px black solid;
+}
+
+#eventTextInfo {
+    margin-top: 5%;
+    margin-left: 2%;
+    font-size: 18pt;
+    display: flex;
+    align-items: center;
+}
+
+#eventDescription {
+    background-color: #222121;
+    margin-top: 2%;
+    padding: 25px;
+}
 
 /* Footer styling */
 /* Footing will be at the absolute bottom (Relative to the page wrapper), and has padding from the content  */
