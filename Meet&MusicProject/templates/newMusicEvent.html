@@ -42,7 +42,52 @@
             </div>
 
             <main>
-                
+                <div id="formContainer">
+                    <h2 id="formHeader">New Music Event Form</h2>
+                    <form id="newMusicForm">
+                        <fieldset id="importantEventInfo">
+                            <h3 id="importantHeader">Important Event Details</h3>
+                            <label class="formLabel" for="topicDrop">Music Event Category: </label>
+                            <select id="musicTopics" name="topicDrop">
+                                <option value="Rock">Rock</option>
+                                <option value="Pop">Pop</option>
+                                <option value="Metal">Metal</option>
+                                <option value="Funk">Funk</option>
+                            </select>
+                            <br>
+                            <label class="formLabel" for="eventTitle">Event Title: </label>
+                            <input type="text" name="eventTitle" maxlength="100" minlength="1" /> 
+                        </fieldset>
+
+                        <fieldset id="eventDetails">
+                            <h3 id="otherHeader">Other Event Details</h3>
+                            <label class="formLabel" for="eventHost">Event Host: </label>
+                            <input type="text" name="eventHost" maxlength="70" minlength="1" />
+                            <br>
+                            <label class="formLabel" for="additionalEventInfo">Details: </label>
+                            <textarea name="additionalEventInfo" rows="5" cols="25" placeholder="Enter event details here!"></textarea>
+                            <br>
+                            <label class="formLabel" for="eventWhere">Event Location: </label>
+                            <input name="eventWhere" type="text" maxLength="100" minlength="1" />
+                            <br>
+                            <label class="formLabel" for="eventImage">Event Image: </label>
+                            <input name="eventImage" type="file" />
+                        </fieldset>
+
+                        <fieldset id="eventTimeDetails">
+                            <h3 id="timeHeader">Event Time Details</h3>
+                            <label class="formLabel" for="eventDate">Event Date: </label>
+                            <input name="eventDate" type="date" />
+                            <br>
+                            <label class="formLabel" for="eventStart">Start Time: </label>
+                            <input name="eventStart" type="time" />
+                            <br>
+                            <label class="formLabel" for="eventEnd">End Time: </label>
+                            <input name="eventEnd" type="time" />
+                        </fieldset>
+
+                    </form>
+                </div>
             </main>
             <footer>
                 <div id="footerInfo">
