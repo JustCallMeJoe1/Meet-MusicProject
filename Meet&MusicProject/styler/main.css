@@ -343,6 +343,18 @@ aside {
     margin-right: auto;
 }
 
+#firstComp {
+    margin-bottom: 3%;
+}
+
+#secondComp {
+    margin-bottom: 8%;
+}
+
+#thirdComp {
+    margin-bottom: 12%;
+}
+
 .formLabel {
     margin-bottom: 3px;
 }
@@ -359,6 +371,30 @@ aside {
     padding: 8px;
 }
 
+.newEventLegend {
+    font-size: 19px;
+    background-color: black;
+    padding: 12px;
+    margin-bottom: 1%;
+    border-radius: 12px;
+}
+
+#submitContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#submitButton {
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+    background-color:#222121;
+    font-family: Sitka Small, 'Times New Roman', Times, serif, Arial;
+    color: #F3F0F0;
+    margin-top: 10px;
+}
 
 
 /* Footer styling */

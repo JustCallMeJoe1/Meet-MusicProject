@@ -47,8 +47,8 @@
                     <!-- Make sure the form has an action that sends it to the connections page, will perform this action when submit button pressed (Will post to DB later on in development)-->
                     <form id="newMusicForm" method="post" action="../templates/musicEvents.html">
                         <fieldset id="importantEventInfo" class="formDivider">
-                            <h3 id="importantHeader">Event Information</h3>
-                            <div class="formComponent">
+                            <legend class="newEventLegend">Event Information</legend>
+                            <div class="formComponent" id="firstComp">
                                 <label class="formLabel" for="topicDrop">Music Event Category: </label>
                                 <select id="musicTopics" name="topicDrop" required>
                                     <option value=""></option>
@@ -63,8 +63,8 @@
                         </fieldset>
 
                         <fieldset id="eventDetails" class="formDivider">
-                            <h3 id="otherHeader">Event Details</h3>
-                            <div class="formComponent">
+                            <legend class="newEventLegend">Event Details</legend>
+                            <div class="formComponent" id="secondComp">
                                 <label class="formLabel" for="eventHost">Event Host: </label>
                                 <input type="text" name="eventHost" maxlength="70" minlength="1" placeholder="Enter event host here!" required />
                                 <br>
@@ -80,8 +80,8 @@
                         </fieldset>
 
                         <fieldset id="eventTimeDetails" class="formDivider">
-                            <h3 id="timeHeader">Event Time Details</h3>
-                            <div class="formComponent">
+                            <legend class="newEventLegend">Event Time Details</legend>
+                            <div class="formComponent" id="thirdComp">
                                 <label class="formLabel" for="eventDate">Event Date: </label>
                                 <input name="eventDate" type="date" required />
                                 <br>
