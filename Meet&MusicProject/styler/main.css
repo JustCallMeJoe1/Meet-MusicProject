@@ -208,9 +208,14 @@ aside {
     color: #F3F0F0;
 }
 
-.rowHeader {
+#metalHeader, #rockHeader {
     padding: 10px;
-    margin-right: 5px;
+    margin-right: 2rem;
+}
+
+#popHeader {
+    padding: 10px;
+    margin-right: 4rem;
 }
 
 .eventDataCell {
