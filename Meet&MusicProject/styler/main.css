@@ -244,7 +244,7 @@ aside {
     width: 70%;
     margin-left: 15%;
     margin-right: 15%;
-    margin-top: 3%;
+    margin-top: 2%;
     padding: 50px;
     display: flex;
     flex-direction: column;
@@ -299,6 +299,67 @@ aside {
     margin-top: 2%;
     padding: 25px;
 }
+
+/** CSS for New Music Event page - Form page **/
+#formContainer {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color:#8B0000;
+    margin-top: 2%;
+    font-family: Sitka Small, 'Times New Roman', Times, serif, Arial;
+    color: #F3F0F0;
+    border: 3px black solid;
+}
+
+#newMusicForm {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 0px 35px 35px 35px;
+}
+
+#formHeader {
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.formDivider {
+    margin-bottom: 1.5%;
+    background-color:#222121;
+    border: 1px solid rgba(255, 255, 255, 0.705);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.formComponent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.formLabel {
+    margin-bottom: 3px;
+}
+
+#newMusicForm input {
+    padding: 5px;
+}
+
+#newMusicForm select {
+    padding: 5px;
+}
+
+#newMusicForm textarea {
+    padding: 8px;
+}
+
+
 
 /* Footer styling */
 /* Footing will be at the absolute bottom (Relative to the page wrapper), and has padding from the content  */

@@ -43,48 +43,56 @@
 
             <main>
                 <div id="formContainer">
-                    <h2 id="formHeader">New Music Event Form</h2>
+                    <h1 id="formHeader">New Music Event Form</h1>
                     <!-- Make sure the form has an action that sends it to the connections page, will perform this action when submit button pressed (Will post to DB later on in development)-->
                     <form id="newMusicForm" method="post" action="../templates/musicEvents.html">
-                        <fieldset id="importantEventInfo">
-                            <h3 id="importantHeader">Important Event Details</h3>
-                            <label class="formLabel" for="topicDrop">Music Event Category: </label>
-                            <select id="musicTopics" name="topicDrop">
-                                <option value="Rock">Rock</option>
-                                <option value="Pop">Pop</option>
-                                <option value="Metal">Metal</option>
-                            </select>
-                            <br>
-                            <label class="formLabel" for="eventTitle">Event Title: </label>
-                            <input type="text" name="eventTitle" maxlength="100" minlength="1" required /> 
+                        <fieldset id="importantEventInfo" class="formDivider">
+                            <h3 id="importantHeader">Event Information</h3>
+                            <div class="formComponent">
+                                <label class="formLabel" for="topicDrop">Music Event Category: </label>
+                                <select id="musicTopics" name="topicDrop" required>
+                                    <option value=""></option>
+                                    <option value="Rock">Rock</option>
+                                    <option value="Pop">Pop</option>
+                                    <option value="Metal">Metal</option>
+                                </select>
+                                <br>
+                                <label class="formLabel" for="eventTitle">Event Title: </label>
+                                <input type="text" name="eventTitle" maxlength="100" minlength="1" placeholder="Enter event title here!" required /> 
+                            </div>
                         </fieldset>
 
-                        <fieldset id="eventDetails">
-                            <h3 id="otherHeader">Other Event Details</h3>
-                            <label class="formLabel" for="eventHost">Event Host: </label>
-                            <input type="text" name="eventHost" maxlength="70" minlength="1" required />
-                            <br>
-                            <label class="formLabel" for="additionalEventInfo">Details: </label>
-                            <textarea name="additionalEventInfo" rows="5" cols="25" placeholder="Enter event details here!"></textarea>
-                            <br>
-                            <label class="formLabel" for="eventWhere">Event Location: </label>
-                            <input name="eventWhere" type="text" maxLength="100" minlength="1" required />
-                            <br>
-                            <label class="formLabel" for="eventImage">Event Image: </label>
-                            <input name="eventImage" type="file" required />
+                        <fieldset id="eventDetails" class="formDivider">
+                            <h3 id="otherHeader">Event Details</h3>
+                            <div class="formComponent">
+                                <label class="formLabel" for="eventHost">Event Host: </label>
+                                <input type="text" name="eventHost" maxlength="70" minlength="1" placeholder="Enter event host here!" required />
+                                <br>
+                                <label class="formLabel" for="additionalEventInfo">Details: </label>
+                                <textarea name="additionalEventInfo" rows="5" cols="25" placeholder="Enter event details here!"></textarea>
+                                <br>
+                                <label class="formLabel" for="eventWhere">Event Location: </label>
+                                <input name="eventWhere" type="text" maxLength="100" minlength="1" placeholder="Enter event location here!" required />
+                                <br>
+                                <label class="formLabel" for="eventImage">Event Image: </label>
+                                <input name="eventImage" type="file" required />
+                            </div>
                         </fieldset>
 
-                        <fieldset id="eventTimeDetails">
+                        <fieldset id="eventTimeDetails" class="formDivider">
                             <h3 id="timeHeader">Event Time Details</h3>
-                            <label class="formLabel" for="eventDate">Event Date: </label>
-                            <input name="eventDate" type="date" required />
-                            <br>
-                            <label class="formLabel" for="eventStart">Start Time: </label>
-                            <input name="eventStart" type="time" required />
-                            <br>
-                            <label class="formLabel" for="eventEnd">End Time: </label>
-                            <input name="eventEnd" type="time" required />
+                            <div class="formComponent">
+                                <label class="formLabel" for="eventDate">Event Date: </label>
+                                <input name="eventDate" type="date" required />
+                                <br>
+                                <label class="formLabel" for="eventStart">Start Time: </label>
+                                <input name="eventStart" type="time" required />
+                                <br>
+                                <label class="formLabel" for="eventEnd">End Time: </label>
+                                <input name="eventEnd" type="time" required />
+                            </div>
                         </fieldset>
+
                         <div id="submitContainer">
                             <button type="submit" id="submitButton" value="Create Event">Create Event</button>
                         </div>
