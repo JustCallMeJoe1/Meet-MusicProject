@@ -68,7 +68,7 @@ a {
 
 a:hover {
     font-style:italic;
-
+    cursor: pointer;
 }
 
 /* NavBar styling */
@@ -121,11 +121,17 @@ main {
     font-family:  Arial, 'Times New Roman', Times, serif,;
 }
 
+#welcomeHeader {
+    margin-left: 4%;
+    text-decoration: underline;
+}
+
 aside {
     margin-top: 1%;
     width: 60%;
     flex-grow: 1;
     background-color: #8B0000;
+    border: 2px solid black;
 }
 
 #asideHeader {
@@ -268,10 +274,19 @@ aside {
 }
 
 .eventButton {
-    padding-top: 7px;
-    padding-bottom: 7px;
-    padding-left: 25px;
-    padding-right: 25px; 
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+    background-color:#8B0000;
+    font-family: Sitka Small, 'Times New Roman', Times, serif, Arial;
+    color: #F3F0F0;
+    margin-top: 10px;
+}
+
+.eventButton:hover, .eventButton:active {
+    background-color:rgb(199, 1, 1);
+    cursor: pointer;
 }
 
 #eventInformation {
@@ -299,6 +314,8 @@ aside {
     margin-top: 2%;
     padding: 25px;
 }
+
+/** If time at some point, include a topic bubble at the top left corner of the event card *Probably wont have time but thought is in head **/
 
 /** CSS for New Music Event page - Form page **/
 #formContainer {
@@ -396,6 +413,10 @@ aside {
     margin-top: 10px;
 }
 
+#submitButton:hover, #submitButton:active {
+    background-color:rgb(199, 1, 1);
+    cursor: pointer;
+}
 
 /* Footer styling */
 /* Footing will be at the absolute bottom (Relative to the page wrapper), and has padding from the content  */
