@@ -105,7 +105,7 @@ main {
 
 #welcomeMessage {
     flex-grow: 2;
-    width: 50%;
+    width: 45%;
 }
 
 #welcomeMessage h2 {
@@ -128,7 +128,7 @@ main {
 
 aside {
     margin-top: 1%;
-    width: 50%;
+    width: 55%;
     flex-grow: 1;
     background-color: #8B0000;
     border: 2px solid black;
