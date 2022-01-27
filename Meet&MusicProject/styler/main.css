@@ -286,7 +286,7 @@ aside {
     background-color:#8B0000;
     font-family: Sitka Small, 'Times New Roman', Times, serif, Arial;
     color: #F3F0F0;
-    margin-top: 10px;
+    border: 2px black solid;
 }
 
 .eventButton:hover, .eventButton:active {

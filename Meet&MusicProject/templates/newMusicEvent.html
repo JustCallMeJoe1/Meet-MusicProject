@@ -21,7 +21,7 @@
     <div id="pageWrapper">
         <div id="infoWrapper">
             <header>
-                <a href="index.html"><img src="../resources/mainLogo.png" alt="Music & Meet logo" id="mainLogo" width="143px" height="140px" /></a>
+                <a href="index.html"><img src="../resources/mainLogo.png" alt="Music & Meet logo" id="mainLogo" width="143" height="140" /></a>
                 <h1 id="websiteTitle">New Music Event</h1>
                 <nav>
                     <ul>
@@ -49,16 +49,16 @@
                         <fieldset id="importantEventInfo" class="formDivider">
                             <legend class="newEventLegend">Event Information</legend>
                             <div class="formComponent" id="firstComp">
-                                <label class="formLabel" for="topicDrop">Music Event Category: </label>
-                                <select id="musicTopics" name="topicDrop" required>
-                                    <option value=""></option>
+                                <label class="formLabel" for="musicTopics">Music Event Category: </label>
+                                <select id="musicTopics" required>
+                                    <option value="" label=" "></option>
                                     <option value="Rock">Rock</option>
                                     <option value="Pop">Pop</option>
                                     <option value="Metal">Metal</option>
                                 </select>
                                 <br>
                                 <label class="formLabel" for="eventTitle">Event Title: </label>
-                                <input type="text" name="eventTitle" maxlength="100" minlength="1" placeholder="Enter event title here!" required /> 
+                                <input type="text" id="eventTitle" maxlength="100" minlength="1" placeholder="Enter event title here!" required /> 
                             </div>
                         </fieldset>
 
@@ -66,16 +66,16 @@
                             <legend class="newEventLegend">Event Details</legend>
                             <div class="formComponent" id="secondComp">
                                 <label class="formLabel" for="eventHost">Event Host: </label>
-                                <input type="text" name="eventHost" maxlength="70" minlength="1" placeholder="Enter event host here!" required />
+                                <input type="text" id="eventHost" maxlength="70" minlength="1" placeholder="Enter event host here!" required />
                                 <br>
                                 <label class="formLabel" for="additionalEventInfo">Details: </label>
-                                <textarea name="additionalEventInfo" rows="5" cols="25" placeholder="Enter event details here!"></textarea>
+                                <textarea id="additionalEventInfo" rows="5" cols="25" placeholder="Enter event details here!"></textarea>
                                 <br>
                                 <label class="formLabel" for="eventWhere">Event Location: </label>
-                                <input name="eventWhere" type="text" maxLength="100" minlength="1" placeholder="Enter event location here!" required />
+                                <input id="eventWhere" type="text" maxLength="100" minlength="1" placeholder="Enter event location here!" required />
                                 <br>
                                 <label class="formLabel" for="eventImage">Event Image: </label>
-                                <input name="eventImage" type="file" required />
+                                <input id="eventImage" type="file" required />
                             </div>
                         </fieldset>
 
@@ -83,13 +83,13 @@
                             <legend class="newEventLegend">Event Time Details</legend>
                             <div class="formComponent" id="thirdComp">
                                 <label class="formLabel" for="eventDate">Event Date: </label>
-                                <input name="eventDate" type="date" required />
+                                <input id="eventDate" type="date" required />
                                 <br>
                                 <label class="formLabel" for="eventStart">Start Time: </label>
-                                <input name="eventStart" type="time" required />
+                                <input id="eventStart" type="time" required />
                                 <br>
                                 <label class="formLabel" for="eventEnd">End Time: </label>
-                                <input name="eventEnd" type="time" required />
+                                <input id="eventEnd" type="time" required />
                             </div>
                         </fieldset>
 
@@ -109,8 +109,8 @@
                 </div>
                 <div id="socialMedia">
                     <ul>
-                        <li><a href="#"><img src="../resources/facebookLogo.png" alt="Facebook" width="75.5px" height="50px" /></a></li>
-                        <li><a href="#"><img src="../resources/twitterIcon.png" alt="Facebook" width="75.5px" height="50px" /></a></li>
+                        <li><a href="#"><img src="../resources/facebookLogo.png" alt="Facebook" width="75" height="50" /></a></li>
+                        <li><a href="#"><img src="../resources/twitterIcon.png" alt="Facebook" width="75" height="50" /></a></li>
                     </ul>
                 </div>
             </footer>
