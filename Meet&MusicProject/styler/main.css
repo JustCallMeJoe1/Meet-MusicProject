@@ -10,10 +10,8 @@
 /* Header section formatting */
 body {
     background-color: #ECECEC;
-    margin-left: 1%;
-    margin-right: 1%;
-    margin-top: 0;
-    margin-bottom: 0;
+    margin: 0px;
+    padding: 0px;
 }
 
 header {
@@ -30,7 +28,7 @@ header {
 }
 
 #websiteTitle {
-    font-size: 36pt;
+    font-size: 30pt;
     font-family: "Sitka Small", "Times New Roman", Times, serif, Arial;
     color: #F3F0F0;
     flex-grow: 1;
@@ -106,6 +104,7 @@ main {
 #welcomeMessage {
     flex-grow: 2;
     width: 45%;
+    margin-left: 3%;
 }
 
 #welcomeMessage h2 {
@@ -132,6 +131,7 @@ aside {
     flex-grow: 1;
     background-color: #8B0000;
     border: 2px solid black;
+    margin-right: 3%;
 }
 
 #asideHeader {
