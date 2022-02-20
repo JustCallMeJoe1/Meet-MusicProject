@@ -424,7 +424,58 @@ aside {
 }
 
 /** CSS for About Us page **/
+#missionStatement {
+    width: 70%;
+    margin-left: 5%;
+    margin-right: 2%;
+    margin-top: 2%;
+    background-color:#8B0000;
+    font-family: "Sitka Small", "Times New Roman", Times, serif, Arial;
+    color: #F3F0F0;
+    border: 3px black solid;
+    display: flex;
+    flex-wrap: wrap;
+}
 
+#missionWelcome {
+    background-color:#222121;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 1%;
+    padding: 18px;
+}
+
+#aboutText {
+    margin-left: 5%;
+    margin-right: 5%;
+    font-size: 18pt;
+    font-family:  Arial, "Times New Roman", Times, serif;
+    margin-top: 0px;
+}
+
+#sponserBlock {
+    width: 30%;
+    margin-right: 5%;
+    margin-top: 2%;
+    
+    
+}
+
+#sponsorFlex {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items:center;
+}
+
+.SponsorImage {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
 
 /* Footer styling */
 /* Footing will be at the absolute bottom (Relative to the page wrapper), and has padding from the content  */
