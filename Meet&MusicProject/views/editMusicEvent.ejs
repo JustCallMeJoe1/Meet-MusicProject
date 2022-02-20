@@ -1,0 +1,68 @@
+<!--
+
+    Author: Joe Strickland
+    EJS Template page for editing music event page
+    Date: Feb 10th, 2022
+
+-->
+<%- include("./partials/header.ejs") %>
+<!-- Make to fill in all info from current event when user wants to update. -->
+            <main>
+                <div id="formContainer">
+                    <h1 id="formHeader">EVENT NAME GOES HERE</h1>
+                    <!-- Make sure the form has an action that sends it to the connections page, will perform this action when submit button pressed (Will post to DB later on in development)-->
+                    <form id="newMusicForm" method="put" action="/events">
+                        <fieldset id="importantEventInfo" class="formDivider">
+                            <legend class="newEventLegend">Event Information</legend>
+                            <div class="formComponent" id="firstComp">
+                                <label class="formLabel" for="musicTopics">Music Event Category: </label>
+                                <select id="musicTopics" required>
+                                    <option value="" label=" "></option>
+                                    <option value="Rock">Rock</option>
+                                    <option value="Pop">Pop</option>
+                                    <option value="Metal">Metal</option>
+                                </select>
+                                <br>
+                                <label class="formLabel" for="eventTitle">Event Title: </label>
+                                <input type="text" id="eventTitle" maxlength="100" minlength="1" placeholder="Enter event title here!" required /> 
+                            </div>
+                        </fieldset>
+
+                        <fieldset id="eventDetails" class="formDivider">
+                            <legend class="newEventLegend">Event Details</legend>
+                            <div class="formComponent" id="secondComp">
+                                <label class="formLabel" for="eventHost">Event Host: </label>
+                                <input type="text" id="eventHost" maxlength="70" minlength="1" placeholder="Enter event host here!" required />
+                                <br>
+                                <label class="formLabel" for="additionalEventInfo">Details: </label>
+                                <textarea id="additionalEventInfo" rows="5" cols="25" placeholder="Enter event details here!"></textarea>
+                                <br>
+                                <label class="formLabel" for="eventWhere">Event Location: </label>
+                                <input id="eventWhere" type="text" maxLength="100" minlength="1" placeholder="Enter event location here!" required />
+                                <br>
+                                <label class="formLabel" for="eventImage">Event Image: </label>
+                                <input id="eventImage" type="file" required />
+                            </div>
+                        </fieldset>
+
+                        <fieldset id="eventTimeDetails" class="formDivider">
+                            <legend class="newEventLegend">Event Time Details</legend>
+                            <div class="formComponent" id="thirdComp">
+                                <label class="formLabel" for="eventDate">Event Date: </label>
+                                <input id="eventDate" type="date" required />
+                                <br>
+                                <label class="formLabel" for="eventStart">Start Time: </label>
+                                <input id="eventStart" type="time" required />
+                                <br>
+                                <label class="formLabel" for="eventEnd">End Time: </label>
+                                <input id="eventEnd" type="time" required />
+                            </div>
+                        </fieldset>
+
+                        <div id="submitContainer">
+                            <button type="submit" id="submitButton" value="Create Event">Update Event</button>
+                        </div>
+                    </form>
+                </div>
+            </main>
+<%- include("./partials/footer.ejs") %>
