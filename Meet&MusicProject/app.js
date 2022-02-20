@@ -27,7 +27,9 @@ app.use(morgan("tiny"));                            //Logger for requests in the
 
 
 //Set up initial Routing to different webpages throughout the web server
-app.get("")
+app.get("/", (req, res)=> {
+    res.render("index");
+});
 
 
 

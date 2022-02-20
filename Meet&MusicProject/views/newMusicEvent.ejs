@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <title>New Music Event</title>
     <!-- CSS style sheet for the HTML -->
-    <link rel="stylesheet" href="../public/CSS/main.css" />
+    <link rel="stylesheet" href="/CSS/main.css" />
     <link rel="shortcut icon" href="#" />
 
 </head>
@@ -21,8 +21,8 @@
     <div id="pageWrapper">
         <div id="infoWrapper">
             <header>
-                <a href="index.html"><img src="../public/images/mainLogo.png" alt="Music & Meet logo" id="mainLogo" width="143" height="140" /></a>
-                <h1 id="websiteTitle">New Music Event</h1>
+                <a href="/"><img src="/images/mainLogo.png" alt="Music & Meet logo" id="mainLogo" width="143" height="140" /></a>
+                <h1 id="websiteTitle">Music & Meet</h1>
                 <nav>
                     <ul>
                         <li><a href="#">Login</a></li>
@@ -33,17 +33,17 @@
 
             <div id="navBar">
                 <ul>
-                    <li><a href="../views/index.html">Home</a></li>
-                    <li><a href="../views/musicEvents.html">Events</a></li>
-                    <li><a href="../views/newMusicEvent.html">New Event</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/events">Events</a></li>
+                    <li><a href="/events/new">New Event</a></li>
                 </ul>
             </div>
-
+            
             <main>
                 <div id="formContainer">
                     <h1 id="formHeader">New Music Event Form</h1>
                     <!-- Make sure the form has an action that sends it to the connections page, will perform this action when submit button pressed (Will post to DB later on in development)-->
-                    <form id="newMusicForm" method="post" action="../views/musicEvents.html">
+                    <form id="newMusicForm" method="post" action="/events">
                         <fieldset id="importantEventInfo" class="formDivider">
                             <legend class="newEventLegend">Event Information</legend>
                             <div class="formComponent" id="firstComp">
@@ -107,8 +107,8 @@
                 </div>
                 <div id="socialMedia">
                     <ul>
-                        <li><a href="#"><img src="../public/images/facebookLogo.png" alt="Facebook" width="75" height="50" /></a></li>
-                        <li><a href="#"><img src="../public/images/twitterIcon.png" alt="Facebook" width="75" height="50" /></a></li>
+                        <li><a href="#"><img src="/images/facebookLogo.png" alt="Facebook" width="75" height="50" /></a></li>
+                        <li><a href="#"><img src="/images/twitterIcon.png" alt="Facebook" width="75" height="50" /></a></li>
                     </ul>
                 </div>
             </footer>
