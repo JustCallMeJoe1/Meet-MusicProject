@@ -21,13 +21,17 @@ app.set("view engine", "ejs");      //View engine used for application : EJS
 
 
 //Mount application middleware functions that will be used throughout the application to perform actions
-
-
+app.use(express.static("public"));                  //Connect webserver to static resources in project, be able to connect to static files
+app.use(express.urlencoded({extended : true}));     //Be able to parse data from request body, meaning we can receive form data from browser (POST)
+app.use(morgan("tiny"));                            //Logger for requests in the terminal, shows client request information
 
 
 //Set up initial Routing to different webpages throughout the web server
-
+app.get("")
 
 
 
 //Start the web application server on localhost with specific port number
+app.listen(port, host, ()=> {
+    console.log("Server started on " + host + " with port " + port + " .");     //Just log that the server has started
+});

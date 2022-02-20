@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<!--
+
+    Author: Joe Strickland
+    EJS Template page for new music event page
+    Date: Feb 10th, 2022
+
+-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Music Event</title>
+    <!-- CSS style sheet for the HTML -->
+    <link rel="stylesheet" href="../public/CSS/main.css" />
+    <link rel="shortcut icon" href="#" />
+
+</head>
+<body>
+    <div id="pageWrapper">
+        <div id="infoWrapper">
+            <header>
+                <a href="index.html"><img src="../public/images/mainLogo.png" alt="Music & Meet logo" id="mainLogo" width="143" height="140" /></a>
+                <h1 id="websiteTitle">New Music Event</h1>
+                <nav>
+                    <ul>
+                        <li><a href="#">Login</a></li>
+                        <li><a href="#">Sign-Up</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <div id="navBar">
+                <ul>
+                    <li><a href="../views/index.html">Home</a></li>
+                    <li><a href="../views/musicEvents.html">Events</a></li>
+                    <li><a href="../views/newMusicEvent.html">New Event</a></li>
+                </ul>
+            </div>
+
+            <main>
+                <div id="formContainer">
+                    <h1 id="formHeader">New Music Event Form</h1>
+                    <!-- Make sure the form has an action that sends it to the connections page, will perform this action when submit button pressed (Will post to DB later on in development)-->
+                    <form id="newMusicForm" method="post" action="../views/musicEvents.html">
+                        <fieldset id="importantEventInfo" class="formDivider">
+                            <legend class="newEventLegend">Event Information</legend>
+                            <div class="formComponent" id="firstComp">
+                                <label class="formLabel" for="musicTopics">Music Event Category: </label>
+                                <select id="musicTopics" required>
+                                    <option value="" label=" "></option>
+                                    <option value="Rock">Rock</option>
+                                    <option value="Pop">Pop</option>
+                                    <option value="Metal">Metal</option>
+                                </select>
+                                <br>
+                                <label class="formLabel" for="eventTitle">Event Title: </label>
+                                <input type="text" id="eventTitle" maxlength="100" minlength="1" placeholder="Enter event title here!" required /> 
+                            </div>
+                        </fieldset>
+
+                        <fieldset id="eventDetails" class="formDivider">
+                            <legend class="newEventLegend">Event Details</legend>
+                            <div class="formComponent" id="secondComp">
+                                <label class="formLabel" for="eventHost">Event Host: </label>
+                                <input type="text" id="eventHost" maxlength="70" minlength="1" placeholder="Enter event host here!" required />
+                                <br>
+                                <label class="formLabel" for="additionalEventInfo">Details: </label>
+                                <textarea id="additionalEventInfo" rows="5" cols="25" placeholder="Enter event details here!"></textarea>
+                                <br>
+                                <label class="formLabel" for="eventWhere">Event Location: </label>
+                                <input id="eventWhere" type="text" maxLength="100" minlength="1" placeholder="Enter event location here!" required />
+                                <br>
+                                <label class="formLabel" for="eventImage">Event Image: </label>
+                                <input id="eventImage" type="file" required />
+                            </div>
+                        </fieldset>
+
+                        <fieldset id="eventTimeDetails" class="formDivider">
+                            <legend class="newEventLegend">Event Time Details</legend>
+                            <div class="formComponent" id="thirdComp">
+                                <label class="formLabel" for="eventDate">Event Date: </label>
+                                <input id="eventDate" type="date" required />
+                                <br>
+                                <label class="formLabel" for="eventStart">Start Time: </label>
+                                <input id="eventStart" type="time" required />
+                                <br>
+                                <label class="formLabel" for="eventEnd">End Time: </label>
+                                <input id="eventEnd" type="time" required />
+                            </div>
+                        </fieldset>
+
+                        <div id="submitContainer">
+                            <button type="submit" id="submitButton" value="Create Event">Create Event</button>
+                        </div>
+                    </form>
+                </div>
+            </main>
+            <footer>
+                <div id="footerInfo">
+                    <ul>
+                        <li>Joe Strickland | &#169; 2022</li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div id="socialMedia">
+                    <ul>
+                        <li><a href="#"><img src="../public/images/facebookLogo.png" alt="Facebook" width="75" height="50" /></a></li>
+                        <li><a href="#"><img src="../public/images/twitterIcon.png" alt="Facebook" width="75" height="50" /></a></li>
+                    </ul>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
