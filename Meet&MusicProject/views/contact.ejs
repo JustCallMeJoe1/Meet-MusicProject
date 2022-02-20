@@ -1,0 +1,76 @@
+<!--
+
+    Author: Joe Strickland
+    EJS Template page for the website's about us page
+    Date: Feb 10th, 2022
+
+-->
+<%- include("./partials/header.ejs") %>
+<main>
+    <section id="contactTeam">
+        <h2 id="missionWelcome">Music & Meet : Contact the Team!</h2>
+        <br />
+        <div id="tableWrapper">
+            <table id="contactTable">
+                <tr id="rowContact1">
+                    <td class="eventDataCell">
+                        <p>Jeremy Elbertson</p>
+                    </td>
+                    <td class="eventDataCell">
+                        <p>John Swartz</p>
+                    </td>
+                    <td class="eventDataCell">
+                        <p>Hellen Keen</p>
+                    </td>
+                </tr>
+                <tr id="rowContact2">
+                    <td class="eventDataCell">
+                        <img src="/images/person2.jpg" alt="Jeremy Elbertson" width="211" height="195" />
+                    </td>
+                    <td class="eventDataCell">
+                        <img src="/images/person1.png" alt="Rock Concert 2" width="211" height="195" />
+                    </td>
+                    <td class="eventDataCell">
+                        <img src="/images/person3.png" alt="Rock Concert 3" width="211" height="195" />
+                    </td>
+                </tr>
+                <tr id="rowContact3">
+                    <td class="eventDataCell">
+                        <p>CEO & Founder</p>
+                    </td>
+                    <td class="eventDataCell">
+                        <p>Lead Programmer</p>
+                    </td>
+                    <td class="eventDataCell">
+                        <p>Event Coordinator</p>
+                    </td>
+                </tr>
+                <tr id="rowContact3">
+                    <td class="eventDataCell">
+                        <p>Since 2008</p>
+                    </td>
+                    <td class="eventDataCell">
+                        <p>Since 2012</p>
+                    </td>
+                    <td class="eventDataCell">
+                        <p>Since 2015</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+    <aside id="addressBlock">
+        <div id="asideHeaderBox">
+            <h2 id="asideHeader">Come and Visit!</h2>
+            <ul id="sponsorFlex">
+                <li><img src="/images/office.png" alt="Rock Concert 3" width="511" height="395" /></li>
+                <li>Music & Meet Office</li>
+                <li>Charlotte Subdivision</li>
+                <li>9319 Robert D. Snyder Rd</li>
+                <li>Charlotte, NC 28223</li>
+                <li>(919) 555-5555</li>
+            </ul>
+        </div>
+    </aside>
+</main>
+<%- include("./partials/footer.ejs") %>
