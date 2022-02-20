@@ -9,7 +9,8 @@
 //Require third party NPM packages so that they may be used throughout the application
 const express = require("express");
 const morgan = require("morgan");
-
+const eventRoutes = require("./routes/eventRoute");
+const mainRoutes = require("./routes/mainRoute");
 
 //Create Application instance so that it may be run on a webserver (LocalHost) in this case.
 const app = express();              //Creates an express application
@@ -27,22 +28,12 @@ app.use(morgan("tiny"));                            //Logger for requests in the
 
 
 //Set up initial Routing to different webpages throughout the web server
-app.get("/", (req, res)=> {
-    res.render("index");
-});
 
-app.get("/events", (req, res)=> {
-    res.render("musicEvents");
-});
+//General Site Navigation (Use mainRoutes)
+app.use("/", mainRoutes);               //Routes with general site
 
-app.get("/about", (req, res) => {
-    res.render("about")
-});
-
-app.get("/contact", (req, res) => {
-    res.render("contact")
-});
-
+//Event related Site navigation (Use eventRoutes)
+app.use("/events", eventRoutes);        //Routes to event related site
 
 
 //Start the web application server on localhost with specific port number
