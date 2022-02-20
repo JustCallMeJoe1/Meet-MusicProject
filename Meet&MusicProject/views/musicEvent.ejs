@@ -1,44 +1,11 @@
-<!DOCTYPE html>
-
 <!--
 
     Author: Joe Strickland
-    EJS Template page for specific music event page
+    EJS Template page for a music event page
     Date: Feb 10th, 2022
 
 -->
-
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>David Bowie TOUR - NC</title>
-    <!-- CSS style sheet for the HTML -->
-    <link rel="stylesheet" href="/CSS/main.css" />
-    <link rel="shortcut icon" href="#" />
-
-</head>
-<body>
-    <div id="pageWrapper">
-        <div id="infoWrapper">
-            <header>
-                <a href="/"><img src="/images/mainLogo.png" alt="Music & Meet logo" id="mainLogo" width="143" height="140" /></a>
-                <h1 id="websiteTitle">Music & Meet</h1>
-                <nav>
-                    <ul>
-                        <li><a href="#">Login</a></li>
-                        <li><a href="#">Sign-Up</a></li>
-                    </ul>
-                </nav>
-            </header>
-
-            <div id="navBar">
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/events">Events</a></li>
-                    <li><a href="/events/new">New Event</a></li>
-                </ul>
-            </div>
-
+<%- include("./partials/header.ejs") %>
             <main>
                 <div id="eventCard">
                     <div id="eventHeadingSection">
@@ -60,22 +27,4 @@
                     </div>
                 </div>
             </main>
-
-            <footer>
-                <div id="footerInfo">
-                    <ul>
-                        <li>Joe Strickland | &#169; 2022</li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-                <div id="socialMedia">
-                    <ul>
-                        <li><a href="#"><img src="/images/facebookLogo.png" alt="Facebook" width="75" height="50" /></a></li>
-                        <li><a href="#"><img src="/images/twitterIcon.png" alt="Facebook" width="75" height="50" /></a></li>
-                    </ul>
-                </div>
-            </footer>
-        </div>
-    </div>
-</body>
+<%- include("./partials/footer.ejs") %>

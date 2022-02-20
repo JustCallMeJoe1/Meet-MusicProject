@@ -31,6 +31,10 @@ app.get("/", (req, res)=> {
     res.render("index");
 });
 
+app.get("/events", (req, res)=> {
+    res.render("musicEvents");
+});
+
 
 
 //Start the web application server on localhost with specific port number
