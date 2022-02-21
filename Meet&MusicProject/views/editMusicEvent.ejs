@@ -9,9 +9,9 @@
 <!-- Make to fill in all info from current event when user wants to update. -->
             <main>
                 <div id="formContainer">
-                    <h1 id="formHeader">EVENT NAME GOES HERE</h1>
+                    <h1 id="formHeader">Edit Event : EVENT NAME GOES HERE</h1>
                     <!-- Make sure the form has an action that sends it to the connections page, will perform this action when submit button pressed (Will post to DB later on in development)-->
-                    <form id="newMusicForm" method="postt" action="/events">
+                    <form id="newMusicForm" method="post" action="/events">
                         <fieldset id="importantEventInfo" class="formDivider">
                             <legend class="newEventLegend">Event Information</legend>
                             <div class="formComponent" id="firstComp">
@@ -60,7 +60,7 @@
                         </fieldset>
 
                         <div id="submitContainer">
-                            <button type="submit" id="submitButton" value="Create Event">Update Event</button>
+                            <button type="submit" id="submitButton" value="Update Event">Update Event</button>
                         </div>
                     </form>
                 </div>
