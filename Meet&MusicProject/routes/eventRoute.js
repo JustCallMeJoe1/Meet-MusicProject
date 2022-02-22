@@ -37,7 +37,7 @@ eventRouter.get("/:id/edit", (req, res)=> {
 });
 
 //Put /events/:id --> Updates the musicEvent stored in the database/array specified by id
-eventRouter.put("/:id", (req, res)=> {
+eventRouter.put("/:id/edit", (req, res)=> {
     res.send("Funny do update");
 });
 

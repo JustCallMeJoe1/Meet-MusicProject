@@ -25,5 +25,9 @@ mainRouter.get("/about", (req, res)=> {
     res.render("about");
 });
 
+//Get /#number --> Grabs the specific featuredEvent from the home page
+mainRouter.get("/featuredEvent/:id", (req, res)=> {
+    res.render("musicEvent");
+});
 
 module.exports = mainRouter;                    //Export router object to use in app module
