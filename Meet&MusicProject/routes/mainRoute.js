@@ -7,27 +7,20 @@
 */
 
 const express = require("express");
+const mainController = require("../controllers/mainController");
 
 const mainRouter = express.Router();            //Create Router object to handle routes
 
 //GET / index page
-mainRouter.get("/", (req, res)=> {
-    res.render("index");
-});
+mainRouter.get("/", mainController.index);
 
 //GET /contact contact page
-mainRouter.get("/contact", (req, res)=> {
-    res.render("contact");
-});
+mainRouter.get("/contact", mainController.getContact);
 
 //GET /about about page
-mainRouter.get("/about", (req, res)=> {
-    res.render("about");
-});
+mainRouter.get("/about", mainController.getAbout);
 
 //Get /#number --> Grabs the specific featuredEvent from the home page
-mainRouter.get("/featuredEvent/:id", (req, res)=> {
-    res.render("musicEvent");
-});
+mainRouter.get("/featuredEvent/:id", mainController.getFeaturedEvent);
 
 module.exports = mainRouter;                    //Export router object to use in app module

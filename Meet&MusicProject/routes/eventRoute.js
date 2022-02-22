@@ -8,42 +8,29 @@
 */
 
 const express = require("express");
+const eventController = require("../controllers/eventController")
 
 const eventRouter = express.Router();            //Create Router object to handle routes
 
 //GET /events musicEvents page
-eventRouter.get("/", (req, res)=> {
-    res.render("musicEvents");
-});
+eventRouter.get("/", eventController.index);
 
 //GET /events/new newMusicEvent page
-eventRouter.get("/new", (req, res)=> {
-    res.render("newMusicEvent");
-});
+eventRouter.get("/new", eventController.newEvent);
 
 //POST /events  --> Data received, need to create an event
-eventRouter.post("/", (req, res)=> {
-    res.send("hi");
-});
+eventRouter.post("/", eventController.createNewEvent);
 
 //GET /events/#number --> Grabs the specific musicEvent page
-eventRouter.get("/:id", (req, res)=> {
-    res.render("musicEvent");
-});
+eventRouter.get("/:id", eventController.getSpecificEvent);
 
 //Get /events/:id/edit --> Sends form to update a musicEvent
-eventRouter.get("/:id/edit", (req, res)=> {
-    res.render("editMusicEvent");
-});
+eventRouter.get("/:id/edit", eventController.getEditForm);
 
 //Put /events/:id --> Updates the musicEvent stored in the database/array specified by id
-eventRouter.put("/:id/edit", (req, res)=> {
-    res.send("Funny do update");
-});
+eventRouter.put("/:id/edit", eventController.updateEvent);
 
 //Delete /events/:id --> Delete the musicEvent stored in the database/array specified by id
-eventRouter.delete("/:id", (req, res)=> {
-    res.send("delete");
-});
+eventRouter.delete("/:id", eventController.deleteEvent);
 
 module.exports = eventRouter;                    //Export router object to use in app module
