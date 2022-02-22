@@ -7,9 +7,18 @@
 
 */
 
+//Require the music event model so that you may acess the required data to manipulate and use for the website
+const eventModel = require("../models/musicEvent");
+
 //GET /events musicEvents page
 exports.index = (req, res)=> {
-    res.render("musicEvents");
+
+    //Grab events by their specific type. Return the array of (Rock, Metal, Pop) events.
+    let rockEvents = eventModel.returnEventByType("Rock");
+    let popEvents = eventModel.returnEventByType("Pop");
+    let metalEvents = eventModel.returnEventByType("Metal");
+
+    res.render("musicEvents", {rockEvents, popEvents, metalEvents});
 };
 
 //GET /events/new newMusicEvent page

@@ -11,49 +11,64 @@
                     <table id="musicEventsTable">
                         <tr id="row1">
                             <th id="rockHeader" class="rowHeader"><p>Rock Music Events</p></th>
-                            <td class="eventDataCell">
-                                <a href="/events/1"><img src="/images/rockExample1.jpg" alt="Rock Concert 1" width="234" height="146" /></a>
-                                <a href="/events/1" class="eventCaption">OZZY OZBOURNE TOUR 1966</a>
-                            </td>
-                            <td class="eventDataCell">
-                                <a href="/events/2"><img src="/images/rockExample2.jpg" alt="Rock Concert 2" width="234" height="146" /></a>
-                                <a href="/events/2" class="eventCaption">David Bowie TOUR 1968 - NC</a>
-                            </td>
-                            <td class="eventDataCell">
-                                <a href="/events/3"><img src="/images/rockconcert3.jpg" alt="Rock Concert 3" width="234" height="146" /></a>
-                                <a href="/events/3" class="eventCaption">Local Rock Fest 2022</a>
-                            </td>
+
+                            <!-- If there are currently rock objects in the model... -->
+                            <% if (rockEvents.length > 0) { %>
+                                <!-- Create a table data cell for each rockEvent object -->
+                                <% rockEvents.forEach(e => { %>
+                                    <!-- Exclude the featuredEvents from the musicEvents page -->
+                                    <% if (e.featuredEvent === false) { %>
+                                        <td class="eventDataCell">
+                                            <a href="/events/<%= e.id %>"><img src="<%= e.image %>" alt="Rock Concert" width="234" height="146" /></a>
+                                            <a href="/events/<%= e.id %>" class="eventCaption"><%= e.name %></a>
+                                        </td>
+                                    <% } %>
+                                <% }); %>
+                            <% } else { %>
+                                    <p>There are no rock events currently available!</p>
+                            <% } %>
                         </tr>
+
                         <tr id="row2">
                             <th id="popHeader" class="rowHeader"><p>Pop Music Events</p></th>
-                            <td class="eventDataCell">
-                                <a href="/events/4"><img src="/images/popExample1.jpg" alt="Pop Concert 1" width="234" height="146" /></a>
-                                <a href="/events/4" class="eventCaption">Pop convention 2022</a>
-                            </td>
-                            <td class="eventDataCell">
-                                <a href="/events/5"><img src="/images/popExample2.jpeg" alt="Pop Concert 2" width="234" height="146" /></a>
-                                <a href="/events/5" class="eventCaption">Generic Music 2012</a>
-                            </td>
-                            <td class="eventDataCell">
-                                <a href="/events/6"><img src="/images/popExample3.jpg" alt="Pop Concert 3" width="234" height="146" /></a>
-                                <a href="/events/6" class="eventCaption">Pop Music festival - Denver</a>
-                            </td>
+
+                            <!-- If there are currently pop objects in the model... -->
+                            <% if (popEvents.length > 0) { %>
+                                <!-- Create a table data cell for each popEvent object -->
+                                <% popEvents.forEach(e => { %>
+                                    <!-- Exclude the featuredEvents from the musicEvents page -->
+                                    <% if (e.featuredEvent === false) { %>
+                                        <td class="eventDataCell">
+                                            <a href="/events/<%= e.id %>"><img src="<%= e.image %>" alt="Pop Concert" width="234" height="146" /></a>
+                                            <a href="/events/<%= e.id %>" class="eventCaption"><%= e.name %></a>
+                                        </td>
+                                    <% } %>
+                                <% }); %>
+                            <% } else { %>
+                                <p>There are no pop events currently available!</p>
+                            <% } %>    
                         </tr>
+
                         <tr id="row3">
                             <th id="metalHeader" class="rowHeader"><p>Metal Music Events</p></th>
-                            <td class="eventDataCell">
-                                <a href="/events/7"><img src="/images/metalExample1.jpg" alt="Metal Concert 1" width="234" height="146" /></a>
-                                <a href="/events/7" class="eventCaption">MetalFest: Charlotte 2022</a>
-                            </td>
-                            <td class="eventDataCell">
-                                <a href="/events/8"><img src="/images/metalExample2.jpg" alt="Metal Concert 2" width="234" height="146" /></a>
-                                <a href="/events/8" class="eventCaption">Metal Concert - Charlotte</a>
-                            </td>
-                            <td class="eventDataCell">
-                                <a href="/events/9"><img src="/images/metalExample3.jpg" alt="Metal Concert 3" width="234" height="146" /></a>
-                                <a href="/events/9" class="eventCaption">RTP Metal - NC</a>
-                            </td>
+
+                            <!-- If there are currently metal objects in the model... -->
+                            <% if (metalEvents.length > 0) { %>
+                                <!-- Create a table data cell for each metalEvent object -->
+                                <% metalEvents.forEach(e => { %>
+                                    <!-- Exclude the featuredEvents from the musicEvents page -->
+                                    <% if (e.featuredEvent === false) { %>
+                                        <td class="eventDataCell">
+                                            <a href="/events/<%= e.id %>"><img src="<%= e.image %>" alt="Metal Concert" width="234" height="146" /></a>
+                                            <a href="/events/<%= e.id %>" class="eventCaption"><%= e.name %></a>
+                                        </td>
+                                    <% } %>
+                                <% }); %>
+                            <% } else { %>
+                                <p>There are no metal events currently available!</p>
+                            <% } %> 
                         </tr>
+
                     </table>
                 </div>
             </main>

@@ -264,7 +264,7 @@ const musicEvents = [
 //Model Interface to retrieve data from the array
 
 //Counter for keeping track of id (current length + 1)
-let objectCounterId = musicEvents.length() + 1;
+let objectCounterId = musicEvents.length + 1;
 
 //Retrieve all musicEvent objects
 exports.returnAll = () => {
