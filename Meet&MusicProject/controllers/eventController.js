@@ -33,7 +33,24 @@ exports.createNewEvent = (req, res)=> {
 
 //GET /events/#number --> Grabs the specific musicEvent page
 exports.getSpecificEvent = (req, res)=> {
-    res.render("musicEvent");
+
+    //Obtain the specific id that was passed from the browser/user
+    let chosenId = req.params.id;
+
+    //Locate the specific event we are trying to access in the browser
+    let chosenEvent = eventModel.returnEventById(chosenId);
+
+    //Render the musicEvent page with the specified model object retrieved from the array
+
+    //If story is located, then render it on the browser
+    if (chosenEvent) {
+    //    console.log("Story located, rendering...")
+        res.render("musicEvent", {chosenEvent});
+    } else {   //If story is not found, then render the error 404 webpage to the user
+        res.status(404).send("PROGRAM ERROR HANDLING HERE");
+    }
+    
+    
 };
 
 //Get /events/:id/edit --> Sends form to update a musicEvent
