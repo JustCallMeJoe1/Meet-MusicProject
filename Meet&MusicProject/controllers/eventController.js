@@ -78,7 +78,20 @@ exports.getEditForm = (req, res) => {
 
 //Put /events/:id --> Updates the musicEvent stored in the database/array specified by id
 exports.updateEvent = (req, res) => {
-    res.send("Funny do update");
+
+    //Get the event needing to be updated by grabbing the object and id from the req params
+    let oldEvent = req.body;
+    let oldEventId = req.params.id;
+
+    //console.log(oldEvent);
+
+    //Update the story in the model (conditional to error check)
+    if (eventModel.updateEventById(oldEventId, oldEvent)) {
+        res.redirect("/events/" + oldEventId);                  //Redirect to that event that was just updated
+    } else {                                                    //Unable to update object!
+        res.status(404).send("PROGRAM ERROR HANDLING HERE");
+    }
+
 };
 
 //Delete /events/:id --> Delete the musicEvent stored in the database/array specified by id

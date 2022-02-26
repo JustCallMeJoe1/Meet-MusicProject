@@ -11,6 +11,7 @@ const express = require("express");
 const morgan = require("morgan");
 const eventRoutes = require("./routes/eventRoute");
 const mainRoutes = require("./routes/mainRoute");
+const methodOverride = require("method-override");
 
 //Create Application instance so that it may be run on a webserver (LocalHost) in this case.
 const app = express();              //Creates an express application
@@ -25,7 +26,7 @@ app.set("view engine", "ejs");      //View engine used for application : EJS
 app.use(express.static("public"));                  //Connect webserver to static resources in project, be able to connect to static files
 app.use(express.urlencoded({extended : true}));     //Be able to parse data from request body, meaning we can receive form data from browser (POST)
 app.use(morgan("tiny"));                            //Logger for requests in the terminal, shows client request information
-
+app.use(methodOverride("_method"));                 //Package allowing PUT and DELETE request in HTML forms
 
 //Set up initial Routing to different webpages throughout the web server
 

@@ -11,7 +11,7 @@
                 <div id="formContainer">
                     <h1 id="formHeader">Edit <%= pickedEvent.name %></h1>
                     <!-- Make sure the form has an action that sends it to the connections page, will perform this action when submit button pressed (Will post to DB later on in development)-->
-                    <form id="newMusicForm" method="post?_method=PUT" action="/events">
+                    <form id="newMusicForm" method="POST" action="/events/<%= pickedEvent.id %>?_method=PUT">
                         <fieldset id="importantEventInfo" class="formDivider">
                             <legend class="newEventLegend">Event Information</legend>
                             <div class="formComponent" id="firstComp">
@@ -33,8 +33,8 @@
                                     <% } %>
                                 </select>
                                 <br>
-                                <label class="formLabel" for="eventTitle" >Event Title: </label>
-                                <input type="text" id="eventTitle" maxlength="100" minlength="1" name="title" value="<%= pickedEvent.name %>" required /> 
+                                <label class="formLabel" for="eventTitle">Event Title: </label>
+                                <input type="text" id="eventTitle" maxlength="100" minlength="1" name="name" value="<%= pickedEvent.name %>" required /> 
                             </div>
                         </fieldset>
 
@@ -70,7 +70,7 @@
                         </fieldset>
 
                         <div id="submitContainer">
-                            <button type="submit" formmethod="GET" formaction="/:id/edit" id="submitButton" value="Update Event">Update Event</button>
+                            <button type="submit" id="submitButton" value="Update Event">Update Event</button>
                         </div>
                     </form>
                 </div>

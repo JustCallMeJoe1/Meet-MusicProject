@@ -28,7 +28,7 @@ eventRouter.get("/:id", eventController.getSpecificEvent);
 eventRouter.get("/:id/edit", eventController.getEditForm);
 
 //Put /events/:id --> Updates the musicEvent stored in the database/array specified by id
-eventRouter.put("/:id/edit", eventController.updateEvent);
+eventRouter.put("/:id/", eventController.updateEvent);
 
 //Delete /events/:id --> Delete the musicEvent stored in the database/array specified by id
 eventRouter.delete("/:id", eventController.deleteEvent);
