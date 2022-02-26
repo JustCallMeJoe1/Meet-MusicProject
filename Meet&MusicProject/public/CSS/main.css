@@ -294,6 +294,21 @@ aside {
     cursor: pointer;
 }
 
+#featuredText {
+    font-size: 15px;
+    text-decoration: underline;
+    padding: 7px;
+}
+
+#featureCircle {
+    background-color:rgb(199, 1, 1);
+    border-radius: 30px;
+    border: black solid 4px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    
+}
+
 #eventInformation {
     display: flex;
     flex-direction: row;

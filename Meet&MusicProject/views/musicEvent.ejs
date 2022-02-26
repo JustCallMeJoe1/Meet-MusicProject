@@ -7,24 +7,45 @@
 -->
 <%- include("./partials/header.ejs") %>
             <main>
-                <div id="eventCard">
-                    <div id="eventHeadingSection">
-                        <h2 id="eventName"><%= chosenEvent.name %></h2>
-                        <div id="buttonGroup">
-                            <a href="/events/<%= chosenEvent.id %>/edit" class="eventButton">Update</a>
-                            <a href="/events/<%= chosenEvent.id %>?_method=DELETE" class="eventButton">Delete</a>
-                        </div> 
-                    </div>
+                <% if (chosenEvent) { %>
+                    <div id="eventCard">
+                        <div id="eventHeadingSection">
+                            <h2 id="eventName"><%= chosenEvent.name %></h2>
+                            <div id="buttonGroup">
+                                <a href="/events/<%= chosenEvent.id %>/edit" class="eventButton">Update</a>
+                                <a href="/events/<%= chosenEvent.id %>?_method=DELETE" class="eventButton">Delete</a>
+                            </div> 
+                        </div>
 
-                    <div id="eventInformation">
-                        <img src="<%= chosenEvent.image %>" id="eventCardImage" alt="Program this if you have time" width="462" height="278" />
-                        <p id="eventTextInfo"><%= chosenEvent.hostName %><br><%= chosenEvent.date %><br><%= chosenEvent.startTime %><br><%= chosenEvent.endTime %><br><%= chosenEvent.location %></p>
-                    </div>
+                        <div id="eventInformation">
+                            <img src="<%= chosenEvent.image %>" id="eventCardImage" alt="Program this if you have time" width="462" height="278" />
+                            <p id="eventTextInfo"><%= chosenEvent.hostName %><br><%= chosenEvent.date %><br><%= chosenEvent.startTime %><br><%= chosenEvent.endTime %><br><%= chosenEvent.location %></p>
+                        </div>
 
-                    <div id="eventDescription">
-                        <h3>Event Description</h3>
-                        <p><%= chosenEvent.details %></p>
+                        <div id="eventDescription">
+                            <h3>Event Description</h3>
+                            <p><%= chosenEvent.details %></p>
+                        </div>
                     </div>
-                </div>
+                <% } else if (featuredEvent) { %>
+                    <div id="eventCard">
+                        <div id="eventHeadingSection">
+                            <h2 id="eventName"><%= featuredEvent.name %></h2>
+                            <div id="featureCircle">
+                                <p id="featuredText">FEATURED EVENT</p>
+                            </div>
+                        </div>
+
+                        <div id="eventInformation">
+                            <img src="<%= featuredEvent.image %>" id="eventCardImage" alt="Program this if you have time" width="462" height="278" />
+                            <p id="eventTextInfo"><%= featuredEvent.hostName %><br><%= featuredEvent.date %><br><%= featuredEvent.startTime %><br><%= featuredEvent.endTime %><br><%= featuredEvent.location %></p>
+                        </div>
+
+                        <div id="eventDescription">
+                            <h3>Event Description</h3>
+                            <p><%= featuredEvent.details %></p>
+                        </div>
+                    </div>
+                <% } %>
             </main>
 <%- include("./partials/footer.ejs") %>
