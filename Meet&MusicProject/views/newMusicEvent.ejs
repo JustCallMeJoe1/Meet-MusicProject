@@ -15,7 +15,7 @@
                             <legend class="newEventLegend">Event Information</legend>
                             <div class="formComponent" id="firstComp">
                                 <label class="formLabel" for="musicTopics">Music Event Category: </label>
-                                <select id="musicTopics" required>
+                                <select id="musicTopics" name="topic" required>
                                     <option value="" label=" "></option>
                                     <option value="Rock">Rock</option>
                                     <option value="Pop">Pop</option>
@@ -23,7 +23,7 @@
                                 </select>
                                 <br>
                                 <label class="formLabel" for="eventTitle">Event Title: </label>
-                                <input type="text" id="eventTitle" maxlength="100" minlength="1" placeholder="Enter event title here!" required /> 
+                                <input type="text" id="eventTitle" maxlength="100" minlength="1" placeholder="Enter event title here!" name="name" required /> 
                             </div>
                         </fieldset>
 
@@ -31,16 +31,16 @@
                             <legend class="newEventLegend">Event Details</legend>
                             <div class="formComponent" id="secondComp">
                                 <label class="formLabel" for="eventHost">Event Host: </label>
-                                <input type="text" id="eventHost" maxlength="70" minlength="1" placeholder="Enter event host here!" required />
+                                <input type="text" id="eventHost" maxlength="70" minlength="1" name="hostName" placeholder="Enter event host here!" required />
                                 <br>
                                 <label class="formLabel" for="additionalEventInfo">Details: </label>
-                                <textarea id="additionalEventInfo" rows="5" cols="25" placeholder="Enter event details here!"></textarea>
+                                <textarea id="additionalEventInfo" name="details" rows="5" cols="25" placeholder="Enter event details here!"></textarea>
                                 <br>
                                 <label class="formLabel" for="eventWhere">Event Location: </label>
-                                <input id="eventWhere" type="text" maxLength="100" minlength="1" placeholder="Enter event location here!" required />
+                                <input id="eventWhere" name="location" type="text" maxLength="100" minlength="1" placeholder="Enter event location here!" required />
                                 <br>
                                 <label class="formLabel" for="eventImage">Event Image: </label>
-                                <input id="eventImage" type="file" required />
+                                <input id="eventImage" name="image" type="text" required />
                             </div>
                         </fieldset>
 
@@ -48,13 +48,13 @@
                             <legend class="newEventLegend">Event Time Details</legend>
                             <div class="formComponent" id="thirdComp">
                                 <label class="formLabel" for="eventDate">Event Date: </label>
-                                <input id="eventDate" type="date" required />
+                                <input id="eventDate" name="date" type="date" required />
                                 <br>
                                 <label class="formLabel" for="eventStart">Start Time: </label>
-                                <input id="eventStart" type="time" required />
+                                <input id="eventStart" name="startTime" type="time" required />
                                 <br>
                                 <label class="formLabel" for="eventEnd">End Time: </label>
-                                <input id="eventEnd" type="time" required />
+                                <input id="eventEnd" name="endTime" type="time" required />
                             </div>
                         </fieldset>
 

@@ -10,8 +10,8 @@
 //Require the music event model so that you may acess the required data to manipulate and use for the website
 const eventModel = require("../models/musicEvent");
 
-//GET /events musicEvents page
-exports.index = (req, res)=> {
+//GET /events musicEvents page --> Render the events page with all the different kinds of events, every topic is rendered correctly
+exports.index = (req, res) => {
 
     //Grab events by their specific type. Return the array of (Rock, Metal, Pop) events.
     let rockEvents = eventModel.returnEventByType("Rock");
@@ -21,18 +21,25 @@ exports.index = (req, res)=> {
     res.render("musicEvents", {rockEvents, popEvents, metalEvents});
 };
 
-//GET /events/new newMusicEvent page
-exports.newEvent = (req, res)=> {
+//GET /events/new newMusicEvent page --> Render the new event form page HTML
+exports.newEvent = (req, res) => {
     res.render("newMusicEvent");
 };
 
 //POST /events  --> Data received, need to create an event
-exports.createNewEvent = (req, res)=> {
-    res.send("hi");
+exports.createNewEvent = (req, res) => {
+    //Testing purposes...
+    //console.log(req.body);
+    
+    //Create a new event object from the user submitted form
+    let submittedEvent = req.body;
+    eventModel.addMusicEvent(submittedEvent);
+    res.redirect("/events")
+
 };
 
 //GET /events/#number --> Grabs the specific musicEvent page
-exports.getSpecificEvent = (req, res)=> {
+exports.getSpecificEvent = (req, res) => {
 
     //Obtain the specific id that was passed from the browser/user
     let chosenId = req.params.id;
@@ -54,16 +61,16 @@ exports.getSpecificEvent = (req, res)=> {
 };
 
 //Get /events/:id/edit --> Sends form to update a musicEvent
-exports.getEditForm = (req, res)=> {
+exports.getEditForm = (req, res) => {
     res.render("editMusicEvent");
 };
 
 //Put /events/:id --> Updates the musicEvent stored in the database/array specified by id
-exports.updateEvent = (req, res)=> {
+exports.updateEvent = (req, res) => {
     res.send("Funny do update");
 };
 
 //Delete /events/:id --> Delete the musicEvent stored in the database/array specified by id
-exports.deleteEvent = (req, res)=> {
+exports.deleteEvent = (req, res) => {
     res.send("delete");
 };
