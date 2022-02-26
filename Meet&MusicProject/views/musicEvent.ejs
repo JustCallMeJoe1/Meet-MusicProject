@@ -12,8 +12,8 @@
                         <div id="eventHeadingSection">
                             <h2 id="eventName"><%= chosenEvent.name %></h2>
                             <div id="buttonGroup">
-                                <a href="/events/<%= chosenEvent.id %>/edit" class="eventButton">Update</a>
-                                <a href="/events/<%= chosenEvent.id %>?_method=DELETE" class="eventButton">Delete</a>
+                                <button type="submit" formmethod="GET" formaction="/events/<%= chosenEvent.id %>/edit" id="removeButtonCSS"><a href="/events/<%= chosenEvent.id %>/edit" class="eventButton">Update</a></button>
+                                <button><a href="/events/<%= chosenEvent.id %>?_method=DELETE" class="eventButton">Delete</a></button>
                             </div> 
                         </div>
 

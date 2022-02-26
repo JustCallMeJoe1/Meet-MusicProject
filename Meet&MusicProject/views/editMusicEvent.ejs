@@ -9,22 +9,32 @@
 <!-- Make to fill in all info from current event when user wants to update. -->
             <main>
                 <div id="formContainer">
-                    <h1 id="formHeader">Edit Event : EVENT NAME GOES HERE</h1>
+                    <h1 id="formHeader">Edit <%= pickedEvent.name %></h1>
                     <!-- Make sure the form has an action that sends it to the connections page, will perform this action when submit button pressed (Will post to DB later on in development)-->
                     <form id="newMusicForm" method="post?_method=PUT" action="/events">
                         <fieldset id="importantEventInfo" class="formDivider">
                             <legend class="newEventLegend">Event Information</legend>
                             <div class="formComponent" id="firstComp">
                                 <label class="formLabel" for="musicTopics">Music Event Category: </label>
-                                <select id="musicTopics" required>
-                                    <option value="" label=" "></option>
-                                    <option value="Rock">Rock</option>
-                                    <option value="Pop">Pop</option>
-                                    <option value="Metal">Metal</option>
+                                <select id="musicTopics" name="topic" required>
+                                    <!-- Determine which input is selected -->
+                                    <% if (pickedEvent.topic === "Rock") { %>
+                                        <option value="Rock" selected>Rock</option>
+                                        <option value="Pop">Pop</option>
+                                        <option value="Metal">Metal</option>
+                                    <% } else if (pickedEvent.topic === "Pop") { %>
+                                        <option value="Rock">Rock</option>
+                                        <option value="Pop" selected>Pop</option>
+                                        <option value="Metal">Metal</option>
+                                    <% } else if (pickedEvent.topic === "Metal") { %>
+                                        <option value="Rock">Rock</option>
+                                        <option value="Pop">Pop</option>
+                                        <option value="Metal" selected>Metal</option>
+                                    <% } %>
                                 </select>
                                 <br>
-                                <label class="formLabel" for="eventTitle">Event Title: </label>
-                                <input type="text" id="eventTitle" maxlength="100" minlength="1" placeholder="Enter event title here!" required /> 
+                                <label class="formLabel" for="eventTitle" >Event Title: </label>
+                                <input type="text" id="eventTitle" maxlength="100" minlength="1" name="title" value="<%= pickedEvent.name %>" required /> 
                             </div>
                         </fieldset>
 
@@ -32,16 +42,16 @@
                             <legend class="newEventLegend">Event Details</legend>
                             <div class="formComponent" id="secondComp">
                                 <label class="formLabel" for="eventHost">Event Host: </label>
-                                <input type="text" id="eventHost" maxlength="70" minlength="1" placeholder="Enter event host here!" required />
+                                <input type="text" id="eventHost" maxlength="70" minlength="1" name="hostName" value="<%= pickedEvent.hostName %>" required />
                                 <br>
                                 <label class="formLabel" for="additionalEventInfo">Details: </label>
-                                <textarea id="additionalEventInfo" rows="5" cols="25" placeholder="Enter event details here!"></textarea>
+                                <textarea id="additionalEventInfo" rows="5" cols="25" name="details"><%= pickedEvent.details %></textarea>
                                 <br>
                                 <label class="formLabel" for="eventWhere">Event Location: </label>
-                                <input id="eventWhere" type="text" maxLength="100" minlength="1" placeholder="Enter event location here!" required />
+                                <input id="eventWhere" type="text" maxLength="100" minlength="1" name="location" value="<%= pickedEvent.location %>" required />
                                 <br>
                                 <label class="formLabel" for="eventImage">Event Image: </label>
-                                <input id="eventImage" type="file" required />
+                                <input id="eventImage" type="text" name="image" value="<%= pickedEvent.image %>" required />
                             </div>
                         </fieldset>
 
@@ -49,13 +59,13 @@
                             <legend class="newEventLegend">Event Time Details</legend>
                             <div class="formComponent" id="thirdComp">
                                 <label class="formLabel" for="eventDate">Event Date: </label>
-                                <input id="eventDate" type="date" required />
+                                <input id="eventDate" type="date" name="date" required />
                                 <br>
                                 <label class="formLabel" for="eventStart">Start Time: </label>
-                                <input id="eventStart" type="time" required />
+                                <input id="eventStart" type="time" name="startTime" required />
                                 <br>
                                 <label class="formLabel" for="eventEnd">End Time: </label>
-                                <input id="eventEnd" type="time" required />
+                                <input id="eventEnd" type="time" name="endTime" required />
                             </div>
                         </fieldset>
 

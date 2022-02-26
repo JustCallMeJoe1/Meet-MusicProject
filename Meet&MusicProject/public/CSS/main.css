@@ -335,6 +335,16 @@ aside {
     padding: 25px;
 }
 
+#removeButtonCSS {
+        background: none;
+        color: inherit;
+        border: none;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+}
+
 /** If time at some point, include a topic bubble at the top left corner of the event card *Probably wont have time but thought is in head **/
 
 /** CSS for New Music Event page - Form page **/

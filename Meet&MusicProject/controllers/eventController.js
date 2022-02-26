@@ -62,7 +62,18 @@ exports.getSpecificEvent = (req, res) => {
 
 //Get /events/:id/edit --> Sends form to update a musicEvent
 exports.getEditForm = (req, res) => {
-    res.render("editMusicEvent");
+
+    //Find the specific event so that the details can be passed to the edit form to be filled out
+    let eventId = req.params.id;
+    let pickedEvent = eventModel.returnEventById(eventId);
+
+    //Error checking for finding id
+    if (pickedEvent) {
+        res.render("editMusicEvent", {pickedEvent});
+    } else {
+        res.status(404).send("PROGRAM ERROR HANDLING HERE");
+    }
+
 };
 
 //Put /events/:id --> Updates the musicEvent stored in the database/array specified by id
