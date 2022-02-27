@@ -11,10 +11,12 @@
                     <div id="eventCard">
                         <div id="eventHeadingSection">
                             <h2 id="eventName"><%= chosenEvent.name %></h2>
-                            <div id="buttonGroup">
-                                <button type="submit" formmethod="GET" formaction="/events/<%= chosenEvent.id %>/edit" id="removeButtonCSS"><a href="/events/<%= chosenEvent.id %>/edit" class="eventButton">Update</a></button>
-                                <button><a href="/events/<%= chosenEvent.id %>?_method=DELETE" class="eventButton">Delete</a></button>
-                            </div> 
+                                <div id="buttonGroup">
+                                    <form>
+                                        <button type="submit" formmethod="GET" formaction="/events/<%= chosenEvent.id %>/edit" class="removeButtonCSS, eventButton">Update</button>
+                                        <button type="submit" formmethod="POST" formaction="/events/<%= chosenEvent.id %>?_method=DELETE %>" class="removeButtonCSS, eventButton">Delete</button>
+                                    </form>
+                                </div> 
                         </div>
 
                         <div id="eventInformation">

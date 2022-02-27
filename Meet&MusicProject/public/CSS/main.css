@@ -335,7 +335,7 @@ aside {
     padding: 25px;
 }
 
-#removeButtonCSS {
+.removeButtonCSS {
         background: none;
         color: inherit;
         border: none;

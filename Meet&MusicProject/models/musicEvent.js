@@ -319,10 +319,8 @@ exports.deleteById = (eventId) => {
     //If the eventIndex isnt -1, then the event exists in the array, and we must delete it
     if (eventIndex !== -1) {
         musicEvents.splice(eventIndex, 1);          //Splice 1 object out of the array from the found index
-        console.log("Event specified by ID was sucessfully removed from the array");
         return true;                                //Return true, we have spliced out the object from the array
     } else {                          //eventIndex returned as -1...
-        console.log("Event index not found, please give an existing index");
         return false;                 //Return false, as eventIndex was not found, unable to delete non existant event.
     }
 };

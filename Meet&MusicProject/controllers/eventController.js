@@ -8,6 +8,7 @@
 */
 
 //Require the music event model so that you may acess the required data to manipulate and use for the website
+const e = require("express");
 const eventModel = require("../models/musicEvent");
 
 //GET /events musicEvents page --> Render the events page with all the different kinds of events, every topic is rendered correctly
@@ -96,5 +97,15 @@ exports.updateEvent = (req, res) => {
 
 //Delete /events/:id --> Delete the musicEvent stored in the database/array specified by id
 exports.deleteEvent = (req, res) => {
-    res.send("delete");
+    //Retreive the event ID that needs to be deleted from the params function
+    let deleteId = req.params.id;
+
+    //Call the event model to delete the specific event. If true, the event has been deleted, if false, an error has occurred
+    if (eventModel.deleteById(deleteId)) {                                               
+        console.log("Event successfully deleted!");                     //Log information, redirect user back to the main events page
+        res.redirect("/events");
+    } else {                                                            //Throw a specific error into the error HTML page
+        res.status(404).send("PROGRAM ERROR HANDLING HERE");
+    }
+
 };
