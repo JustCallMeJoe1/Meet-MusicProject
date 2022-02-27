@@ -111,7 +111,7 @@ exports.deleteEvent = (req, res, next) => {
         console.log("Event successfully deleted!");                     //Log information, redirect user back to the main events page
         res.redirect("/events");
     } else {                                                            //Throw a specific error into the error HTML page
-        let err = new Error("Server was unable to locate an event to delete with the id of " + oldEventId);
+        let err = new Error("Server was unable to locate an event to delete with the id of " + deleteId);
         err.status = 404;
         next(err);
     }
