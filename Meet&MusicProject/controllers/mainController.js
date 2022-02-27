@@ -29,7 +29,7 @@ exports.getAbout = (req, res)=> {
 };
 
 //Get /#number --> Grabs the specific featuredEvent from the home page
-exports.getFeaturedEvent = (req, res)=> {
+exports.getFeaturedEvent = (req, res, next)=> {
 
     //Obtain the specific id that was passed from the browser/user
     let chosenId = req.params.id;
@@ -49,7 +49,9 @@ exports.getFeaturedEvent = (req, res)=> {
         res.render("musicEvent", {featuredEvent, chosenEvent});
 
     } else {   //If story is not found, then render the error 404 webpage to the user
-        res.status(404).send("PROGRAM ERROR HANDLING HERE");
+        let err = new Error("Server was unable to locate a featured event with the id of " + chosenId);
+        err.status = 404;
+        next(err);
     }
 
 };
