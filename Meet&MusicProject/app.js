@@ -36,6 +36,24 @@ app.use("/", mainRoutes);               //Routes with general site
 //Event related Site navigation (Use eventRoutes)
 app.use("/events", eventRoutes);        //Routes to event related site
 
+app.use((req, res, next) => {                  //Error handling middleware (404)
+    let err = new Error("Server cannot locate the file specified by the user via " + req.url);
+    err.status = 404;
+    next(err);
+});
+
+
+app.use((err, req, res, next) => {                  //Error handling middleware (500)
+    console.log(err.stack)                          //Print out the error stack to the console so that the developer may debugg the system
+    if(!err.status) {                               //If an error code has not been set, then default it to 500 (Server error)
+        err.status = 500;
+        err.message = ("Internal Server error - Server was unable to process request!");
+    }
+
+    res.status(err.status);                         //Set the response status as the error status
+    res.render("error", {error: err});              //Render the error template with the error object
+
+});
 
 //Start the web application server on localhost with specific port number
 app.listen(port, host, ()=> {

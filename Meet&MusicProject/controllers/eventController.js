@@ -40,7 +40,7 @@ exports.createNewEvent = (req, res) => {
 };
 
 //GET /events/#number --> Grabs the specific musicEvent page
-exports.getSpecificEvent = (req, res) => {
+exports.getSpecificEvent = (req, res, next) => {
 
     //Obtain the specific id that was passed from the browser/user
     let chosenId = req.params.id;
@@ -55,14 +55,16 @@ exports.getSpecificEvent = (req, res) => {
     //    console.log("Story located, rendering...")
         res.render("musicEvent", {chosenEvent});
     } else {   //If story is not found, then render the error 404 webpage to the user
-        res.status(404).send("PROGRAM ERROR HANDLING HERE");
+        let err = new Error("Server was unable to locate an event with the id of " + chosenId);
+        err.status = 404;
+        next(err);
     }
     
     
 };
 
 //Get /events/:id/edit --> Sends form to update a musicEvent
-exports.getEditForm = (req, res) => {
+exports.getEditForm = (req, res, next) => {
 
     //Find the specific event so that the details can be passed to the edit form to be filled out
     let eventId = req.params.id;
@@ -72,13 +74,15 @@ exports.getEditForm = (req, res) => {
     if (pickedEvent) {
         res.render("editMusicEvent", {pickedEvent});
     } else {
-        res.status(404).send("PROGRAM ERROR HANDLING HERE");
+        let err = new Error("Server was unable to locate an event to edit with the id of " + eventId);
+        err.status = 404;
+        next(err);
     }
 
 };
 
 //Put /events/:id --> Updates the musicEvent stored in the database/array specified by id
-exports.updateEvent = (req, res) => {
+exports.updateEvent = (req, res, next) => {
 
     //Get the event needing to be updated by grabbing the object and id from the req params
     let oldEvent = req.body;
@@ -90,13 +94,15 @@ exports.updateEvent = (req, res) => {
     if (eventModel.updateEventById(oldEventId, oldEvent)) {
         res.redirect("/events/" + oldEventId);                  //Redirect to that event that was just updated
     } else {                                                    //Unable to update object!
-        res.status(404).send("PROGRAM ERROR HANDLING HERE");
+        let err = new Error("Server was unable to locate an event to update with the id of " + oldEventId);
+        err.status = 404;
+        next(err);
     }
 
 };
 
 //Delete /events/:id --> Delete the musicEvent stored in the database/array specified by id
-exports.deleteEvent = (req, res) => {
+exports.deleteEvent = (req, res, next) => {
     //Retreive the event ID that needs to be deleted from the params function
     let deleteId = req.params.id;
 
@@ -105,7 +111,9 @@ exports.deleteEvent = (req, res) => {
         console.log("Event successfully deleted!");                     //Log information, redirect user back to the main events page
         res.redirect("/events");
     } else {                                                            //Throw a specific error into the error HTML page
-        res.status(404).send("PROGRAM ERROR HANDLING HERE");
+        let err = new Error("Server was unable to locate an event to delete with the id of " + oldEventId);
+        err.status = 404;
+        next(err);
     }
 
 };

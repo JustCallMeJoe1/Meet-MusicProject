@@ -561,7 +561,35 @@ aside {
 }
 
 /* Error Page styling */
+#errorWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #8B0000;
+    padding: 75px;
+    color: #F3F0F0;
+    font-family: "Sitka Small", "Times New Roman", Times, serif, Arial;
 
+}
+
+#errorImage {
+    border: black solid 3px;
+}
+
+#errorMessage {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+#errorStatus {
+    font-size: 20px;
+    font-weight: bold;
+}
 
 
 
