@@ -8,18 +8,20 @@
 */
 
 //Require the music event model so that you may acess the required data to manipulate and use for the website
-const e = require("express");
 const eventModel = require("../models/musicEvent");
 
 //GET /events musicEvents page --> Render the events page with all the different kinds of events, every topic is rendered correctly
 exports.index = (req, res) => {
 
-    //Grab events by their specific type. Return the array of (Rock, Metal, Pop) events.
-    let rockEvents = eventModel.returnEventByType("Rock");
-    let popEvents = eventModel.returnEventByType("Pop");
-    let metalEvents = eventModel.returnEventByType("Metal");
+    //Grab all music events, also grab all present categories in the model. Pass this information to the view.
+    let allMusicEvents = eventModel.returnIsFeatured(false);
+    let allCategories = eventModel.returnCategorySet();
 
-    res.render("musicEvents", {rockEvents, popEvents, metalEvents});
+    //Testing for printing. What information is being sent to the view?
+    //console.log(allMusicEvents);
+    //console.log(allCategories);
+
+    res.render("musicEvents", {allMusicEvents, allCategories});
 };
 
 //GET /events/new newMusicEvent page --> Render the new event form page HTML
@@ -35,6 +37,7 @@ exports.createNewEvent = (req, res) => {
     //Create a new event object from the user submitted form
     let submittedEvent = req.body;
     eventModel.addMusicEvent(submittedEvent);
+
     res.redirect("/events")
 
 };

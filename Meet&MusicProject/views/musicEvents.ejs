@@ -7,69 +7,29 @@
 -->
 <%- include("./partials/header.ejs") %>
             <main>
+                <% if(allMusicEvents.length > 0) { %>
                 <div id="tableWrapper">
+                <!-- If there are any categories, then display its respective table. -->
                     <table id="musicEventsTable">
-                        <tr id="row1">
-                            <th id="rockHeader" class="rowHeader"><p>Rock Music Events</p></th>
-
-                            <!-- If there are currently rock objects in the model... -->
-                            <% if (rockEvents.length > 0) { %>
-                                <!-- Create a table data cell for each rockEvent object -->
-                                <% rockEvents.forEach(e => { %>
-                                    <!-- Exclude the featuredEvents from the musicEvents page -->
-                                    <% if (e.featuredEvent === false) { %>
-                                        <td class="eventDataCell">
-                                            <a href="/events/<%= e.id %>"><img src="<%= e.image %>" alt="Rock Concert" width="234" height="146" /></a>
-                                            <a href="/events/<%= e.id %>" class="eventCaption"><%= e.name %></a>
-                                        </td>
-                                    <% } %>
-                                <% }); %>
-                            <% } else { %>
-                                    <p>There are no rock events currently available!</p>
-                            <% } %>
-                        </tr>
-
-                        <tr id="row2">
-                            <th id="popHeader" class="rowHeader"><p>Pop Music Events</p></th>
-
-                            <!-- If there are currently pop objects in the model... -->
-                            <% if (popEvents.length > 0) { %>
-                                <!-- Create a table data cell for each popEvent object -->
-                                <% popEvents.forEach(e => { %>
-                                    <!-- Exclude the featuredEvents from the musicEvents page -->
-                                    <% if (e.featuredEvent === false) { %>
-                                        <td class="eventDataCell">
-                                            <a href="/events/<%= e.id %>"><img src="<%= e.image %>" alt="Pop Concert" width="234" height="146" /></a>
-                                            <a href="/events/<%= e.id %>" class="eventCaption"><%= e.name %></a>
-                                        </td>
-                                    <% } %>
-                                <% }); %>
-                            <% } else { %>
-                                <p>There are no pop events currently available!</p>
-                            <% } %>    
-                        </tr>
-
-                        <tr id="row3">
-                            <th id="metalHeader" class="rowHeader"><p>Metal Music Events</p></th>
-
-                            <!-- If there are currently metal objects in the model... -->
-                            <% if (metalEvents.length > 0) { %>
-                                <!-- Create a table data cell for each metalEvent object -->
-                                <% metalEvents.forEach(e => { %>
-                                    <!-- Exclude the featuredEvents from the musicEvents page -->
-                                    <% if (e.featuredEvent === false) { %>
-                                        <td class="eventDataCell">
-                                            <a href="/events/<%= e.id %>"><img src="<%= e.image %>" alt="Metal Concert" width="234" height="146" /></a>
-                                            <a href="/events/<%= e.id %>" class="eventCaption"><%= e.name %></a>
-                                        </td>
-                                    <% } %>
-                                <% }); %>
-                            <% } else { %>
-                                <p>There are no metal events currently available!</p>
-                            <% } %> 
-                        </tr>
-
+                        <!-- Go through the categories and fill in the respective headers. Within those rows, fill with event data cells. Filter to their respective category. -->
+                            <% allCategories.forEach(e => { %>
+                                    <tr id="row1">
+                                        <th id="rockHeader" class="rowHeader"><p><%= e %></p></th>
+                                        <% let events = allMusicEvents.filter(event=> (event.topic === e)); %>
+                                        <% events.forEach(theEvent => { %>
+                                            <td class="eventDataCell">
+                                                <td id="contentInCell">
+                                                    <a href="/events/<%= theEvent.id %>"><img src="<%= theEvent.image %>" alt="CODE THIS IF TIME" width="234" height="146" /></a>
+                                                    <a href="/events/<%= theEvent.id %>" class="eventCaption"><%= theEvent.name %></a>
+                                                </td>
+                                            </td>
+                                        <% }); %>
+                                    </tr>
+                            <% }); %>
                     </table>
+                    <% } else { %>
+                        <p>There are no events to display!</p>
+                    <% } %>
                 </div>
             </main>
 <%- include("./partials/footer.ejs") %>

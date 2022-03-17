@@ -14,13 +14,8 @@
                         <fieldset id="importantEventInfo" class="formDivider">
                             <legend class="newEventLegend">Event Information</legend>
                             <div class="formComponent" id="firstComp">
-                                <label class="formLabel" for="musicTopics">Music Event Category: </label>
-                                <select id="musicTopics" name="topic" required>
-                                    <option value="" label=" "></option>
-                                    <option value="Rock">Rock</option>
-                                    <option value="Pop">Pop</option>
-                                    <option value="Metal">Metal</option>
-                                </select>
+                                <label class="formLabel" for="topic">Music Event Category: </label>
+                                <input type="text" id="topic" maxlength="70" minlength="1" name="topic" placeholder="Enter event host here!" required />
                                 <br>
                                 <label class="formLabel" for="eventTitle">Event Title: </label>
                                 <input type="text" id="eventTitle" maxlength="100" minlength="1" placeholder="Enter event title here!" name="name" required /> 

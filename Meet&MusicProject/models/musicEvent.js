@@ -264,10 +264,39 @@ const musicEvents = [
 
 //Model Interface to retrieve data from the array
 
+//Shared global variables that will be updated in various methods. Primarly index route and newEvent.
+let uniqueArray;
+let uniqueCategories;
+
 //Retrieve all musicEvent objects
 exports.returnAll = () => {
     return musicEvents;
 };
+
+//Return unique category Set (All current categories present in model)
+exports.returnCategorySet = () => {
+    //Array to hold all categories at the start
+    let allCategories = [];
+
+    //Push all categories into array (If they are featured)
+    musicEvents.forEach(e => {
+        if (e.featuredEvent === false) {
+            allCategories.push(e.topic); 
+        }
+    });
+
+    //Create a unique set of categories
+    uniqueArray = [...new Set(allCategories)];
+    uniqueCategories = new Set(uniqueArray);
+    
+    //Return that unique set to controller
+    return uniqueCategories;
+};
+
+//Used to grab the category for a passed in event
+exports.returnEventTopic = (event) => {
+    return musicEvents.find(e => (e.topic === event.topic));
+}
 
 //Retrieve all featuredEvents
 exports.returnIsFeatured = (featuredFlag) => {
@@ -276,7 +305,7 @@ exports.returnIsFeatured = (featuredFlag) => {
 
 //Retrieve all events related to a topic
 exports.returnEventByType = (eventType) => {
-    return musicEvents.filter(e => (e.topic === eventType));
+    return musicEvents.filter(e => (e.topic === eventType && e.featuredEvent === false));
 };
 
 //Return the musicEvent specified by id
@@ -289,7 +318,7 @@ exports.addMusicEvent = (musicEvent) => {
     musicEvent.id = uuidv4();
     musicEvent.featuredEvent = false;     //Just set the featuredEvent option to False for anything new
     musicEvents.push(musicEvent);         //Push the new event onto the event array 
- 
+    
 };
 
 //Update current information for a musicEvent within the model submitted by the user in the PUT request specified by an events ID

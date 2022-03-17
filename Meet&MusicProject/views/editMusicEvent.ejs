@@ -15,23 +15,8 @@
                         <fieldset id="importantEventInfo" class="formDivider">
                             <legend class="newEventLegend">Event Information</legend>
                             <div class="formComponent" id="firstComp">
-                                <label class="formLabel" for="musicTopics">Music Event Category: </label>
-                                <select id="musicTopics" name="topic" required>
-                                    <!-- Determine which input is selected -->
-                                    <% if (pickedEvent.topic === "Rock") { %>
-                                        <option value="Rock" selected>Rock</option>
-                                        <option value="Pop">Pop</option>
-                                        <option value="Metal">Metal</option>
-                                    <% } else if (pickedEvent.topic === "Pop") { %>
-                                        <option value="Rock">Rock</option>
-                                        <option value="Pop" selected>Pop</option>
-                                        <option value="Metal">Metal</option>
-                                    <% } else if (pickedEvent.topic === "Metal") { %>
-                                        <option value="Rock">Rock</option>
-                                        <option value="Pop">Pop</option>
-                                        <option value="Metal" selected>Metal</option>
-                                    <% } %>
-                                </select>
+                                <label class="formLabel" for="topic">Music Event Category: </label>
+                                <input type="text" id="topic" maxlength="70" minlength="1" name="topic" value="<%= pickedEvent.topic %>" required />
                                 <br>
                                 <label class="formLabel" for="eventTitle">Event Title: </label>
                                 <input type="text" id="eventTitle" maxlength="100" minlength="1" name="name" value="<%= pickedEvent.name %>" required /> 
