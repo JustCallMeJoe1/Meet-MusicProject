@@ -9,6 +9,7 @@
 //Require third party NPM packages so that they may be used throughout the application
 const express = require("express");
 const morgan = require("morgan");
+const mongoose = require("mongoose");
 const eventRoutes = require("./routes/eventRoute");
 const mainRoutes = require("./routes/mainRoute");
 const methodOverride = require("method-override");
@@ -17,10 +18,22 @@ const methodOverride = require("method-override");
 const app = express();              //Creates an express application
 
 //Configure application instance settings so that app runs correctly
-const host = "localhost";           //Host config (localhost)
-let port = 3000;                    //Port number on lcoalhost (3000)
-app.set("view engine", "ejs");      //View engine used for application : EJS           
+const host = "localhost";                       //Host config (localhost)
+let port = 3000;                                //Port number on lcoalhost (3000)
+let URL = "mongodb://localhost:27017/NBAD";     //URL to connect the database to the application   
+app.set("view engine", "ejs");                  //View engine used for application : EJS           
 
+//Connect the application to the database. If successful connection, start the server, otherwise throw an error due to database failure. (Promise)
+mongoose.connect(URL).then(()=> {    
+    
+    //Start the web application server on localhost with specific port number
+    app.listen(port, host, ()=> {
+    console.log("Server started on " + host + " with port " + port + " .");     //Just log that the server has started
+    });
+
+}).catch(error=>{ //Failed to connect to the database
+    console.log(`Server failed to start due to failing to connect to the database. What's wrong with the database? Error: ${error} `);
+});
 
 //Mount application middleware functions that will be used throughout the application to perform actions
 app.use(express.static("public"));                  //Connect webserver to static resources in project, be able to connect to static files
@@ -55,7 +68,3 @@ app.use((err, req, res, next) => {                  //Error handling middleware 
 
 });
 
-//Start the web application server on localhost with specific port number
-app.listen(port, host, ()=> {
-    console.log("Server started on " + host + " with port " + port + " .");     //Just log that the server has started
-});
