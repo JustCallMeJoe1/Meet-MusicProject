@@ -96,3 +96,6 @@ const musicEventSchema = new Schema({
     },
     featuredEvent: {type: Boolean}
 });
+
+//Create a collection named events in the database using the musicEventSchema. Export this model so that the controller may use it
+module.exports = mongoose.model("event", musicEventSchema);
