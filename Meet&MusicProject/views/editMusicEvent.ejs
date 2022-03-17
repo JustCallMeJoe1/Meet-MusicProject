@@ -44,13 +44,13 @@
                             <legend class="newEventLegend">Event Time Details</legend>
                             <div class="formComponent" id="thirdComp">
                                 <label class="formLabel" for="eventDate">Event Date: </label>
-                                <input id="eventDate" type="date" name="date" required />
+                                <input id="eventDate" type="date" name="date" value="<%= pickedEvent.date %>" required />
                                 <br>
                                 <label class="formLabel" for="eventStart">Start Time: </label>
-                                <input id="eventStart" type="time" name="startTime" required />
+                                <input id="eventStart" type="time" name="startTime" value="<%= pickedEvent.startTime %>" required />
                                 <br>
                                 <label class="formLabel" for="eventEnd">End Time: </label>
-                                <input id="eventEnd" type="time" name="endTime" required />
+                                <input id="eventEnd" type="time" name="endTime" value="<%= pickedEvent.endTime %>" required />
                             </div>
                         </fieldset>
 

@@ -30,9 +30,9 @@ const musicEvents = [
         name: "Ozzy Ozbourne Tour Revamp",
         topic: "Rock",
         details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        date: DateTime.local(2019, 4, 12).toLocaleString(DateTime.DATE_HUGE),                  //Luxon npm package with localeString DATETIME_SHORT
-        startTime: "4:00PM",     
-        endTime: "7:00PM",
+        date: "17-Mar-1970",                  //Luxon npm package with localeString DATETIME_SHORT
+        startTime: "04:00",     
+        endTime: "07:00",
         hostName: "Ozzy Ozbourne",
         location: "Arena, United Kingdom, London",
         image: "https://cdn.smehost.net/ozzycom-uslegacyprod/wp-content/uploads/2019/05/Ozzy_NoMoreTours2_1200px2.jpg",
