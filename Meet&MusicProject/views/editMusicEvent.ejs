@@ -16,10 +16,10 @@
                             <legend class="newEventLegend">Event Information</legend>
                             <div class="formComponent" id="firstComp">
                                 <label class="formLabel" for="topic">Music Event Category: </label>
-                                <input type="text" id="topic" maxlength="70" minlength="1" name="topic" value="<%= pickedEvent.topic %>" required />
+                                <input type="text" id="topic" maxlength="50" minlength="1" name="topic" value="<%= pickedEvent.topic %>" required />
                                 <br>
                                 <label class="formLabel" for="eventTitle">Event Title: </label>
-                                <input type="text" id="eventTitle" maxlength="100" minlength="1" name="name" value="<%= pickedEvent.name %>" required /> 
+                                <input type="text" id="eventTitle" maxlength="50" minlength="1" name="name" value="<%= pickedEvent.name %>" required /> 
                             </div>
                         </fieldset>
 
@@ -27,13 +27,13 @@
                             <legend class="newEventLegend">Event Details</legend>
                             <div class="formComponent" id="secondComp">
                                 <label class="formLabel" for="eventHost">Event Host: </label>
-                                <input type="text" id="eventHost" maxlength="70" minlength="1" name="hostName" value="<%= pickedEvent.hostName %>" required />
+                                <input type="text" id="eventHost" maxlength="50" minlength="1" name="hostName" value="<%= pickedEvent.hostName %>" required />
                                 <br>
                                 <label class="formLabel" for="additionalEventInfo">Details: </label>
-                                <textarea id="additionalEventInfo" rows="5" cols="25" name="details"><%= pickedEvent.details %></textarea>
+                                <textarea id="additionalEventInfo" rows="5" cols="25" name="details" minlength="5" maxlength="500" required ><%= pickedEvent.details %></textarea>
                                 <br>
                                 <label class="formLabel" for="eventWhere">Event Location: </label>
-                                <input id="eventWhere" type="text" maxLength="100" minlength="1" name="location" value="<%= pickedEvent.location %>" required />
+                                <input id="eventWhere" type="text" maxlength="150" minlength="1" name="location" value="<%= pickedEvent.location %>" required />
                                 <br>
                                 <label class="formLabel" for="eventImage">Event Image: </label>
                                 <input id="eventImage" type="text" name="image" value="<%= pickedEvent.image %>" required />

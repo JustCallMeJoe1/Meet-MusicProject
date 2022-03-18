@@ -161,7 +161,7 @@ exports.updateEvent = (req, res, next) => {
     }
 
     //Update the story in the model. If an event is returned, then the database has sucessfully updated that event. Otherwise, send a 404 error as the database failed to locate that event.
-    eventModel.findByIdAndUpdate(oldEventId, oldEvent, {useFindAndModify : false}).then(newEvent => {
+    eventModel.findByIdAndUpdate(oldEventId, oldEvent, {useFindAndModify : false, runValidators: true}).then(newEvent => {
 
         //If a new event was returned, then we have successfully updated, redirect to that event page. Otherwise throw a 404 error due to not being found.
         if(newEvent) {
@@ -171,8 +171,12 @@ exports.updateEvent = (req, res, next) => {
             err.status = 404;
             next(err);
         }
-    }).catch(error => {     //Internal Server error when trying to update the old event. Database has some issue going on.
-        next(error);
+    }).catch(error => {     //Check to see if the input was malformatted, if so then a 400 error has occurred. Otherwise, internal Server error when trying to update the old event. Database has some issue going on.
+        if (error.name === "ValidationError") {
+            error.status = 400;
+            next(error);
+        }
+        next(error); 
     });
 
 };
