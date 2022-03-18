@@ -11,17 +11,41 @@
 const eventModel = require("../models/musicEvent");
 
 //GET /events musicEvents page --> Render the events page with all the different kinds of events, every topic is rendered correctly
-exports.index = (req, res) => {
+exports.index = (req, res, next) => {
+
+    //Array to hold all the categories from each event in the database
+    let totalCategories = [];
+    
+    //Temp array to hold all unique categories
+    let uniqueArray;
+
+    //Set to hold all categories (Unique)
+    let allCategories;
 
     //Grab all music events, also grab all present categories in the model. Pass this information to the view.
-    let allMusicEvents = eventModel.returnIsFeatured(false);
-    let allCategories = eventModel.returnCategorySet();
+    eventModel.find({featuredEvent: false}).then(allMusicEvents=>{
 
-    //Testing for printing. What information is being sent to the view?
-    //console.log(allMusicEvents);
-    //console.log(allCategories);
+        //For each event push in their respective categoriy into totalCategories array
+        allMusicEvents.forEach(event => {
+            totalCategories.push(event.topic);
+        });
 
-    res.render("musicEvents", {allMusicEvents, allCategories});
+        //Create an array of the set that will hold these categories (Spread them across the Set)
+        uniqueArray = [...new Set(totalCategories)];
+
+        //Finally, create the unique set of categories by creating a set from the uniqueArray of categories. allCategories will hold the unique Set
+        allCategories = new Set(uniqueArray);
+
+        //Testing for printing. What information is being sent to the view?
+        //console.log(allMusicEvents);
+        //console.log(allCategories);
+
+        res.render("musicEvents", {allMusicEvents, allCategories});
+
+    }).catch(error => { //Error when fetching all events and their categories. Internal Server error (500)
+        next(error);
+    });
+
 };
 
 //GET /events/new newMusicEvent page --> Render the new event form page HTML
@@ -40,14 +64,19 @@ exports.createNewEvent = (req, res, next) => {
 
     //Save the story to the model, if successful then redirect the user back to the main events page, otherwise throw a database error!
     submittedEvent.save().then(()=>{
+
         console.log("Story successfully saved to database. Validation successful!")
         res.redirect("/events")
-    }).catch(error=>{   //Internal database error, pass the error to the error handler as a (500) error!
-        next(error);
-    });
-
     
+    }).catch(error=>{   //Check first for malformatted post request, throw 400 error if form not filled properly. Otherwise, internal database error, pass the error to the error handler as a (500) error!
 
+        //Malformatted input, 400 error path here
+        if(error.name === "ValidationError") {
+            error.status = 400; //400 error (Malformatted input)
+        } //Otherwise server error (500)
+        next(error);
+
+    });
 };
 
 //GET /events/#number --> Grabs the specific musicEvent page
