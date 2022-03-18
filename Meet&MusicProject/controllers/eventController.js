@@ -186,14 +186,25 @@ exports.deleteEvent = (req, res, next) => {
     //Retreive the event ID that needs to be deleted from the params function
     let deleteId = req.params.id;
 
-    //Call the event model to delete the specific event. If true, the event has been deleted, if false, an error has occurred
-    if (eventModel.deleteById(deleteId)) {                                               
-        console.log("Event successfully deleted!");                     //Log information, redirect user back to the main events page
-        res.redirect("/events");
-    } else {                                                            //Throw a specific error into the error HTML page
-        let err = new Error("Server was unable to locate an event to delete with the id of " + deleteId);
-        err.status = 404;
-        next(err);
+    //Id needs to be 24 bits, needs a 24 bit hex id to represent an ObjectID in the database. Check the length of the given ID for at least 24 bits, AND the specific format of HEX
+    if(!deleteId.match(/^[0-9a-fA-F]{24}$/)) { //If ID does not match a 24 bit hex string (0-9, a-f, A-F, and 24 digits) then create a invalid request error
+        let invalidError = new Error("Invalid Event ID for editing an event!");
+        invalidError.status = 400;  //400 (invalid)
+        return next(invalidError);  //Call default error handler with status and message
     }
+
+    //Call the event model to delete the specific event. If true, the event has been deleted, if false, an error has occurred
+    eventModel.findByIdAndDelete(deleteId, {useFindAndModify: false}).then(deletedEvent => {
+        if(deletedEvent) {
+            console.log("Event successfully deleted!");                     //Log information, redirect user back to the main events page
+            res.redirect("/events");
+        } else {        //Throw a 404, resource not found as the event with the Id could not be found
+            let err = new Error("Server was unable to locate an event to delete with the id of " + deleteId);
+            err.status = 404;
+            next(err)
+        }
+    }).catch(error => {
+        next(error);
+    });
 
 };
