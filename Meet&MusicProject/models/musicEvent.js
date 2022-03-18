@@ -29,7 +29,7 @@
     connection id - Provided by mongoose when created
     connection name - Required, length minimum of 1, maximum of 50 *
     connection topic - Required, length minimum of 1, maximum of 50 *
-    details - Required, minimum of 5, maximum of 150 *
+    details - Required, minimum of 5, maximum of 500 *
     date - Required. Format into a specific format with regex (YYYY-MM-DDDD) Y=year, M=Month, D=Day *
     start time - Required. Format into a specific format with regex (HH:MM), H=hour, M=minute * 
     end time - Required. Format into a specific format with regex (HH:MM), H=hour, M=minute *
@@ -61,7 +61,7 @@ const musicEventSchema = new Schema({
         type: String, 
         required: [true, "The music event detail information is required!"],
         minlength: [5, "Details field must have at least 5 characters"],
-        maxlength: [150, "Details field can have at most 150 characters"]
+        maxlength: [500, "Details field can have at most 150 characters"]
     },
     date: {
         type: String, 
@@ -94,7 +94,10 @@ const musicEventSchema = new Schema({
         type: String, 
         required: [true, "An image URL is required to showcase the event!"]
     },
-    featuredEvent: {type: Boolean}
+    featuredEvent: {
+        type: Boolean,
+        required: [true, "You forgot to set something up Joe"]
+    }
 });
 
 //Create a collection named events in the database using the musicEventSchema. Export this model so that the controller may use it
