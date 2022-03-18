@@ -88,7 +88,7 @@ exports.getSpecificEvent = (req, res, next) => {
 
     //Id needs to be 24 bits, needs a 24 bit hex id to represent an ObjectID in the database. Check the length of the given ID for at least 24 bits, AND the specific format of HEX
     if(!chosenId.match(/^[0-9a-fA-F]{24}$/)) { //If ID does not match a 24 bit hex string (0-9, a-f, A-F, and 24 digits) then create a invalid request error
-        let invalidError = new Error("Invalid Event ID!");
+        let invalidError = new Error("Invalid Event ID for searching for an event!");
         invalidError.status = 400;  //400 (invalid)
         return next(invalidError);  //Call default error handler with status and message
     }
@@ -118,36 +118,62 @@ exports.getEditForm = (req, res, next) => {
 
     //Find the specific event so that the details can be passed to the edit form to be filled out
     let eventId = req.params.id;
-    let pickedEvent = eventModel.returnEventById(eventId);
 
-    //Error checking for finding id
-    if (pickedEvent) {
-        res.render("editMusicEvent", {pickedEvent});
-    } else {
-        let err = new Error("Server was unable to locate an event to edit with the id of " + eventId);
-        err.status = 404;
-        next(err);
+    //Id needs to be 24 bits, needs a 24 bit hex id to represent an ObjectID in the database. Check the length of the given ID for at least 24 bits, AND the specific format of HEX
+    if(!eventId.match(/^[0-9a-fA-F]{24}$/)) { //If ID does not match a 24 bit hex string (0-9, a-f, A-F, and 24 digits) then create a invalid request error
+        let invalidError = new Error("Invalid Event ID for editing an event!");
+        invalidError.status = 400;  //400 (invalid)
+        return next(invalidError);  //Call default error handler with status and message
     }
+
+    //Search the model for the event with the specified ID. If found, render the edit form. Otherwise send a 404 error as the event cannot be located.
+    eventModel.findById(eventId).then(pickedEvent => {
+        //Error checking for finding id
+        if (pickedEvent) {
+            return res.render("editMusicEvent", {pickedEvent});
+
+        } else { //404, event not found in database
+            let err = new Error("Server was unable to locate an event to edit with the id of " + eventId);
+            err.status = 404;
+            next(err);
+
+        }
+    }).catch(error => { //Database internal error when searching for the event to edit
+        next(error);
+    })
 
 };
 
 //Put /events/:id --> Updates the musicEvent stored in the database/array specified by id
 exports.updateEvent = (req, res, next) => {
 
-    //Get the event needing to be updated by grabbing the object and id from the req params
+    //Get the event needing to be updated by grabbing the object and id from the req params when querying the database
     let oldEvent = req.body;
+    oldEvent.featuredEvent = false;
     let oldEventId = req.params.id;
 
     //console.log(oldEvent);
-
-    //Update the story in the model (conditional to error check)
-    if (eventModel.updateEventById(oldEventId, oldEvent)) {
-        res.redirect("/events/" + oldEventId);                  //Redirect to that event that was just updated
-    } else {                                                    //Unable to update object!
-        let err = new Error("Server was unable to locate an event to update with the id of " + oldEventId);
-        err.status = 404;
-        next(err);
+    //Id needs to be 24 bits, needs a 24 bit hex id to represent an ObjectID in the database. Check the length of the given ID for at least 24 bits, AND the specific format of HEX
+    if(!oldEventId.match(/^[0-9a-fA-F]{24}$/)) { //If ID does not match a 24 bit hex string (0-9, a-f, A-F, and 24 digits) then create a invalid request error
+        let invalidError = new Error("Invalid Event ID for editing an event!");
+        invalidError.status = 400;  //400 (invalid)
+        return next(invalidError);  //Call default error handler with status and message
     }
+
+    //Update the story in the model. If an event is returned, then the database has sucessfully updated that event. Otherwise, send a 404 error as the database failed to locate that event.
+    eventModel.findByIdAndUpdate(oldEventId, oldEvent, {useFindAndModify : false}).then(newEvent => {
+
+        //If a new event was returned, then we have successfully updated, redirect to that event page. Otherwise throw a 404 error due to not being found.
+        if(newEvent) {
+            res.redirect("/events/" + oldEventId);                  
+        } else {                                                   
+            let err = new Error("Server was unable to locate an event to update with the id of " + oldEventId);
+            err.status = 404;
+            next(err);
+        }
+    }).catch(error => {     //Internal Server error when trying to update the old event. Database has some issue going on.
+        next(error);
+    });
 
 };
 
