@@ -65,13 +65,14 @@ exports.createNewEvent = (req, res, next) => {
     //Save the story to the model, if successful then redirect the user back to the main events page, otherwise throw a database error!
     submittedEvent.save().then(()=>{
 
-        console.log("Story successfully saved to database. Validation successful!")
-        res.redirect("/events")
+        console.log("Event successfully saved to database. Validation successful!");
+        res.redirect("/events");
     
     }).catch(error=>{   //Check first for malformatted post request, throw 400 error if form not filled properly. Otherwise, internal database error, pass the error to the error handler as a (500) error!
 
         //Malformatted input, 400 error path here
         if(error.name === "ValidationError") {
+            console.log("User malformatted their submission.");
             error.status = 400; //400 error (Malformatted input)
         } //Otherwise server error (500)
         next(error);
@@ -85,22 +86,31 @@ exports.getSpecificEvent = (req, res, next) => {
     //Obtain the specific id that was passed from the browser/user
     let chosenId = req.params.id;
 
-    //Locate the specific event we are trying to access in the browser
-    let chosenEvent = eventModel.returnEventById(chosenId);
-
-    //Render the musicEvent page with the specified model object retrieved from the array
-
-    //If story is located, then render it on the browser
-    if (chosenEvent) {
-    //    console.log("Story located, rendering...")
-        res.render("musicEvent", {chosenEvent});
-    } else {   //If story is not found, then render the error 404 webpage to the user
-        let err = new Error("Server was unable to locate an event with the id of " + chosenId);
-        err.status = 404;
-        next(err);
+    //Id needs to be 24 bits, needs a 24 bit hex id to represent an ObjectID in the database. Check the length of the given ID for at least 24 bits, AND the specific format of HEX
+    if(!chosenId.match(/^[0-9a-fA-F]{24}$/)) { //If ID does not match a 24 bit hex string (0-9, a-f, A-F, and 24 digits) then create a invalid request error
+        let invalidError = new Error("Invalid Event ID!");
+        invalidError.status = 400;  //400 (invalid)
+        return next(invalidError);  //Call default error handler with status and message
     }
-    
-    
+
+    //Locate the specific event we are trying to access in the browser
+    eventModel.findById(chosenId).then(chosenEvent => {
+        //Render the musicEvent page with the specified model object retrieved from the array
+
+        //If story is located, then render it on the browser
+        if (chosenEvent) {
+            //console.log("Story located, rendering...")
+            res.render("musicEvent", {chosenEvent});
+
+        } else {   //If story is not found, then render the error 404 webpage to the user
+            let err = new Error("Server was unable to locate an event with the id of " + chosenId);
+            err.status = 404;
+            next(err);
+        }
+
+    }).catch(error=>{ //Database had an internal error when attempting to fetch the specified ID
+        next(error);
+    });
 };
 
 //Get /events/:id/edit --> Sends form to update a musicEvent
