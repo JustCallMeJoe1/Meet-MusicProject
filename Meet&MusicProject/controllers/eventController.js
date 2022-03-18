@@ -30,15 +30,23 @@ exports.newEvent = (req, res) => {
 };
 
 //POST /events  --> Data received, need to create an event
-exports.createNewEvent = (req, res) => {
+exports.createNewEvent = (req, res, next) => {
     //Testing purposes...
     //console.log(req.body);
     
     //Create a new event object from the user submitted form
-    let submittedEvent = req.body;
-    eventModel.addMusicEvent(submittedEvent);
+    let submittedEvent = new eventModel(req.body);  //Create a new music event object based on the model class (Submitted event is an instance)
+    submittedEvent.featuredEvent = false;           //New events are defaulted to not featured. This will satisfy the schema
 
-    res.redirect("/events")
+    //Save the story to the model, if successful then redirect the user back to the main events page, otherwise throw a database error!
+    submittedEvent.save().then(()=>{
+        console.log("Story successfully saved to database. Validation successful!")
+        res.redirect("/events")
+    }).catch(error=>{   //Internal database error, pass the error to the error handler as a (500) error!
+        next(error);
+    });
+
+    
 
 };
 
