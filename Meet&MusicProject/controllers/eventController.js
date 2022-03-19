@@ -188,7 +188,7 @@ exports.deleteEvent = (req, res, next) => {
 
     //Id needs to be 24 bits, needs a 24 bit hex id to represent an ObjectID in the database. Check the length of the given ID for at least 24 bits, AND the specific format of HEX
     if(!deleteId.match(/^[0-9a-fA-F]{24}$/)) { //If ID does not match a 24 bit hex string (0-9, a-f, A-F, and 24 digits) then create a invalid request error
-        let invalidError = new Error("Invalid Event ID for editing an event!");
+        let invalidError = new Error("Invalid Event ID for deleting an event!");
         invalidError.status = 400;  //400 (invalid)
         return next(invalidError);  //Call default error handler with status and message
     }
