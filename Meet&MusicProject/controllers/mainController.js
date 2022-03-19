@@ -6,8 +6,9 @@
     Date: Feb 22th, 2022
 
 */
-//Require the music event model so that you may acess the required data to manipulate and use for the website
+//Require the music event model so that you may acess the required data to manipulate and use for the website. Import the date formatting helper functions.
 const eventModel = require("../models/musicEvent");
+const dateFormatting = require("../controllers/dateFunctions");
 
 //GET / index page
 exports.index = (req, res, next)=> {
@@ -51,10 +52,38 @@ exports.getFeaturedEvent = (req, res, next)=> {
         //Check to see if an event was fetched or not. If no event was fetched, then create a 404 error.
         if (featuredEvent) {
             console.log("Event located, rendering...")
-    
-            //Pass a chosenEvent boolean to signal "false", this flag signals to the musicEvent.ejs that this is not an Events music event, but rather a featuredEvent
+            
+            //Format the date using logic. I am so sorry.
+            let formattedYear = featuredEvent.date.substring(0,4);
+            
+            let monthNumber = featuredEvent.date.substring(5,7);
+
+            let formattedMonth = dateFormatting.convertNumberToMonth(monthNumber);
+
+            let dayNumber = featuredEvent.date.substring(8,10);
+
+            let dayEnding = dateFormatting.convertNumberToPrefix(dayNumber);
+
+            let formattedDate = (`${formattedMonth} ${dayNumber}${dayEnding}, ${formattedYear}`);
+            
+            let startNumberHour = featuredEvent.startTime.substring(0,2);
+            let startNumberMinute = featuredEvent.startTime.substring(3,5);
+            let endNumberHour = featuredEvent.endTime.substring(0,2);
+            let endNumberMinute = featuredEvent.endTime.substring(3,5);
+
+            let formattedStartHour = dateFormatting.convertTime(startNumberHour);
+            let formattedEndHour = dateFormatting.convertTime(endNumberHour);
+
+            let startTimePeriod = dateFormatting.convertPeriod(startNumberHour);
+            let endTimePeriod = dateFormatting.convertPeriod(endNumberHour);
+
+
+            let formattedStartTime = (`${formattedStartHour}:${startNumberMinute} ${startTimePeriod}`);
+            let formattedEndTime = (`${formattedEndHour}:${endNumberMinute} ${endTimePeriod}`);
+
+            //Pass a chosenEvent boolean to signal "false", this flag signals to the musicEvent.ejs that this is not an Events music event, but rather a featuredEvent. Pass conversions
             let chosenEvent = false;
-            res.render("musicEvent", {featuredEvent, chosenEvent});
+            res.render("musicEvent", {featuredEvent, chosenEvent, formattedDate, formattedStartTime, formattedEndTime});
     
         } else {   //If story is not found, then render the error 404 webpage to the user
             let err = new Error("Server was unable to locate a featured event with the id of " + chosenId);

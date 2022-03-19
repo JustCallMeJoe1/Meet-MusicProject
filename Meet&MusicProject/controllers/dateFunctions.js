@@ -1,3 +1,12 @@
+/*
+
+    Author: Joe Strickland
+    Date conversion functions for HTML formatting. This can be improved performence wise using logic, but time constraints.
+    Performs various conversions from UTC to something more presentable
+    Date: March 19th, 2022
+
+*/
+
 //Conversion Methods. All the mappings from Military Times to normal people times. I hate HTML.
 exports.convertNumberToMonth = (monthNumber) => {
     let formattedMonth = "";
