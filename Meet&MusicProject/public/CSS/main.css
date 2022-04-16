@@ -614,7 +614,7 @@ aside {
     border: solid #c5a94d;
 }
 
-.extraText{
+.extraText {
     font-size: 16px;
     color: #F3F0F0;
     text-align: center;
@@ -634,12 +634,54 @@ aside {
 #flexDisplay {
     display: flex;
     flex-direction: column;
-    
-
 }
 
 /* Styling for the Regiser page */
 
+.create {
+    color: black;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.labelText {
+    font-size: 20px;
+    color:#F3F0F0;
+}
+
+.registerItem {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 6%;
+    margin-bottom: 6%;
+}
+
+.inputElement {
+    border: 2px solid black;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 5%;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-color: #8B0000;
+    padding: 60px;
+    border: 2px solid black;
+    border-radius: 7px;
+}
+
+#cursedButton {
+    margin-left: 4px;
+}
 
 /* Footer styling */
 /* Footing will be at the absolute bottom (Relative to the page wrapper), and has padding from the content  */

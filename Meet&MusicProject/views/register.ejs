@@ -1,0 +1,46 @@
+<%- include("./partials/header.ejs") %>
+<main id="flexDisplay">
+    <div class='create'>
+      <p>Create an Account</p>
+    </div>
+
+    <div id="container">
+        <form action='/user/register' method='POST'>
+            <div class="registerItem">
+                <label for="firstName" class="labelText">First Name:</label>
+                <br>
+                <input type='text' name='firstName' class="inputElement" />
+            </div>
+
+            <div class="registerItem">
+                <label for="lastName" class="labelText">Last Name:</label>
+                <br>
+                <input type='text' name='lastName' class="inputElement" />
+            </div>
+
+            <div class="registerItem">
+                <label for="email" class="labelText">Email:</label>
+                <br>
+                <input type='text' name='email' class="inputElement" />
+            </div>
+
+            <div class="registerItem">
+                <label for="password" class="labelText">Password:</label>
+                <br>
+                <input type='password' name='password' class="inputElement" />
+            </div>
+            
+            <br>
+            <br>
+
+            <div id="cursedButton">
+                <input class='submitButton' type='submit' />
+            </div>
+
+            <div class='extraText'>
+                <p>Already have an account?<br>Login <a href="/user/login">HERE</a></p>
+            </div>
+        </form>
+    </div>
+  </main>
+<%- include("./partials/footer.ejs") %>
