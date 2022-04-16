@@ -6,27 +6,23 @@
 
 -->
 <%- include("./partials/header.ejs") %>
-    <main>
+    <main id="flexDisplay">
         <div class='login'>
             <p> Login to Your Account</p>
         </div>
         
         <div id="centerBox">
             <form action='/user/login' method='POST'>
-                <div class='userText'>
-                    <p>Username: </p>
-                </div>
-
                 <div>
-                    <input class='userButton' type='text' name='username' id='username' />
+                    <label class="userText" for="username">Email:</label>
+                    <br> 
+                    <input class='userInput' type='text' name='username' id='username' />
                 </div>
 
-                <div class='passText'>
-                    <p>Password: </p>
-                </div>
-
-                <div>
-                    <input class='passButton' type='password' name='password' id='password' />
+                <div id="passwordBox">
+                    <label class="userText" for="password">Password:</label>
+                    <br>
+                    <input class='userInput' type='password' name='password' id='password' />
                 </div>
 
                 <br>
@@ -37,7 +33,7 @@
                 </div>
 
                 <div class='extraText'>
-                    <p>Don't have an account? Register<a href="/user/register">HERE</a></p>
+                    <p>Don't have an account?<br>Register <a href="/user/register">HERE</a></p>
                 </div>
 
             </form>

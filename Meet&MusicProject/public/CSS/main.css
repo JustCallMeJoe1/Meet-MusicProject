@@ -577,28 +577,29 @@ aside {
 
 /* Styling for the login page. */
 .login {
-    color: #004525;
-    font-size: 25px;
+    color: black;
+    font-size: 30px;
     text-align: center;
-    margin-top: 100px;
+    margin-top: 30px;
 }
 
 .userText {
-    font-size: 11px;
+    font-size: 20px;
+    color:#F3F0F0;
 }
 
-.userButton {
+.userInput {
     border: 2px solid black;
-    padding: 8px 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 6%;
+    margin-bottom: 6%;
 }
 
-.passText {
-    font-size: 11px;
-}
-
-.passButton {
-    border: 2px solid black;
-    padding: 8px 20px;
+#passwordBox {
+    margin-top: 5%;
 }
 
 .submitButton {
@@ -614,15 +615,27 @@ aside {
 }
 
 .extraText{
-    font-size: 11px;
-    color: black;
+    font-size: 16px;
+    color: #F3F0F0;
+    text-align: center;
 }
 
 #centerBox {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: row;
     background-color: #8B0000;
+    padding: 60px;
+    border: 2px solid black;
+    border-radius: 7px;
+}
+
+#flexDisplay {
+    display: flex;
+    flex-direction: column;
+    
+
 }
 
 /* Styling for the Regiser page */
