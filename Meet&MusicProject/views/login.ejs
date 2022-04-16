@@ -1,0 +1,46 @@
+<!--
+
+    Author: Joe Strickland
+    EJS Template page for logging into the website
+    Date: April 16th, 2022
+
+-->
+<%- include("./partials/header.ejs") %>
+    <main>
+        <div class='login'>
+            <p> Login to Your Account</p>
+        </div>
+        
+        <div id="centerBox">
+            <form action='/user/login' method='POST'>
+                <div class='userText'>
+                    <p>Username: </p>
+                </div>
+
+                <div>
+                    <input class='userButton' type='text' name='username' id='username' />
+                </div>
+
+                <div class='passText'>
+                    <p>Password: </p>
+                </div>
+
+                <div>
+                    <input class='passButton' type='password' name='password' id='password' />
+                </div>
+
+                <br>
+                <br>
+
+                <div>
+                    <input class='submitButton' type='submit' />
+                </div>
+
+                <div class='extraText'>
+                    <p>Don't have an account? Register<a href="/user/register">HERE</a></p>
+                </div>
+
+            </form>
+        </div>
+    </main>
+<%- include("./partials/footer.ejs") %>

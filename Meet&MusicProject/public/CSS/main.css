@@ -575,8 +575,57 @@ aside {
     font-weight: bold;
 }
 
+/* Styling for the login page. */
+.login {
+    color: #004525;
+    font-size: 25px;
+    text-align: center;
+    margin-top: 100px;
+}
 
+.userText {
+    font-size: 11px;
+}
 
+.userButton {
+    border: 2px solid black;
+    padding: 8px 20px;
+}
+
+.passText {
+    font-size: 11px;
+}
+
+.passButton {
+    border: 2px solid black;
+    padding: 8px 20px;
+}
+
+.submitButton {
+    border: solid #dfc56e;
+    background-color: #dfc56e;
+    padding: 8px 80px;
+}
+
+.submitButton:hover {
+    cursor: pointer;
+    background-color: #c5a94d;
+    border: solid #c5a94d;
+}
+
+.extraText{
+    font-size: 11px;
+    color: black;
+}
+
+#centerBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #8B0000;
+}
+
+/* Styling for the Regiser page */
 
 
 /* Footer styling */
@@ -629,3 +678,4 @@ footer ul {
     display: flex;
     justify-content: flex-end;
 }
+

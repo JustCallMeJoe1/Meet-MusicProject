@@ -12,6 +12,7 @@ const morgan = require("morgan");
 const mongoose = require("mongoose");
 const eventRoutes = require("./routes/eventRoute");
 const mainRoutes = require("./routes/mainRoute");
+const userRoutes = require("./routes/userRoutes");
 const methodOverride = require("method-override");
 
 //Create Application instance so that it may be run on a webserver (LocalHost) in this case.
@@ -48,6 +49,9 @@ app.use("/", mainRoutes);               //Routes with general site
 
 //Event related Site navigation (Use eventRoutes)
 app.use("/events", eventRoutes);        //Routes to event related site
+
+//Routes related to user navigation. (Use userRoutes)
+app.use("/user/", userRoutes);
 
 app.use((req, res, next) => {                  //Error handling middleware (404)
     let err = new Error("Server cannot locate the file specified by the user via " + req.url);
