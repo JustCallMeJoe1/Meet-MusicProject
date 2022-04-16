@@ -1,0 +1,58 @@
+<!--
+
+    Author: Joe Strickland
+    EJS Template page for the user profile page on the website
+    Date: April 16th, 2022
+
+-->
+<%- include("./partials/header.ejs") %>
+<div id="profileTableWrapper">
+    <div id="tableHeaderContainer">
+        <h2 id="tableHeader">User's Music Events!</h2>
+    </div>
+
+    <table id="profileTable">
+        <tr id="tableHeaders">
+            <th class="tableHeaderText">Music Event</th>
+            <th class="tableHeaderText">Category</th>
+            <th class="tableHeaderText">Actions</th>
+        </tr>
+        
+        <tr class="userDataRows">
+            <td class="musicEventCell"><a href="/events/PUTIDHERE">David Bowie Tour 2021</a></td>
+            <td class="musicCategoryCell">Rock</td>
+            <td class="musicActionCell">
+                <form id="actionForm">
+                    <button type="submit" formmethod="GET" formaction="/events/PUTIDHERE/edit" class="removeButtonCSS, profileActionButton">Update</button>
+                    <button type="submit" formmethod="POST" formaction="/events/PUTIDHERE?_method=DELETE" class="removeButtonCSS, profileActionButton">Delete</button>
+                </form>
+            </td>
+        </tr>
+
+        <tr class="userDataRows">
+            <td class="musicEventCell"><a href="/events/PUTIDHERE">Charlotte Rock Concert</a></td>
+            <td class="musicCategoryCell">Rock</td>
+            <td class="musicActionCell">
+                <form id="actionForm">
+                    <div class="buttonProfileContainer">
+                        <button type="submit" formmethod="GET" formaction="/events/PUTIDHERE/edit" class="removeButtonCSS, profileActionButton">Update</button>
+                        <button type="submit" formmethod="POST" formaction="/events/PUTIDHERE?_method=DELETE" class="removeButtonCSS, profileActionButton">Delete</button>
+                    </div>
+                </form>
+            </td>
+        </tr>
+
+        <tr class="userDataRows">
+            <td class="musicEventCell"><a href="/events/PUTIDHERE">Generic Pop Event 2012</a></td>
+            <td class="musicCategoryCell">Pop</td>
+            <td class="musicActionCell">
+                <form id="actionForm">
+                    <button type="submit" formmethod="GET" formaction="/events/PUTIDHERE/edit" class="removeButtonCSS, profileActionButton">Update</button>
+                    <button type="submit" formmethod="POST" formaction="/events/PUTIDHERE?_method=DELETE" class="removeButtonCSS, profileActionButton">Delete</button>
+                </form>
+            </td>
+        </tr>
+
+    </table>
+</div>
+<%- include("./partials/footer.ejs") %>
