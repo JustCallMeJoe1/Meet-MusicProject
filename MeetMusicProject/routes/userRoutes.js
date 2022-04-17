@@ -25,7 +25,7 @@ userRouter.get("/login", userController.getLogin);
 userRouter.post("/login", userController.checkLogin);
 
 //Post /user/logout --> Log the user out by destroying their session
-userRouter.post("/logout", userController.logout);
+userRouter.get("/logout", userController.logout);
 
 //Get profile --> Grab specific user profile
 userRouter.get("/profile", userController.getProfile);

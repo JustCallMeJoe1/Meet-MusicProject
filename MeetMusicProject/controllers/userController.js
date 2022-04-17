@@ -76,8 +76,16 @@ exports.checkLogin = (req, res, next) => {
 }
 
 exports.logout = (req, res, next) => {
-    return res.redirect("/");
-}
+    
+    //Destroy the current session, if no error redirect back to homepage. Otherwise display error
+    req.session.destroy((error) => {
+        if(error) {
+            next(error);
+        } else {
+            res.redirect("/");
+        }
+    });
+};
 
 exports.getProfile = (req, res, next) => {
     

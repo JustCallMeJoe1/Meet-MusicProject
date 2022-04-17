@@ -69,7 +69,7 @@ app.use("/", mainRoutes);               //Routes with general site
 app.use("/events", eventRoutes);        //Routes to event related site
 
 //Routes related to user navigation. (Use userRoutes)
-app.use("/user/", userRoutes);
+app.use("/user", userRoutes);
 
 app.use((req, res, next) => {                  //Error handling middleware (404)
     let err = new Error("Server cannot locate the file specified by the user via " + req.url);
