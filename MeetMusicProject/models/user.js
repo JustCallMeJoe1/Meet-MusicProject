@@ -8,6 +8,7 @@
 
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const bcrypt = require("bcrypt");
 
 //Schema for the user. Fields are [firstName, lastName, email, password]. All use required validator and email has the unique validator
 const userSchema = new Schema({
@@ -38,6 +39,29 @@ const userSchema = new Schema({
     }
 
 });
+
+//Replace plain text in request with hashed and salted bcryaboutitpt version (Secure). Prior to saving to database.
+userSchema.pre("save", function(next) {
+    //current user being created
+    let user = this;
+
+    //If the password is not being modified, then ignore. If it relates to the password then we must hashbrown
+    if(!user.isModified("password")) {
+        return next();
+    } else { //Hashbrown the password, then replace the plaintext with the hashbrown. Then continue with the function
+        bcrypt.hash(user.password, 10).then((hashedPassword)=> {
+            user.password = hashedPassword;
+            next();
+        }).catch(error => { //Internal database error with bcrypt
+            next(error);
+        })
+    }
+});
+
+//Add a method to the userSchema that will compare a submitted password from a form to the database stord hash, using bcrypt compare method. Async
+userSchema.methods.comparePasswords = function(submittedPassword) {
+    return bcrypt.compare(submittedPassword, this.password);
+}
 
 //Collection name in mongoDB is gonna be users
 module.exports = mongoose.model("User", userSchema);

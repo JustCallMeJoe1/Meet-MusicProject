@@ -18,18 +18,60 @@ exports.getRegister = (req, res, next) => {
 exports.createUser = (req, res, next) => {
     let user = new User(req.body);
 
-    user.save().then((result) => {
-        
-    })
-    return res.redirect("/");
+    user.save().then((newUser) => {
+        res.redirect("/login");
+    }).catch(error => {
+
+        //Error when validating the user. Send back to register page with flash error.
+        if(error.name === "ValidationError") {
+            return res.redirect("back");
+        }
+
+        //Error caused by non-unique email address being submitted. Send back to register page with flash error.
+        if(error.code === 11000) {
+            return res.redirect("back");
+        }
+
+        //Internal error when saving to the database
+        next(error);
+    });
 }
 
+//Grab the login page view and return it to the user
 exports.getLogin = (req, res, next) => {
     return res.render("login");
 }
 
+//Authenticate the user based on the provided email and password they give. Check against the database model.
 exports.checkLogin = (req, res, next) => {
-    return res.redirect("/");
+    
+    //Retreive POST request information
+    let submittedEmail = req.body.email;
+    let submittedPassword = req.body.password;
+    
+    //Grab the user based on the submitted email
+    User.findOne({email: submittedEmail}).then((user) => {
+
+        //If a user is found...
+        if(user) {
+            user.comparePasswords(submittedPassword).then((result)=> {
+                if(result) { //If the result of the compare is true then log the user into the website (Session established)
+                    res.redirect("/");
+                } else { //Result is false, redirect back to login with flash error
+                    console.log("Wrong Password");
+                    res.redirect("/login");
+                }
+            }).catch(error => { //Error comparing the passwords, default handler
+                next(error);
+            })
+        } else { //User is not found in the database
+            console.log("Wrong email");
+            res.redirect("/login");
+        }
+    }).catch((error) =>{ //Error querying the database for the user. Internal error.
+        next(error);
+    });
+    
 }
 
 exports.logout = (req, res, next) => {
