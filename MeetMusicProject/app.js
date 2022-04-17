@@ -13,6 +13,8 @@ const mongoose = require("mongoose");
 const eventRoutes = require("./routes/eventRoute");
 const mainRoutes = require("./routes/mainRoute");
 const userRoutes = require("./routes/userRoutes");
+const session = require("express-session");
+const MongoStore = require("connect-mongo");
 const methodOverride = require("method-override");
 
 //Create Application instance so that it may be run on a webserver (LocalHost) in this case.
@@ -42,7 +44,23 @@ app.use(express.urlencoded({extended : true}));     //Be able to parse data from
 app.use(morgan("tiny"));                            //Logger for requests in the terminal, shows client request information
 app.use(methodOverride("_method"));                 //Package allowing PUT and DELETE request in HTML forms
 
-//Set up initial Routing to different webpages throughout the web server
+//Establishing sessions for application
+app.use(session({
+    secret: "EpicGamingMoments2008Part5",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        //Cookie good for one hour (Terms of MS)
+        maxAge: 60 * 60 * 1000 
+    },
+
+    //Create a persistent session store using mongo connect package. Set the URL to the database URL. Collection = sessions
+    store: new MongoStore({
+        mongoUrl: URL
+    }),
+}));
+
+//==============Set up initial Routing to different webpages throughout the web server============================
 
 //General Site Navigation (Use mainRoutes)
 app.use("/", mainRoutes);               //Routes with general site

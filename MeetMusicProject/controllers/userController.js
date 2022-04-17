@@ -19,7 +19,7 @@ exports.createUser = (req, res, next) => {
     let user = new User(req.body);
 
     user.save().then((newUser) => {
-        res.redirect("/login");
+        res.redirect("/user/login");
     }).catch(error => {
 
         //Error when validating the user. Send back to register page with flash error.
@@ -56,17 +56,18 @@ exports.checkLogin = (req, res, next) => {
         if(user) {
             user.comparePasswords(submittedPassword).then((result)=> {
                 if(result) { //If the result of the compare is true then log the user into the website (Session established)
+                    req.session.user = user._id;
                     res.redirect("/");
                 } else { //Result is false, redirect back to login with flash error
                     console.log("Wrong Password");
-                    res.redirect("/login");
+                    res.redirect("/user/login");
                 }
             }).catch(error => { //Error comparing the passwords, default handler
                 next(error);
             })
         } else { //User is not found in the database
             console.log("Wrong email");
-            res.redirect("/login");
+            res.redirect("/user/login");
         }
     }).catch((error) =>{ //Error querying the database for the user. Internal error.
         next(error);
@@ -79,5 +80,15 @@ exports.logout = (req, res, next) => {
 }
 
 exports.getProfile = (req, res, next) => {
-    return res.render("profile");
-}
+    
+    //Retrieve the user that has logged in and get their information
+    let userId = req.session.user;
+
+    //Find the user in the database and retrieve their info to pass to the profile page
+    User.findById(userId).then((user) => {
+        return res.render("profile", {user});
+    }).catch((error) => {
+        next(error);
+    });
+
+};
