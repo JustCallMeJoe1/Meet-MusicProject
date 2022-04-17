@@ -19,16 +19,19 @@ exports.createUser = (req, res, next) => {
     let user = new User(req.body);
 
     user.save().then((newUser) => {
+        req.flash("success", "User account successfully registered!");
         res.redirect("/user/login");
     }).catch(error => {
 
         //Error when validating the user. Send back to register page with flash error.
         if(error.name === "ValidationError") {
+            req.flash("error", error.message);
             return res.redirect("back");
         }
 
         //Error caused by non-unique email address being submitted. Send back to register page with flash error.
         if(error.code === 11000) {
+            req.flash("error", "Email provided already exists!");
             return res.redirect("back");
         }
 
@@ -57,16 +60,17 @@ exports.checkLogin = (req, res, next) => {
             user.comparePasswords(submittedPassword).then((result)=> {
                 if(result) { //If the result of the compare is true then log the user into the website (Session established)
                     req.session.user = user._id;
+                    req.flash("success", "User has successfully logged in!");
                     res.redirect("/");
                 } else { //Result is false, redirect back to login with flash error
-                    console.log("Wrong Password");
+                    req.flash("error", "Incorrect Password!");
                     res.redirect("/user/login");
                 }
             }).catch(error => { //Error comparing the passwords, default handler
                 next(error);
             })
         } else { //User is not found in the database
-            console.log("Wrong email");
+            req.flash("error", "User not found. Please register first!");
             res.redirect("/user/login");
         }
     }).catch((error) =>{ //Error querying the database for the user. Internal error.

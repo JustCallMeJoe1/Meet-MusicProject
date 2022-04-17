@@ -40,3 +40,19 @@
                     <li><a href="/events/new">New Event</a></li>
                 </ul>
             </div>
+
+            <% if(successFlash.length > 0) { %>
+                <div id="success-flash">
+                    <% successFlash.forEach(message => { %>
+                        <p class="success-item"><%= message %><br></p>
+                    <% }); %>
+                </div>
+            <% }; %>
+
+            <% if(errorFlash.length > 0) { %>
+                <div id="error-flash">
+                    <% errorFlash.forEach(message => { %>
+                        <p class="error-item"><%= message %><br></p>
+                    <% }); %>
+                </div>
+            <% }; %>

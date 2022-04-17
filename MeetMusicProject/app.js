@@ -15,6 +15,7 @@ const mainRoutes = require("./routes/mainRoute");
 const userRoutes = require("./routes/userRoutes");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
+const flash = require("connect-flash");
 const methodOverride = require("method-override");
 
 //Create Application instance so that it may be run on a webserver (LocalHost) in this case.
@@ -59,6 +60,16 @@ app.use(session({
         mongoUrl: URL
     }),
 }));
+
+//Setting up flash functionality for app
+app.use(flash());
+
+//Retrieving and placing flashes into res local variables
+app.use((req, res, next) => {
+    res.locals.successFlash = req.flash("success");
+    res.locals.errorFlash = req.flash("error");
+    next();
+});
 
 //==============Set up initial Routing to different webpages throughout the web server============================
 

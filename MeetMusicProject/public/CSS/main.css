@@ -750,7 +750,42 @@ aside {
     cursor: pointer;
 }
 
+/* Flash styling */
+#success-flash {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #648b40;
+    border: 2px black solid;
+    border-radius: 7px;
+    margin-top: 2%;
+}
 
+#error-flash {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #8B0000;
+    border: 2px black solid;
+    border-radius: 7px;
+    margin-top: 2%;
+}
+
+.success-item {
+    color: white;
+    text-align: center;
+    font-family: "Sitka Small", "Times New Roman", Times, serif, Arial;
+    font-size: 18px;
+    padding: 5px;
+}
+
+.error-item {
+    color: white;
+    text-align: center;
+    font-family: "Sitka Small", "Times New Roman", Times, serif, Arial;
+    font-size: 18px;
+    padding: 5px;
+}
 
 /* Footer styling */
 /* Footing will be at the absolute bottom (Relative to the page wrapper), and has padding from the content  */
