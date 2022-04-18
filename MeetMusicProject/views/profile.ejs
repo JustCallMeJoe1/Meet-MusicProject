@@ -8,50 +8,33 @@
 <%- include("./partials/header.ejs") %>
 <div id="profileTableWrapper">
     <div id="tableHeaderContainer">
-        <h2 id="tableHeader"><%= user.firstName %>'s Music Events!</h2>
+        <h2 id="tableHeader"><%= userInfo.firstName %>'s Music Events!</h2>
     </div>
 
-    <table id="profileTable">
-        <tr id="tableHeaders">
-            <th class="tableHeaderText">Music Event</th>
-            <th class="tableHeaderText">Category</th>
-            <th class="tableHeaderText">Actions</th>
-        </tr>
+    <% if(eventInfo.length > 0) { %>
+        <table id="profileTable">
+            <tr id="tableHeaders">
+                <th class="tableHeaderText">Music Event</th>
+                <th class="tableHeaderText">Category</th>
+                <th class="tableHeaderText">Actions</th>
+            </tr>
         
-        <tr class="userDataRows">
-            <td class="musicEventCell"><a href="/events/PUTIDHERE">David Bowie Tour 2021</a></td>
-            <td class="musicCategoryCell">Rock</td>
-            <td class="musicActionCell">
-                <form id="actionForm">
-                    <button type="submit" formmethod="GET" formaction="/events/PUTIDHERE/edit" class="removeButtonCSS, profileActionButton">Update</button>
-                    <button type="submit" formmethod="POST" formaction="/events/PUTIDHERE?_method=DELETE" class="removeButtonCSS, profileActionButton">Delete</button>
-                </form>
-            </td>
-        </tr>
-
-        <tr class="userDataRows">
-            <td class="musicEventCell"><a href="/events/PUTIDHERE">Charlotte Rock Concert</a></td>
-            <td class="musicCategoryCell">Rock</td>
-            <td class="musicActionCell">
-                <form id="actionForm">
-                    <div class="buttonProfileContainer">
-                        <button type="submit" formmethod="GET" formaction="/events/PUTIDHERE/edit" class="removeButtonCSS, profileActionButton">Update</button>
-                        <button type="submit" formmethod="POST" formaction="/events/PUTIDHERE?_method=DELETE" class="removeButtonCSS, profileActionButton">Delete</button>
-                    </div>
-                </form>
-            </td>
-        </tr>
-
-        <tr class="userDataRows">
-            <td class="musicEventCell"><a href="/events/PUTIDHERE">Generic Pop Event 2012</a></td>
-            <td class="musicCategoryCell">Pop</td>
-            <td class="musicActionCell">
-                <form id="actionForm">
-                    <button type="submit" formmethod="GET" formaction="/events/PUTIDHERE/edit" class="removeButtonCSS, profileActionButton">Update</button>
-                    <button type="submit" formmethod="POST" formaction="/events/PUTIDHERE?_method=DELETE" class="removeButtonCSS, profileActionButton">Delete</button>
-                </form>
-            </td>
-        </tr>
+        
+            <% eventInfo.forEach(event => { %>
+                <tr class="userDataRows">
+                    <td class="musicEventCell"><a href="/events/<%= event.id %>"><%= event.name %></a></td>
+                    <td class="musicCategoryCell"><%= event.topic %></td>
+                    <td class="musicActionCell">
+                        <form id="actionForm">
+                            <button type="submit" formmethod="GET" formaction="/events/<%= event.id %>/edit" class="removeButtonCSS, profileActionButton">Update</button>
+                            <button type="submit" formmethod="POST" formaction="/events/<%= event.id %>?_method=DELETE" class="removeButtonCSS, profileActionButton">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }); %>
+        <% } else { %>
+            <p>There are no user created events to display! Create an event!</p>
+        <% } %>
 
     </table>
 </div>

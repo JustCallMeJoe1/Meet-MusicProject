@@ -8,6 +8,7 @@
 */
 //Grab needed models to manipulate data stored in database.
 const User = require("../models/user");
+const musicEvents = require("../models/musicEvent");
 
 //Grab the register page
 exports.getRegister = (req, res, next) => {
@@ -79,6 +80,7 @@ exports.checkLogin = (req, res, next) => {
     
 }
 
+//Log the user out of the session. Destroy the current active session.
 exports.logout = (req, res, next) => {
     
     //Destroy the current session, if no error redirect back to homepage. Otherwise display error
@@ -91,14 +93,20 @@ exports.logout = (req, res, next) => {
     });
 };
 
+//Retrieve the respective user's profile. Render the view and pass the user's session data to display in a table.
 exports.getProfile = (req, res, next) => {
     
     //Retrieve the user that has logged in and get their information
     let userId = req.session.user;
 
     //Find the user in the database and retrieve their info to pass to the profile page
-    User.findById(userId).then((user) => {
-        return res.render("profile", {user});
+    //Find the stories created by the user and retrieve it's respective information. Use PromiseAll to perform both queries
+    Promise.all([User.findById(userId), musicEvents.find({ hostName: userId })]).then(profileInformation => {
+        
+        //Filter out information from the profileInformation return (Array)
+        const [ userInfo, eventInfo ] = profileInformation;
+        
+        return res.render("profile", { userInfo, eventInfo });
     }).catch((error) => {
         next(error);
     });
