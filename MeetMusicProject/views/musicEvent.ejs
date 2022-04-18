@@ -11,12 +11,14 @@
                     <div id="eventCard">
                         <div id="eventHeadingSection">
                             <h2 id="eventName"><%= chosenEvent.name %></h2>
+                            <% if (user == chosenEvent.hostName._id) { %>
                                 <div id="buttonGroup">
                                     <form>
                                         <button type="submit" formmethod="GET" formaction="/events/<%= chosenEvent.id %>/edit" class="removeButtonCSS, eventButton">Update</button>
                                         <button type="submit" formmethod="POST" formaction="/events/<%= chosenEvent.id %>?_method=DELETE %>" class="removeButtonCSS, eventButton">Delete</button>
                                     </form>
                                 </div> 
+                            <% } %>
                         </div>
 
                         <div id="eventInformation">

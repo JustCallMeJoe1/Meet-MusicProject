@@ -25,10 +25,14 @@
                 <h1 id="websiteTitle">Music & Meet</h1>
                 <nav>
                     <ul>
-                        <li><a href="/user/login">Login</a></li>
-                        <li><a href="/user/register">Register</a></li>
-                        <li><a href="/user/profile">Profile</a></li>
-                        <li><a href="/user/logout">Logout</a></li>
+                        <% if(!user) { %> 
+                            <li><a href="/user/login">Login</a></li>
+                            <li><a href="/user/register">Register</a></li>
+                        <% } else { %>
+                            <li>Welcome, <%= firstName + " " + lastName %></li>
+                            <li><a href="/user/profile">Profile</a></li>
+                            <li><a href="/user/logout">Logout</a></li>
+                        <% } %>
                     </ul>
                 </nav>
             </header>
@@ -37,7 +41,9 @@
                 <ul>
                     <li><a href="/">Home</a></li>
                     <li><a href="/events">Events</a></li>
-                    <li><a href="/events/new">New Event</a></li>
+                    <% if(user) { %> 
+                        <li><a href="/events/new">New Event</a></li>
+                    <% } %>
                 </ul>
             </div>
 

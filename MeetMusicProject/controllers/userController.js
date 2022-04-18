@@ -61,6 +61,8 @@ exports.checkLogin = (req, res, next) => {
             user.comparePasswords(submittedPassword).then((result)=> {
                 if(result) { //If the result of the compare is true then log the user into the website (Session established)
                     req.session.user = user._id;
+                    req.session.firstName = user.firstName;
+                    req.session.lastName = user.lastName;
                     req.flash("success", "User has successfully logged in!");
                     res.redirect("/");
                 } else { //Result is false, redirect back to login with flash error

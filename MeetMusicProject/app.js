@@ -64,8 +64,11 @@ app.use(session({
 //Setting up flash functionality for app
 app.use(flash());
 
-//Retrieving and placing flashes into res local variables
+//Retrieving and placing flashes into res local variables. Placing session related data into locals.
 app.use((req, res, next) => {
+    res.locals.user = req.session.user || null;
+    res.locals.firstName = req.session.firstName || null;
+    res.locals.lastName = req.session.lastName || null;
     res.locals.successFlash = req.flash("success");
     res.locals.errorFlash = req.flash("error");
     next();
