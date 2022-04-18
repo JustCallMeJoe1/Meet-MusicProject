@@ -21,7 +21,7 @@
 
                         <div id="eventInformation">
                             <img src="<%= chosenEvent.image %>" id="eventCardImage" alt="Program this if you have time" width="462" height="278" />
-                            <p id="eventTextInfo"><%= chosenEvent.hostName %><br><%= formattedDate %><br><%= formattedStartTime %><br><%= formattedEndTime %><br><%= chosenEvent.location %></p>
+                            <p id="eventTextInfo"><%= chosenEvent.hostName.firstName + " " + chosenEvent.hostName.lastName %><br><%= formattedDate %><br><%= formattedStartTime %><br><%= formattedEndTime %><br><%= chosenEvent.location %></p>
                         </div>
 
                         <div id="eventDescription">
@@ -40,7 +40,7 @@
 
                         <div id="eventInformation">
                             <img src="<%= featuredEvent.image %>" id="eventCardImage" alt="Program this if you have time" width="462" height="278" />
-                            <p id="eventTextInfo"><%= featuredEvent.hostName %><br><%= formattedDate %><br><%= formattedStartTime %><br><%= formattedEndTime %><br><%= featuredEvent.location %></p>
+                            <p id="eventTextInfo">PROMOTED EVENT!<br><%= formattedDate %><br><%= formattedStartTime %><br><%= formattedEndTime %><br><%= featuredEvent.location %></p>
                         </div>
 
                         <div id="eventDescription">

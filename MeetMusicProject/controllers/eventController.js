@@ -61,6 +61,10 @@ exports.createNewEvent = (req, res, next) => {
     
     //Create a new event object from the user submitted form
     let submittedEvent = new eventModel(req.body);  //Create a new music event object based on the model class (Submitted event is an instance)
+
+    //Grab the userID who created this event (The user in session)
+    submittedEvent.hostName = req.session.user;
+
     submittedEvent.featuredEvent = false;           //New events are defaulted to not featured. This will satisfy the schema
 
     //Save the story to the model, if successful then redirect the user back to the main events page, otherwise throw a database error!
@@ -95,7 +99,7 @@ exports.getSpecificEvent = (req, res, next) => {
     }
 
     //Locate the specific event we are trying to access in the browser
-    eventModel.findById(chosenId).then(chosenEvent => {
+    eventModel.findById(chosenId).populate("hostName", "firstName lastName").then(chosenEvent => {
         //Render the musicEvent page with the specified model object retrieved from the array
 
         //If story is located, then render it on the browser

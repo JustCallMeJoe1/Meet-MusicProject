@@ -26,9 +26,6 @@
                         <fieldset id="eventDetails" class="formDivider">
                             <legend class="newEventLegend">Event Details</legend>
                             <div class="formComponent" id="secondComp">
-                                <label class="formLabel" for="eventHost">Event Host: </label>
-                                <input type="text" id="eventHost" maxlength="50" minlength="1" name="hostName" value="<%= pickedEvent.hostName %>" required />
-                                <br>
                                 <label class="formLabel" for="additionalEventInfo">Details: </label>
                                 <textarea id="additionalEventInfo" rows="5" cols="25" name="details" minlength="5" maxlength="500" required ><%= pickedEvent.details %></textarea>
                                 <br>

@@ -79,10 +79,8 @@ const musicEventSchema = new Schema({
         match: /^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/         //REGEX to ensure that the time will be in HH-MM format, where HH can be 0-23 and MM can be 0-59
     },
     hostName: {
-        type: String, 
-        required: [true, "The host's name is required for an event!"],
-        minlength: [1, "HostName field must have at least 5 characters"],
-        maxlength: [50, "HostName field can have at most 50 characters"]
+        type: Schema.Types.ObjectId,
+        ref: "User",
     },
     location: {
         type: String, 
