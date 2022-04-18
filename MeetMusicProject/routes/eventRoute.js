@@ -8,7 +8,8 @@
 */
 
 const express = require("express");
-const eventController = require("../controllers/eventController")
+const eventController = require("../controllers/eventController");
+const { isLoggedIn, isEventHost } = require("../middlewares/authorizeRules");
 
 const eventRouter = express.Router();            //Create Router object to handle routes
 
@@ -16,21 +17,21 @@ const eventRouter = express.Router();            //Create Router object to handl
 eventRouter.get("/", eventController.index);
 
 //GET /events/new newMusicEvent page
-eventRouter.get("/new", eventController.newEvent);
+eventRouter.get("/new", isLoggedIn, eventController.newEvent);
 
 //POST /events  --> Data received, need to create an event
-eventRouter.post("/", eventController.createNewEvent);
+eventRouter.post("/", isLoggedIn, eventController.createNewEvent);
 
 //GET /events/#number --> Grabs the specific musicEvent page
 eventRouter.get("/:id", eventController.getSpecificEvent);
 
 //Get /events/:id/edit --> Sends form to update a musicEvent
-eventRouter.get("/:id/edit", eventController.getEditForm);
+eventRouter.get("/:id/edit", isLoggedIn, isEventHost, eventController.getEditForm);
 
 //Put /events/:id --> Updates the musicEvent stored in the database/array specified by id
-eventRouter.put("/:id/", eventController.updateEvent);
+eventRouter.put("/:id", isLoggedIn, isEventHost, eventController.updateEvent);
 
 //Delete /events/:id --> Delete the musicEvent stored in the database/array specified by id
-eventRouter.delete("/:id", eventController.deleteEvent);
+eventRouter.delete("/:id", isLoggedIn, isEventHost, eventController.deleteEvent);
 
 module.exports = eventRouter;                    //Export router object to use in app module

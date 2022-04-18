@@ -154,25 +154,9 @@ exports.getEditForm = (req, res, next) => {
     //Find the specific event so that the details can be passed to the edit form to be filled out
     let eventId = req.params.id;
 
-    //Id needs to be 24 bits, needs a 24 bit hex id to represent an ObjectID in the database. Check the length of the given ID for at least 24 bits, AND the specific format of HEX
-    if(!eventId.match(/^[0-9a-fA-F]{24}$/)) { //If ID does not match a 24 bit hex string (0-9, a-f, A-F, and 24 digits) then create a invalid request error
-        let invalidError = new Error("Invalid Event ID for editing an event!");
-        invalidError.status = 400;  //400 (invalid)
-        return next(invalidError);  //Call default error handler with status and message
-    }
-
     //Search the model for the event with the specified ID. If found, render the edit form. Otherwise send a 404 error as the event cannot be located.
     eventModel.findById(eventId).then(pickedEvent => {
-        //Error checking for finding id
-        if (pickedEvent) {
-            return res.render("editMusicEvent", {pickedEvent});
-
-        } else { //404, event not found in database
-            let err = new Error("Server was unable to locate an event to edit with the id of " + eventId);
-            err.status = 404;
-            next(err);
-
-        }
+        return res.render("editMusicEvent", {pickedEvent});
     }).catch(error => { //Database internal error when searching for the event to edit
         next(error);
     })
@@ -188,24 +172,10 @@ exports.updateEvent = (req, res, next) => {
     let oldEventId = req.params.id;
 
     //console.log(oldEvent);
-    //Id needs to be 24 bits, needs a 24 bit hex id to represent an ObjectID in the database. Check the length of the given ID for at least 24 bits, AND the specific format of HEX
-    if(!oldEventId.match(/^[0-9a-fA-F]{24}$/)) { //If ID does not match a 24 bit hex string (0-9, a-f, A-F, and 24 digits) then create a invalid request error
-        let invalidError = new Error("Invalid Event ID for updating an event!");
-        invalidError.status = 400;  //400 (invalid)
-        return next(invalidError);  //Call default error handler with status and message
-    }
 
     //Update the story in the model. If an event is returned, then the database has sucessfully updated that event. Otherwise, send a 404 error as the database failed to locate that event.
     eventModel.findByIdAndUpdate(oldEventId, oldEvent, {useFindAndModify : false, runValidators: true}).then(newEvent => {
-
-        //If a new event was returned, then we have successfully updated, redirect to that event page. Otherwise throw a 404 error due to not being found.
-        if(newEvent) {
-            res.redirect("/events/" + oldEventId);                  
-        } else {                                                   
-            let err = new Error("Server was unable to locate an event to update with the id of " + oldEventId);
-            err.status = 404;
-            next(err);
-        }
+        res.redirect("/events/" + oldEventId);                  
     }).catch(error => {     //Check to see if the input was malformatted, if so then a 400 error has occurred. Otherwise, internal Server error when trying to update the old event. Database has some issue going on.
         if (error.name === "ValidationError") {
             error.status = 400;
@@ -221,23 +191,10 @@ exports.deleteEvent = (req, res, next) => {
     //Retreive the event ID that needs to be deleted from the params function
     let deleteId = req.params.id;
 
-    //Id needs to be 24 bits, needs a 24 bit hex id to represent an ObjectID in the database. Check the length of the given ID for at least 24 bits, AND the specific format of HEX
-    if(!deleteId.match(/^[0-9a-fA-F]{24}$/)) { //If ID does not match a 24 bit hex string (0-9, a-f, A-F, and 24 digits) then create a invalid request error
-        let invalidError = new Error("Invalid Event ID for deleting an event!");
-        invalidError.status = 400;  //400 (invalid)
-        return next(invalidError);  //Call default error handler with status and message
-    }
-
     //Call the event model to delete the specific event. If true, the event has been deleted, if false, an error has occurred
     eventModel.findByIdAndDelete(deleteId, {useFindAndModify: false}).then(deletedEvent => {
-        if(deletedEvent) {
-            console.log("Event successfully deleted!");                     //Log information, redirect user back to the main events page
-            res.redirect("/events");
-        } else {        //Throw a 404, resource not found as the event with the Id could not be found
-            let err = new Error("Server was unable to locate an event to delete with the id of " + deleteId);
-            err.status = 404;
-            next(err)
-        }
+        console.log("Event successfully deleted!");                     //Log information, redirect user back to the main events page
+        res.redirect("/events");
     }).catch(error => {
         next(error);
     });
