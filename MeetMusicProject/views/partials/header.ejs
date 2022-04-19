@@ -14,6 +14,7 @@
     <!-- CSS style sheet for the HTML -->
     <link rel="stylesheet" href="/CSS/main.css" />
     <link rel="shortcut icon" href="#" />
+    <script src="/javascript/closeFlash.js"></script>
 
 </head>
 <body>
@@ -48,17 +49,17 @@
             </div>
 
             <% if(successFlash.length > 0) { %>
-                <div id="success-flash">
+                <div id="success-flash" class="messageContainer">
                     <% successFlash.forEach(message => { %>
-                        <p class="success-item"><%= message %><br></p>
+                        <p class="success-item"><%= message %><button type="button" class="closeButton">X</button></p>
                     <% }); %>
                 </div>
             <% }; %>
 
             <% if(errorFlash.length > 0) { %>
-                <div id="error-flash">
+                <div id="error-flash" class="messageContainer">
                     <% errorFlash.forEach(message => { %>
-                        <p class="error-item"><%= message %><br></p>
+                        <p class="error-item"><%= message %><button type="button" class="closeButton">X</button></p>
                     <% }); %>
                 </div>
             <% }; %>

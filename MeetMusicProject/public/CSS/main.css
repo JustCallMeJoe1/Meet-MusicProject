@@ -787,6 +787,19 @@ aside {
     padding: 5px;
 }
 
+.closeButton {
+    float: right;
+    background-color:#8B0000;
+    font-family: "Sitka Small", "Times New Roman", Times, serif, Arial;
+    color: #F3F0F0;
+    border: 2px black solid;
+}
+
+.closeButton:hover {
+    cursor: pointer;
+    background-color:rgb(199, 1, 1);
+}
+
 /* Footer styling */
 /* Footing will be at the absolute bottom (Relative to the page wrapper), and has padding from the content  */
 footer {
