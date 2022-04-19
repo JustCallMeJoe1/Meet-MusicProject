@@ -1,0 +1,19 @@
+[{
+  "_id": {
+    "$oid": "625e142bcda3c41c623beb86"
+  },
+  "firstName": "Jim",
+  "lastName": "Morrison",
+  "email": "TheDoors123@gmail.com",
+  "password": "$2b$10$3Ifcoxma1xKOEvYL/6rNuetLNGVwSckQ2ZhMgdFisbQmk3Xma3MZ.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "625e146fcda3c41c623beb88"
+  },
+  "firstName": "David",
+  "lastName": "Bowie",
+  "email": "DBowie2@gmail.com",
+  "password": "$2b$10$A0xgUHdCuASSWIiEN11CKui0xN2hwciV1L33YQbZSTRqI6ZnBqjL2",
+  "__v": 0
+}]

@@ -1,0 +1,331 @@
+[{
+  "_id": {
+    "$oid": "625ce4fbd893b4558520c9ce"
+  },
+  "name": "Music Festival",
+  "topic": "Rock",
+  "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "date": "2022-07-19",
+  "startTime": "15:00",
+  "endTime": "19:00",
+  "hostName": "Music4Fun",
+  "location": "Convention Center, Raleigh, NC",
+  "image": "https://imageio.forbes.com/specials-images/imageserve/5d094dfa4c687b00085a0001/A-bright-music-festival-stage-with-a-large--energetic-crowd-/960x0.jpg?fit=bounds&format=jpg&width=960",
+  "featuredEvent": true
+},{
+  "_id": {
+    "$oid": "625ce4fbd893b4558520c9cf"
+  },
+  "name": "Hollie Music Festival",
+  "topic": "Pop",
+  "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "date": "2022-06-19",
+  "startTime": "12:00",
+  "endTime": "19:00",
+  "hostName": "HollieOrganization",
+  "location": "Soccer Fields, Raleigh, NC",
+  "image": "https://live.staticflickr.com/5596/14416090556_07db4a8334_b.jpg",
+  "featuredEvent": true
+},{
+  "_id": {
+    "$oid": "625ce4fbd893b4558520c9d0"
+  },
+  "name": "Summer Music Fest",
+  "topic": "Pop",
+  "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "date": "2022-03-12",
+  "startTime": "14:00",
+  "endTime": "17:00",
+  "hostName": "SummerMusicFun",
+  "location": "Soccer Fields, Raleigh, NC",
+  "image": "https://studybreaks.com/wp-content/uploads/2017/06/636242815115195376924973386_Musicfestival.jpg",
+  "featuredEvent": true
+},{
+  "_id": {
+    "$oid": "625ce4fbd893b4558520c9d1"
+  },
+  "name": "K-Pop Winter 2022",
+  "topic": "Pop",
+  "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "date": "2022-08-12",
+  "startTime": "16:00",
+  "endTime": "19:00",
+  "hostName": "KPopWinter!",
+  "location": "Convention Center, Raleigh, NC",
+  "image": "https://studybreaks.com/wp-content/uploads/2020/01/deserthearts-e1580006981156.jpg",
+  "featuredEvent": true
+},{
+  "_id": {
+    "$oid": "625ce4fbd893b4558520c9d2"
+  },
+  "name": "Grundge Fest 2022",
+  "topic": "Metal",
+  "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "date": "2020-04-15",
+  "startTime": "15:00",
+  "endTime": "17:00",
+  "hostName": "FunTimeGrundge1992",
+  "location": "Underground Shop, Raleigh, NC",
+  "image": "https://theculturetrip.com/wp-content/uploads/2019/04/screaming-trees-rexfeatures_499068go.jpg",
+  "featuredEvent": true
+},{
+  "_id": {
+    "$oid": "625ce4fbd893b4558520c9d3"
+  },
+  "name": "Music Event 2021",
+  "topic": "Pop",
+  "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "date": "2021-08-12",
+  "startTime": "17:00",
+  "endTime": "18:00",
+  "hostName": "NightMusic2021",
+  "location": "Convention Center, Raleigh, NC",
+  "image": "https://blogmedia.evbstatic.com/wp-content/uploads/wpmulti/sites/8/2018/01/19104925/iStock-503526285.jpg",
+  "featuredEvent": true
+},{
+  "_id": {
+    "$oid": "625ce4fbd893b4558520c9d4"
+  },
+  "name": "Pop Fest 2022",
+  "topic": "Pop",
+  "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "date": "2021-06-19",
+  "startTime": "15:00",
+  "endTime": "19:00",
+  "hostName": "Love+Pop2022",
+  "location": "Convention Center, Raleigh, NC",
+  "image": "https://jooinn.com/images/music-event-3.jpg",
+  "featuredEvent": true
+},{
+  "_id": {
+    "$oid": "625ce4fbd893b4558520c9d5"
+  },
+  "name": "Stop Making Sense Live!",
+  "topic": "Rock",
+  "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "date": "2022-08-19",
+  "startTime": "15:00",
+  "endTime": "19:00",
+  "hostName": "TalkingHeads",
+  "location": "Convention Center, Raleigh, NC",
+  "image": "https://www.screenslate.com/sites/default/files/images/Featured-170817-StopMakingSense.jpg",
+  "featuredEvent": true
+},{
+  "_id": {
+    "$oid": "625ce4fbd893b4558520c9d6"
+  },
+  "name": "The Doors live in Miami!",
+  "topic": "Rock",
+  "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "date": "2022-08-19",
+  "startTime": "15:00",
+  "endTime": "18:00",
+  "hostName": "The Doors",
+  "location": "Downtown, Miami, FL",
+  "image": "https://i.ytimg.com/vi/N24Xjd7cYgk/maxresdefault.jpg",
+  "featuredEvent": true
+},{
+  "_id": {
+    "$oid": "625ed4b0624e37b23ed89ed5"
+  },
+  "name": "Live at the Matrix 1967",
+  "topic": "Psych Rock",
+  "details": "Live at the Matrix 1967 is a double live album by the American rock band the Doors. It was recorded at The Matrix in San Francisco on March 7 and 10, 1967 by club co-owner Peter Abram (the other co-owner was Marty Balin).[1] The recording is notable as one of the earliest live recordings of the band known to exist, played to a mostly empty venue.",
+  "date": "1967-03-07",
+  "startTime": "17:30",
+  "endTime": "21:00",
+  "location": "The Matrix, San Francisco ",
+  "image": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b6/Doors_matrix.jpg/220px-Doors_matrix.jpg",
+  "hostName": {
+    "$oid": "625e142bcda3c41c623beb86"
+  },
+  "featuredEvent": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "625ed574624e37b23ed89ed9"
+  },
+  "name": "The Doors at the Hollywood Bowl",
+  "topic": "Psych Rock",
+  "details": "The entire concert was recorded using several cameras and is one of only two professionally recorded live performances of the band in color (the other being Live at The Isle of Wight Festival 1970). The Doors' long-time sound engineer Bruce Botnick recorded the concert direct from the soundboard onto an 8-track machine. The recording of \"The End\" was used in the film project Feast of Friends, which was not released until November 2014.",
+  "date": "1968-07-05",
+  "startTime": "21:00",
+  "endTime": "23:00",
+  "location": "Los Angeles, California",
+  "image": "https://upload.wikimedia.org/wikipedia/en/c/c8/TheDoorsLiveAtTheHollywoodBowlalbumcover.jpg",
+  "hostName": {
+    "$oid": "625e142bcda3c41c623beb86"
+  },
+  "featuredEvent": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "625ed679624e37b23ed89eff"
+  },
+  "name": "The doors live in Pittsburgh",
+  "topic": "Psych Rock",
+  "details": "Live in Pittsburgh 1970 is a live album by the American rock band the Doors. The concert was recorded at the Pittsburgh Civic Arena in Pittsburgh on May 2, 1970 and released in 2008 on Rhino Records. It is the sixth full-length live set released from the Bright Midnight Archives collection which contains a number of previously unreleased live concerts by the Doors.",
+  "date": "1970-05-02",
+  "startTime": "19:30",
+  "endTime": "21:00",
+  "location": "Pittsburgh Civic Arena, Pittsburgh, PA",
+  "image": "https://upload.wikimedia.org/wikipedia/en/7/76/Doorspittsburgh1970.jpg",
+  "hostName": {
+    "$oid": "625e142bcda3c41c623beb86"
+  },
+  "featuredEvent": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "625ed7a0624e37b23ed89f17"
+  },
+  "name": "The doors live in New York",
+  "topic": "Blues",
+  "details": "Live in New York is a six-disc box set of four complete concerts performed American rock band the Doors on January 17 and 18, 1970 at the Felt Forum in New York City. Two shows were played each night, with 8:00pm and 11:00pm scheduled start times on January 17, and 7:30pm and 10:00pm scheduled start times on January 18. The final show featured an extended encore with guests John Sebastian (harmonica and vocals) and Dallas Taylor (percussion) that concluded around 2:30am.",
+  "date": "1970-01-17",
+  "startTime": "20:00",
+  "endTime": "23:00",
+  "location": "New York City",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Doors-newyork.jpg",
+  "hostName": {
+    "$oid": "625e142bcda3c41c623beb86"
+  },
+  "featuredEvent": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "625ed883624e37b23ed89f1b"
+  },
+  "name": "The doors live in Boston",
+  "topic": "Blues",
+  "details": "Live in Boston is a triple CD live album by American rock band the Doors released in 2007. It was recorded at the Boston Arena on April 10, 1970, during the band's Roadhouse Blues Tour. The band performed two shows, one starting at 7 pm and a second scheduled for 10 but not actually starting until past midnight. Jim Morrison appears to be intoxicated during the entire latter show,and continued drinking heavily throughout the performance. The late start ended with the venue's owners cutting power",
+  "date": "1970-04-10",
+  "startTime": "22:00",
+  "endTime": "01:00",
+  "location": "Boston Arena, Massachusetts",
+  "image": "https://upload.wikimedia.org/wikipedia/en/b/b4/The_Doors_-_Live_in_Boston_%28The_Doors_album%29.jpg",
+  "hostName": {
+    "$oid": "625e142bcda3c41c623beb86"
+  },
+  "featuredEvent": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "625edaf4624e37b23ed89f1f"
+  },
+  "name": "The Doors live in Detriot",
+  "topic": "Blues",
+  "details": "The concert is one of the longest live performances by the Doors. Among the 25 songs played that night, the group played eight blues standards such as \"Back Door Man\", Junior Parker's \"Mystery Train\" and \"Crossroads\" by Robert Johnson. The concert was originally scheduled to end before midnight but ran on until one in the morning. This late end, against union rules, saw the band banned from the Cobo Arena.",
+  "date": "1970-05-08",
+  "startTime": "22:00",
+  "endTime": "00:00",
+  "location": "Cobo Hall Detroit, Michigan",
+  "image": "https://upload.wikimedia.org/wikipedia/en/d/d3/LiveInDetroit_TheDoorsalbum.jpg",
+  "hostName": {
+    "$oid": "625e142bcda3c41c623beb86"
+  },
+  "featuredEvent": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "625edc31624e37b23ed89f28"
+  },
+  "name": "David Bowie Live Aid 1985",
+  "topic": "Pop-Rock",
+  "details": "Live Aid was a benefit concert held on Saturday 13 July 1985, as well as a music-based fundraising initiative. The original event was organised by Bob Geldof and Midge Ure to raise further funds for relief of the 1983–1985 famine in Ethiopia. Live Aid was held simultaneously at Wembley Stadium in London, UK, attended by about 72,000 people and John F. Kennedy Stadium in Philadelphia, US, attended by 89,484 people.",
+  "date": "1985-07-13",
+  "startTime": "15:00",
+  "endTime": "16:15",
+  "location": "Wembly Stadium, London, England, United Kingdom",
+  "image": "https://upload.wikimedia.org/wikipedia/en/9/9c/Official_Live_Aid_poster.jpeg",
+  "hostName": {
+    "$oid": "625e146fcda3c41c623beb88"
+  },
+  "featuredEvent": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "625ede40624e37b23ed89f3a"
+  },
+  "name": "Isolar II - World Tour",
+  "topic": "Pop-Rock",
+  "details": "The Isolar II – The 1978 World Tour,[1] more commonly known as The Low / Heroes World Tour or The Stage Tour,[2] was a worldwide concert tour by David Bowie. The tour opened on 29 March 1978 at the San Diego Sports Arena continuing through North America, Europe and Australia before reaching a conclusion at the Nippon Budokan in Japan on 12 December 1978.",
+  "date": "1978-03-28",
+  "startTime": "19:00",
+  "endTime": "21:30",
+  "location": "San Diego, California, USA",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/f/ff/David_bowie_05061978_01_150.jpg",
+  "hostName": {
+    "$oid": "625e146fcda3c41c623beb88"
+  },
+  "featuredEvent": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "625edf8a624e37b23ed89f3e"
+  },
+  "name": "Live By Request: David Bowie",
+  "topic": "Pop-Rock",
+  "details": "Live by Request is a television show on the A&E Network. On it, notable artists hold concerts where the set list would be determined by viewer phone calls. The show was created based on an idea by Tony Bennett.[1] Bennett starred in its first episode, which ran on Valentine's Day 1996;[2] during that episode, 1.5 million calls came in from viewers with requests.",
+  "date": "2002-05-16",
+  "startTime": "14:00",
+  "endTime": "16:00",
+  "location": "Los Angeles, California",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/e/e8/David-Bowie_Chicago_2002-08-08_photoby_Adam-Bielawski-cropped.jpg",
+  "hostName": {
+    "$oid": "625e146fcda3c41c623beb88"
+  },
+  "featuredEvent": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "625ee152624e37b23ed89f42"
+  },
+  "name": "Top of the Pops (1972)",
+  "topic": "Pop",
+  "details": "Bowie’s Top of the Pops debut marks the first of many examples of his fashion genius. Also seen prominently here: guitarist Mick Ronson, Bowie’s go-to collaborator at the time.",
+  "date": "1974-05-05",
+  "startTime": "22:00",
+  "endTime": "00:00",
+  "location": "Birmingham, United Kingdom",
+  "image": "https://i.guim.co.uk/img/media/c3eb20862202249fe6efb490459067b640bb68cf/313_166_718_431/master/718.jpg?width=620&quality=85&auto=format&fit=max&s=4440375b8544e45b355923ff0c576f90",
+  "hostName": {
+    "$oid": "625e146fcda3c41c623beb88"
+  },
+  "featuredEvent": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "625ee265624e37b23ed89f46"
+  },
+  "name": "Hammersmith Odeon",
+  "topic": "Pop",
+  "details": "Ziggy Stardust and the Spiders From Mars at the height of their powers in London. Ziggy Stardust and the Spiders From Mars at the height of their powers in London. Ziggy Stardust and the Spiders From Mars at the height of their powers in London. Ziggy Stardust and the Spiders From Mars at the height of their powers in London.",
+  "date": "1976-04-19",
+  "startTime": "20:00",
+  "endTime": "22:00",
+  "location": "London, England, UK",
+  "image": "https://i.ytimg.com/vi/kEri-JZ44Ws/maxresdefault.jpg",
+  "hostName": {
+    "$oid": "625e146fcda3c41c623beb88"
+  },
+  "featuredEvent": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "625ee303624e37b23ed89f5a"
+  },
+  "name": "Soul Train",
+  "topic": "Pop",
+  "details": "Bowie made an appearance on Soul Train the same year he released Young Americans, the closest thing in his catalogue to a funk album. He once described it as “the squashed remains of ethnic music as it survives in the age of Muzak, written and sung by a white limey.”",
+  "date": "1975-01-06",
+  "startTime": "20:00",
+  "endTime": "21:00",
+  "location": "Birmingham, United Kingdom",
+  "image": "https://i.ytimg.com/vi/AGWRpPHYSwA/maxresdefault.jpg",
+  "hostName": {
+    "$oid": "625e146fcda3c41c623beb88"
+  },
+  "featuredEvent": false,
+  "__v": 0
+}]
