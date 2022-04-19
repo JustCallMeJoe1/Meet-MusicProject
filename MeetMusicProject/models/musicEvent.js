@@ -78,7 +78,7 @@ const musicEventSchema = new Schema({
         required: [true, "The end time of the event is required!"],
         match: /^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/         //REGEX to ensure that the time will be in HH-MM format, where HH can be 0-23 and MM can be 0-59
     },
-    hostName: {
+    hostName: {                              //Data modelling to link together users and musicEvents. One user can have many musicEvents as a host
         type: Schema.Types.ObjectId,
         ref: "User",
     },

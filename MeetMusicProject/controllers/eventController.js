@@ -69,8 +69,7 @@ exports.createNewEvent = (req, res, next) => {
 
     //Save the story to the model, if successful then redirect the user back to the main events page, otherwise throw a database error!
     submittedEvent.save().then(()=>{
-
-        console.log("Event successfully saved to database. Validation successful!");
+        req.flash("success", "Event successfully created on website. Validation successful!");
         res.redirect("/events");
     
     }).catch(error=>{   //Check first for malformatted post request, throw 400 error if form not filled properly. Otherwise, internal database error, pass the error to the error handler as a (500) error!
@@ -175,6 +174,7 @@ exports.updateEvent = (req, res, next) => {
 
     //Update the story in the model. If an event is returned, then the database has sucessfully updated that event. Otherwise, send a 404 error as the database failed to locate that event.
     eventModel.findByIdAndUpdate(oldEventId, oldEvent, {useFindAndModify : false, runValidators: true}).then(newEvent => {
+        req.flash("success", "Event successfully updated!");
         res.redirect("/events/" + oldEventId);                  
     }).catch(error => {     //Check to see if the input was malformatted, if so then a 400 error has occurred. Otherwise, internal Server error when trying to update the old event. Database has some issue going on.
         if (error.name === "ValidationError") {
@@ -193,7 +193,7 @@ exports.deleteEvent = (req, res, next) => {
 
     //Call the event model to delete the specific event. If true, the event has been deleted, if false, an error has occurred
     eventModel.findByIdAndDelete(deleteId, {useFindAndModify: false}).then(deletedEvent => {
-        console.log("Event successfully deleted!");                     //Log information, redirect user back to the main events page
+        req.flash("success","Event successfully deleted!");                     //Log information, redirect user back to the main events page
         res.redirect("/events");
     }).catch(error => {
         next(error);
