@@ -193,6 +193,21 @@ exports.deleteEvent = (req, res, next) => {
     //Retreive the event ID that needs to be deleted from the params function
     let deleteId = req.params.id;
 
+    //Retrieve the RSVPs associated with the deleted event. For each one located, delete it.
+    rsvpModel.find({ eventRSVP: deleteId }).then(events => {
+        events.forEach(e => {
+            rsvpModel.findByIdAndDelete(e.id).then(() =>{
+                console.log("Event deleted.");
+            }).catch(error => {
+                console.log("Error when deleting events.");
+                next(error);
+            });
+        });
+    }).catch(error => { //Error locating the events to delete.
+        console.log("Error locating events to delete.");
+        next(error);
+    });
+
     //Call the event model to delete the specific event. If true, the event has been deleted, if false, an error has occurred
     eventModel.findByIdAndDelete(deleteId, {useFindAndModify: false}).then(deletedEvent => {
         req.flash("success","Event successfully deleted!");                     //Log information, redirect user back to the main events page
