@@ -684,14 +684,14 @@ aside {
 }
 
 /* Styling for the profile page */
-#profileTableWrapper {
+.profileTableWrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-#tableHeader {
+.tableHeader {
     font-size: 32px;
     font-family: "Sitka Small", "Times New Roman", Times, serif, Arial;
 }

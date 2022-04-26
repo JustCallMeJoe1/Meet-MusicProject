@@ -6,9 +6,9 @@
 
 -->
 <%- include("./partials/header.ejs") %>
-<div id="profileTableWrapper">
-    <div id="tableHeaderContainer">
-        <h2 id="tableHeader"><%= userInfo.firstName %>'s Music Events!</h2>
+<div class="profileTableWrapper">
+    <div class="tableHeaderContainer">
+        <h2 class="tableHeader"><%= userInfo.firstName %>'s Music Events!</h2>
     </div>
 
     <% if(eventInfo.length > 0) { %>
@@ -18,7 +18,6 @@
                 <th class="tableHeaderText">Category</th>
                 <th class="tableHeaderText">Actions</th>
             </tr>
-        
         
             <% eventInfo.forEach(event => { %>
                 <tr class="userDataRows">
@@ -35,7 +34,35 @@
         <% } else { %>
             <p>There are no user created events to display! Create an event!</p>
         <% } %>
+        </table>
+</div>
+<br>
+<div class="profileTableWrapper">
+    <div class="tableHeaderContainer">
+        <h2 class="tableHeader"><%= userInfo.firstName %>'s RSVPs!</h2>
+    </div>
 
+    <% if(rsvpInfo.length > 0) { %>
+        <table id="profileTable">
+            <tr id="tableHeaders">
+                <th class="tableHeaderText">Music Event</th>
+                <th class="tableHeaderText">Category</th>
+                <th class="tableHeaderText">RSVP Status?</th>
+            </tr>
+        
+            <% rsvpInfo.forEach(rsvp => { %>
+                <tr class="userDataRows">
+                    <td class="musicEventCell"><a href="/events/<%= rsvp.eventRSVP.id %>"><%= rsvp.eventRSVP.name %></a></td>
+                    <td class="musicCategoryCell"><%= rsvp.eventRSVP.topic %></td>
+                    <td class="musicActionCell">
+                        <p class="rsvpStatus"><%= rsvp.statusRSVP %></p>
+                    </td>
+                </tr>
+            <% }); %>
+        <% } else { %>
+            <p>There are no user created RSVPs to display! RSVP to an event!</p>
+        <% } %>
     </table>
 </div>
+<br>
 <%- include("./partials/footer.ejs") %>

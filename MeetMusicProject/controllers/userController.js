@@ -9,6 +9,7 @@
 //Grab needed models to manipulate data stored in database.
 const User = require("../models/user");
 const musicEvents = require("../models/musicEvent");
+const rsvpModel = require("../models/rsvp");
 
 //Grab the register page
 exports.getRegister = (req, res, next) => {
@@ -103,12 +104,12 @@ exports.getProfile = (req, res, next) => {
 
     //Find the user in the database and retrieve their info to pass to the profile page
     //Find the stories created by the user and retrieve it's respective information. Use PromiseAll to perform both queries
-    Promise.all([User.findById(userId), musicEvents.find({ hostName: userId })]).then(profileInformation => {
+    Promise.all([User.findById(userId), musicEvents.find({ hostName: userId }), rsvpModel.find({ userRSVP: userId }).populate("eventRSVP", "id name topic")]).then(profileInformation => {
         
         //Filter out information from the profileInformation return (Array)
-        const [ userInfo, eventInfo ] = profileInformation;
+        const [ userInfo, eventInfo, rsvpInfo ] = profileInformation;
         
-        return res.render("profile", { userInfo, eventInfo });
+        return res.render("profile", { userInfo, eventInfo, rsvpInfo });
     }).catch((error) => {
         next(error);
     });
