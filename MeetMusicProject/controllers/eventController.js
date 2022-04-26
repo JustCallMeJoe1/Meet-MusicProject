@@ -9,7 +9,6 @@
 
 //Require the music event model so that you may acess the required data to manipulate and use for the website. Require conversion functions
 const eventModel = require("../models/musicEvent");
-const userModel = require("../models/user");
 const rsvpModel = require("../models/rsvp");
 const dateFormatting = require("../controllers/dateFunctions");
 
@@ -91,6 +90,7 @@ exports.getSpecificEvent = (req, res, next) => {
 
     //Obtain the specific id that was passed from the browser/user
     let chosenId = req.params.id;
+    
 
     //Id needs to be 24 bits, needs a 24 bit hex id to represent an ObjectID in the database. Check the length of the given ID for at least 24 bits, AND the specific format of HEX
     if(!chosenId.match(/^[0-9a-fA-F]{24}$/)) { //If ID does not match a 24 bit hex string (0-9, a-f, A-F, and 24 digits) then create a invalid request error
@@ -102,6 +102,7 @@ exports.getSpecificEvent = (req, res, next) => {
     //Locate the specific event we are trying to access in the browser
     eventModel.findById(chosenId).populate("hostName", "firstName lastName").then(chosenEvent => {
         //Render the musicEvent page with the specified model object retrieved from the array
+        let rsvpCounter = 0;
 
         //If story is located, then render it on the browser
         if (chosenEvent) {
@@ -134,9 +135,24 @@ exports.getSpecificEvent = (req, res, next) => {
 
             let formattedStartTime = (`${formattedStartHour}:${startNumberMinute} ${startTimePeriod}`);
             let formattedEndTime = (`${formattedEndHour}:${endNumberMinute} ${endTimePeriod}`);
-            
 
-            res.render("musicEvent", {chosenEvent, formattedDate, formattedStartTime, formattedEndTime});
+            //Locate the event within the RSVP collection to see how many people are RSVP with yes
+            rsvpModel.find({ eventRSVP: chosenId }).then(RSVPs => {
+
+                //For each found, check to see how many are "Yes". Increase counter with each Yes and return it to the view.
+                RSVPs.forEach(e => {
+                    if(e.statusRSVP == "Yes") {
+                        rsvpCounter += 1;
+                    }
+                });
+                
+                //Render the view with all the collected event information.
+                res.render("musicEvent", {chosenEvent, formattedDate, formattedStartTime, formattedEndTime, rsvpCounter});
+
+            }).catch(error => {
+                console.log("Error locating the RSVPs to this event.");
+                next(error);
+            });
 
         } else {   //If story is not found, then render the error 404 webpage to the user
             let err = new Error("Server was unable to locate an event with the id of " + chosenId);

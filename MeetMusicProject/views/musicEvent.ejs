@@ -20,7 +20,7 @@
                                 </div> 
                             <% } else { %>
                                 <div id="buttonGroup">
-                                    <p id="rsvpCount">X members have RSVP'd.</p>
+                                    <p id="rsvpCount"><%= rsvpCounter %> member(s) have RSVP'd.</p>
                                     <p>RSVP to attend the concert!</p>
                                     <form>
                                         <button type="submit" formmethod="POST" formaction="/events/<%= chosenEvent.id %>/rsvp" class="removeButtonCSS, eventButton" name="statusRSVP" value="Yes">Yes</button>
