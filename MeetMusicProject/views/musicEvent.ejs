@@ -18,6 +18,16 @@
                                         <button type="submit" formmethod="POST" formaction="/events/<%= chosenEvent.id %>?_method=DELETE %>" class="removeButtonCSS, eventButton">Delete</button>
                                     </form>
                                 </div> 
+                            <% } else { %>
+                                <div id="buttonGroup">
+                                    <p id="rsvpCount">X members have RSVP'd.</p>
+                                    <p>RSVP to attend the concert!</p>
+                                    <form>
+                                        <button type="submit" formmethod="POST" formaction="/events/<%= chosenEvent.id %>/rsvp" class="removeButtonCSS, eventButton" name="statusRSVP" value="Yes">Yes</button>
+                                        <button type="submit" formmethod="POST" formaction="/events/<%= chosenEvent.id %>/rsvp" class="removeButtonCSS, eventButton" name="statusRSVP" value="No">No</button>
+                                        <button type="submit" formmethod="POST" formaction="/events/<%= chosenEvent.id %>/rsvp" class="removeButtonCSS, eventButton" name="statusRSVP" value="Maybe">Maybe</button>
+                                    </form>
+                                </div> 
                             <% } %>
                         </div>
 

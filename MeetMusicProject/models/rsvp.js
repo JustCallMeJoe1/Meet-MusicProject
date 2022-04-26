@@ -12,7 +12,7 @@ const Schema = mongoose.Schema;
 
 //Create database schema for RSVPs. Model for the collection.
 const RSVPSchema = new Schema({
-    status: {
+    statusRSVP: {
         type: String,
         required: [true, "A RSVP status is required for the RSVP field."]
     },

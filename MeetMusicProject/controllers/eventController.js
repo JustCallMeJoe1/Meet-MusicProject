@@ -9,6 +9,8 @@
 
 //Require the music event model so that you may acess the required data to manipulate and use for the website. Require conversion functions
 const eventModel = require("../models/musicEvent");
+const userModel = require("../models/user");
+const rsvpModel = require("../models/rsvp");
 const dateFormatting = require("../controllers/dateFunctions");
 
 //GET /events musicEvents page --> Render the events page with all the different kinds of events, every topic is rendered correctly
@@ -201,3 +203,25 @@ exports.deleteEvent = (req, res, next) => {
 
 };
 
+//Post /events/:id/rsvp --> Update the status of the user's RSVP for this specific event they have RSVP responded too.
+exports.rsvpEvent = (req, res, next) => {
+    //Retrieve the event ID that the user is RSVPing to. Retrieve the UserId as well.
+    let eventId = req.params.id;
+    let userId = req.session.user;
+    
+    //First, see if there is an RSVP that exists. If it does exist, then just update the status. If it doesnt exist, then create one. findOneAndUpdate + upset = insane! If an object is returned, something existed!!!
+    rsvpModel.findOneAndUpdate({ userRSVP: userId, eventRSVP: eventId }, { statusRSVP: req.body.statusRSVP }, { upsert: true }).then(updatedRSVP => {
+
+        //If something was returned, that means that an RSVP exists. Flash that its been updated.
+        if(updatedRSVP) {
+            req.flash("success", "Event RSVP Status sucessfully updated!");
+            res.redirect("/user/profile");
+        } else { //No returned object means that it did not exist. Flash that its been created.
+            req.flash("success", "Event RSVP Status sucessfully created!");
+            res.redirect("/user/profile");
+        }
+    }).catch(error => { //General error handler for error in mongo
+        console.log("Some error occurred when updating RSVP Status for user.");
+        next(error);
+    });
+};

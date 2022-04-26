@@ -34,4 +34,7 @@ eventRouter.put("/:id", isLoggedIn, isEventHost, eventController.updateEvent);
 //Delete /events/:id --> Delete the musicEvent stored in the database/array specified by id
 eventRouter.delete("/:id", isLoggedIn, isEventHost, eventController.deleteEvent);
 
+//POST /events/:id/rsvp --> Post request to send RSVP status for current user for this current connection
+eventRouter.post("/:id/rsvp", isLoggedIn, eventController.rsvpEvent);
+
 module.exports = eventRouter;                    //Export router object to use in app module
