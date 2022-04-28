@@ -20,6 +20,11 @@ exports.getRegister = (req, res, next) => {
 exports.createUser = (req, res, next) => {
     let user = new User(req.body);
 
+    //Convert the username to lowercase so that logging in is case insensitive
+    if(user.email) {
+        user.email = user.email.toLowerCase();
+    }
+
     user.save().then((newUser) => {
         req.flash("success", "User account successfully registered!");
         res.redirect("/user/login");
@@ -52,6 +57,12 @@ exports.checkLogin = (req, res, next) => {
     
     //Retreive POST request information
     let submittedEmail = req.body.email;
+
+    //Normalize the user login username attempt. Username should be case insensitive. Stored lower case.
+    if(submittedEmail) {
+        submittedEmail = submittedEmail.toLowerCase();
+    }
+
     let submittedPassword = req.body.password;
     
     //Grab the user based on the submitted email

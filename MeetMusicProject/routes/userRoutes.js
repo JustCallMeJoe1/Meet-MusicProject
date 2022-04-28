@@ -10,6 +10,7 @@
 const express = require("express");
 const userController = require("../controllers/userController");
 const { isGuest, isLoggedIn } = require("../middlewares/authorizeRules");
+const { logInLimiter } = require("../middlewares/rateLimters");
 
 const userRouter = express.Router();            //Create Router object to handle routes
 
@@ -23,7 +24,7 @@ userRouter.post("/register", isGuest, userController.createUser);
 userRouter.get("/login", isGuest, userController.getLogin);
 
 //Post /user/login login page check what user submits as their login creds
-userRouter.post("/login", isGuest, userController.checkLogin);
+userRouter.post("/login", logInLimiter, isGuest, userController.checkLogin);
 
 //Post /user/logout --> Log the user out by destroying their session
 userRouter.get("/logout", isLoggedIn, userController.logout);

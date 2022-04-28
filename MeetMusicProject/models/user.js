@@ -34,8 +34,8 @@ const userSchema = new Schema({
     password: {
         type: String,
         required: [true, "Must provide a password for the account."],
-        minlength: [7, "Email must have at least 7 characters."],
-        maxlength: [50, "Email can have at most 50 characters."],
+        minlength: [8, "Email must have at least 8 characters."],
+        maxlength: [64, "Email can have at most 64 characters."],
     }
 
 });
