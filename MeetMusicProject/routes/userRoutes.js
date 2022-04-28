@@ -11,6 +11,7 @@ const express = require("express");
 const userController = require("../controllers/userController");
 const { isGuest, isLoggedIn } = require("../middlewares/authorizeRules");
 const { logInLimiter } = require("../middlewares/rateLimters");
+const { validateLogin, validateRegister, validateErrors } = require("../middlewares/validator");
 
 const userRouter = express.Router();            //Create Router object to handle routes
 
@@ -18,15 +19,15 @@ const userRouter = express.Router();            //Create Router object to handle
 userRouter.get("/register", isGuest, userController.getRegister);
 
 //Post /user/register --> Post the new user to the database after checking validation
-userRouter.post("/register", isGuest, userController.createUser);
+userRouter.post("/register", isGuest, validateRegister, validateErrors, userController.createUser);
 
 //Get /user/login login page
 userRouter.get("/login", isGuest, userController.getLogin);
 
 //Post /user/login login page check what user submits as their login creds
-userRouter.post("/login", logInLimiter, isGuest, userController.checkLogin);
+userRouter.post("/login", logInLimiter, isGuest, validateLogin, validateErrors, userController.checkLogin);
 
-//Post /user/logout --> Log the user out by destroying their session
+//Get /user/logout --> Log the user out by destroying their session
 userRouter.get("/logout", isLoggedIn, userController.logout);
 
 //Get profile --> Grab specific user profile

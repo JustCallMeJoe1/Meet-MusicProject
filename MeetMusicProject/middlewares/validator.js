@@ -5,6 +5,7 @@
     Date: April 28th, 2022
 
 */
+
 const { body, validationResult } = require("express-validator");
 
 //Validation to ensure that the user cannot access an event that does not exist.
@@ -23,8 +24,16 @@ exports.validateEventId = (req, res, next) => {
 
 //Validation and Santization rules for email and password fields inside of req.body. LOGIN SANTIZATION/VALIDATION RULES.
 exports.validateLogin = [
-    body("email", "Email must be a valid email address!").isEmail().trim().escape().normalizeEmail(), 
-    body("password", "Password must have at least 8 characters and at most 64 characters!").isLength({min: 8, max: 64})
+    body("email", "Email must be a valid email address!").isEmail().trim().escape().normalizeEmail().isLength({min: 5, max: 50}), 
+    body("password", "Password must have at least 8 characters and at most 64 characters!").isLength({min: 8, max: 64}).trim()
+];
+
+//Validation and Santization rules for registeration action on the website. REGISTER SANTIZATION/VALIDATION RULES.
+exports.validateRegister = [
+    body("firstName", "A proper first name must be provided!").trim().escape().isLength({min: 2, max: 60}),
+    body("lastName", "A proper last name must be provided!").trim().escape().isLength({min: 2, max: 60}),
+    body("email", "A proper email address must be provided!").isEmail().trim().escape().normalizeEmail().isLength({min: 5, max: 50}),
+    body("password", "Password must have at least 8 characters and at most 64 characters!").isLength({min: 8, max: 64}).trim()
 ];
 
 //Validation function to return all error messages back to controller to display in a flash message.
@@ -38,6 +47,8 @@ exports.validateErrors = (req, res, next) => {
             req.flash("error", error.msg);
         });
         return res.redirect("back");
+    } else {
+        return next();
     }
 
 }
