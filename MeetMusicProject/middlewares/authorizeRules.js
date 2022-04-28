@@ -69,6 +69,7 @@ exports.isEventHost = (req, res, next) => {
 
 };
 
+//Verify that that the user is not the host of the event. Otherwise provide a 401 error.
 exports.isNotEventHost = (req, res, next) => {
 
     //Grab the event id from the URL params, query using this data

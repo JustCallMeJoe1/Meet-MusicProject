@@ -8,6 +8,7 @@
 
 const express = require("express");
 const mainController = require("../controllers/mainController");
+const { validateEventId } = require("../middlewares/validator");
 
 const mainRouter = express.Router();            //Create Router object to handle routes
 
@@ -21,6 +22,6 @@ mainRouter.get("/contact", mainController.getContact);
 mainRouter.get("/about", mainController.getAbout);
 
 //Get /#number --> Grabs the specific featuredEvent from the home page
-mainRouter.get("/featuredEvent/:id", mainController.getFeaturedEvent);
+mainRouter.get("/featuredEvent/:id", validateEventId, mainController.getFeaturedEvent);
 
 module.exports = mainRouter;                    //Export router object to use in app module
