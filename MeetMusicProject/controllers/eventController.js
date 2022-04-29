@@ -140,7 +140,7 @@ exports.getSpecificEvent = (req, res, next) => {
 
                 //For each found, check to see how many are "Yes". Increase counter with each Yes and return it to the view.
                 RSVPs.forEach(e => {
-                    if(e.statusRSVP == "Yes") {
+                    if(e.statusRSVP == "yes") {
                         rsvpCounter += 1;
                     }
                 });

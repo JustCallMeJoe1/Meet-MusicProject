@@ -65,7 +65,12 @@ exports.validateEvent = [
 
     }),
     body("location", "A proper event location must be provided!").escape().trim().isLength({min: 1, max: 150}),
-    body("image", "A proper event image must be provided!").notEmpty().trim().escape(),
+    body("image", "A proper event image must be provided!").notEmpty().trim(), //Cannot escape this. URLs to images typically have special characters to website, escaping would break the image!
+];
+
+//Validation and Santization rules for RSVPing for an event on the website. RSVP ACTION SANTIZATION/VALIDATION RULES.
+exports.validateRSVP = [
+    body("statusRSVP", "A proper RSVP Action status must be provided!").notEmpty().escape().trim().toLowerCase().isIn(["yes","no","maybe"])
 ];
 
 //Validation function to return all error messages back to controller to display in a flash message.

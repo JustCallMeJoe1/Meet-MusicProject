@@ -10,7 +10,7 @@
 const express = require("express");
 const eventController = require("../controllers/eventController");
 const { isLoggedIn, isEventHost, isNotEventHost } = require("../middlewares/authorizeRules");
-const { validateEvent, validateErrors } = require("../middlewares/validator");
+const { validateEvent, validateErrors, validateRSVP } = require("../middlewares/validator");
 
 const eventRouter = express.Router();            //Create Router object to handle routes
 
@@ -36,6 +36,6 @@ eventRouter.put("/:id", isLoggedIn, isEventHost, validateEvent, validateErrors, 
 eventRouter.delete("/:id", isLoggedIn, isEventHost, eventController.deleteEvent);
 
 //POST /events/:id/rsvp --> Post request to send RSVP status for current user for this current connection
-eventRouter.post("/:id/rsvp", isLoggedIn, isNotEventHost, eventController.rsvpEvent);
+eventRouter.post("/:id/rsvp", isLoggedIn, isNotEventHost, validateRSVP, validateErrors, eventController.rsvpEvent);
 
 module.exports = eventRouter;                    //Export router object to use in app module
