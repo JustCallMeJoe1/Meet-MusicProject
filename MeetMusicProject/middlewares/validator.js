@@ -65,7 +65,7 @@ exports.validateEvent = [
 
     }),
     body("location", "A proper event location must be provided!").escape().trim().isLength({min: 1, max: 150}),
-    body("image", "A proper event image must be provided!").notEmpty().trim(), //Cannot escape this. URLs to images typically have special characters to website, escaping would break the image!
+    body("image", "A proper event image must be provided!").notEmpty().trim().escape(),
 ];
 
 //Validation and Santization rules for RSVPing for an event on the website. RSVP ACTION SANTIZATION/VALIDATION RULES.

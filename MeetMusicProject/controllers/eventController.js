@@ -11,6 +11,7 @@
 const eventModel = require("../models/musicEvent");
 const rsvpModel = require("../models/rsvp");
 const dateFormatting = require("../controllers/dateFunctions");
+const validator = require("validator");
 
 //GET /events musicEvents page --> Render the events page with all the different kinds of events, every topic is rendered correctly
 exports.index = (req, res, next) => {
@@ -29,7 +30,15 @@ exports.index = (req, res, next) => {
 
         //For each event push in their respective categoriy into totalCategories array
         allMusicEvents.forEach(event => {
-            totalCategories.push(event.topic);
+            totalCategories.push(validator.unescape(event.topic));
+
+            //Unescape all strings to be displayed to browser
+            event.name = validator.unescape(event.name);
+            event.topic = validator.unescape(event.topic);
+            event.details = validator.unescape(event.topic);
+            event.location = validator.unescape(event.location);
+            event.image = validator.unescape(event.image);
+
         });
 
         //Create an array of the set that will hold these categories (Spread them across the Set)
@@ -145,6 +154,13 @@ exports.getSpecificEvent = (req, res, next) => {
                     }
                 });
                 
+                //Unescape all validated characters
+                chosenEvent.name = validator.unescape(chosenEvent.name);
+                chosenEvent.topic = validator.unescape(chosenEvent.topic);
+                chosenEvent.details = validator.unescape(chosenEvent.details);
+                chosenEvent.location = validator.unescape(chosenEvent.location);
+                chosenEvent.image = validator.unescape(chosenEvent.image);
+
                 //Render the view with all the collected event information.
                 res.render("musicEvent", {chosenEvent, formattedDate, formattedStartTime, formattedEndTime, rsvpCounter});
 
@@ -172,6 +188,14 @@ exports.getEditForm = (req, res, next) => {
 
     //Search the model for the event with the specified ID. If found, render the edit form. Otherwise send a 404 error as the event cannot be located.
     eventModel.findById(eventId).then(pickedEvent => {
+
+        //Unescaping funny characters
+        pickedEvent.name = validator.unescape(pickedEvent.name);
+        pickedEvent.topic = validator.unescape(pickedEvent.topic);
+        pickedEvent.details = validator.unescape(pickedEvent.details);
+        pickedEvent.location = validator.unescape(pickedEvent.location);
+        pickedEvent.image = validator.unescape(pickedEvent.image);
+
         return res.render("editMusicEvent", {pickedEvent});
     }).catch(error => { //Database internal error when searching for the event to edit
         next(error);
