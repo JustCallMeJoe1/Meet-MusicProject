@@ -10,6 +10,7 @@
 const express = require("express");
 const eventController = require("../controllers/eventController");
 const { isLoggedIn, isEventHost, isNotEventHost } = require("../middlewares/authorizeRules");
+const { validateEvent, validateErrors } = require("../middlewares/validator");
 
 const eventRouter = express.Router();            //Create Router object to handle routes
 
@@ -20,7 +21,7 @@ eventRouter.get("/", eventController.index);
 eventRouter.get("/new", isLoggedIn, eventController.newEvent);
 
 //POST /events  --> Data received, need to create an event
-eventRouter.post("/", isLoggedIn, eventController.createNewEvent);
+eventRouter.post("/", isLoggedIn, validateEvent, validateErrors, eventController.createNewEvent);
 
 //GET /events/#number --> Grabs the specific musicEvent page
 eventRouter.get("/:id", eventController.getSpecificEvent);
@@ -29,7 +30,7 @@ eventRouter.get("/:id", eventController.getSpecificEvent);
 eventRouter.get("/:id/edit", isLoggedIn, isEventHost, eventController.getEditForm);
 
 //Put /events/:id --> Updates the musicEvent stored in the database/array specified by id
-eventRouter.put("/:id", isLoggedIn, isEventHost, eventController.updateEvent);
+eventRouter.put("/:id", isLoggedIn, isEventHost, validateEvent, validateErrors, eventController.updateEvent);
 
 //Delete /events/:id --> Delete the musicEvent stored in the database/array specified by id
 eventRouter.delete("/:id", isLoggedIn, isEventHost, eventController.deleteEvent);

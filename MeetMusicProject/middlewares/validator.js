@@ -36,6 +36,38 @@ exports.validateRegister = [
     body("password", "Password must have at least 8 characters and at most 64 characters!").isLength({min: 8, max: 64}).trim()
 ];
 
+//Validation and Santization rules for creating a new event on the website. NEW EVENT SANTIZATION/VALIDATION RULES.
+exports.validateEvent = [
+    body("name", "A proper event name must be provided!").trim().escape().isLength({min: 1, max: 50}),
+    body("topic", "A proper event category must be provided!").trim().escape().isLength({min: 1, max: 50}),
+    body("details", "Proper event details must be provided!").trim().escape().isLength({min: 5, max: 500}),
+    body("date", "A proper event date must be provided!").notEmpty().escape().trim().isDate().isAfter(),                //isAfter is very janky, likes to deny within 24 hours....
+    body("startTime", "A proper event start time must be provided!").escape().trim().matches(/^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/).notEmpty(),
+    body("endTime", "A proper event end time must be provided!").escape().trim().matches(/^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/).notEmpty(),
+    body("endTime").custom((endTimeValue, {req}) => {
+
+        //Retrieve end time from the user thing
+        let endTimeHour = endTimeValue.substring(0,2);
+        let endTimeMinute = endTimeValue.substring(3,5);
+        let realEndTime = endTimeHour + endTimeMinute;
+        
+        //Retrieve the start time from the request
+        let startTime = req.body.startTime;
+        let startTimeHour = startTime.substring(0,2);
+        let startTimeMinute = startTime.substring(3,5);
+        let realStartTime = startTimeHour + startTimeMinute;
+
+        //If the UTC time of the EndTime is greater than the StartTime, then it is a legit request. Otherwise it is not correct.
+        if(realEndTime < realStartTime) {
+            throw new Error("The end time cannot be before the start time!");
+        }
+        return true;
+
+    }),
+    body("location", "A proper event location must be provided!").escape().trim().isLength({min: 1, max: 150}),
+    body("image", "A proper event image must be provided!").notEmpty().trim().escape(),
+];
+
 //Validation function to return all error messages back to controller to display in a flash message.
 exports.validateErrors = (req, res, next) => {
     //Retrieve the error messages from the login attempt if applicable
