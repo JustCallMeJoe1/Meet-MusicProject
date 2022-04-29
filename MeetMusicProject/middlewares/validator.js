@@ -40,7 +40,7 @@ exports.validateRegister = [
 exports.validateEvent = [
     body("name", "A proper event name must be provided!").trim().escape().isLength({min: 1, max: 50}),
     body("topic", "A proper event category must be provided!").trim().escape().isLength({min: 1, max: 50}),
-    body("details", "Proper event details must be provided!").trim().escape().isLength({min: 5, max: 500}),
+    body("details", "Proper event details must be provided!").trim().escape().isLength({min: 5, max: 900}),
     body("date", "A proper event date must be provided!").notEmpty().escape().trim().isDate().isAfter(),                //isAfter is very janky, likes to deny within 24 hours....
     body("startTime", "A proper event start time must be provided!").escape().trim().matches(/^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/).notEmpty(),
     body("endTime", "A proper event end time must be provided!").escape().trim().matches(/^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/).notEmpty(),

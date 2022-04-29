@@ -61,7 +61,7 @@ const musicEventSchema = new Schema({
         type: String, 
         required: [true, "The music event detail information is required!"],
         minlength: [5, "Details field must have at least 5 characters"],
-        maxlength: [500, "Details field can have at most 150 characters"]
+        maxlength: [900, "Details field can have at most 150 characters"]
     },
     date: {
         type: String, 
