@@ -220,7 +220,7 @@ exports.updateEvent = (req, res, next) => {
     }).catch(error => {     //Check to see if the input was malformatted, if so then a 400 error has occurred. Otherwise, internal Server error when trying to update the old event. Database has some issue going on.
         if (error.name === "ValidationError") {
             error.status = 400;
-            next(error);
+            return next(error);
         }
         next(error); 
     });

@@ -1,0 +1,331 @@
+[{
+  "_id": {
+    "$oid": "625ce4fbd893b4558520c9ce"
+  },
+  "name": "Music Festival",
+  "topic": "Rock",
+  "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "date": "2022-07-19",
+  "startTime": "15:00",
+  "endTime": "19:00",
+  "hostName": "Music4Fun",
+  "location": "Convention Center, Raleigh, NC",
+  "image": "https://imageio.forbes.com/specials-images/imageserve/5d094dfa4c687b00085a0001/A-bright-music-festival-stage-with-a-large--energetic-crowd-/960x0.jpg?fit=bounds&format=jpg&width=960",
+  "featuredEvent": true
+},{
+  "_id": {
+    "$oid": "625ce4fbd893b4558520c9cf"
+  },
+  "name": "Hollie Music Festival",
+  "topic": "Pop",
+  "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "date": "2022-06-19",
+  "startTime": "12:00",
+  "endTime": "19:00",
+  "hostName": "HollieOrganization",
+  "location": "Soccer Fields, Raleigh, NC",
+  "image": "https://live.staticflickr.com/5596/14416090556_07db4a8334_b.jpg",
+  "featuredEvent": true
+},{
+  "_id": {
+    "$oid": "625ce4fbd893b4558520c9d0"
+  },
+  "name": "Summer Music Fest",
+  "topic": "Pop",
+  "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "date": "2022-03-12",
+  "startTime": "14:00",
+  "endTime": "17:00",
+  "hostName": "SummerMusicFun",
+  "location": "Soccer Fields, Raleigh, NC",
+  "image": "https://studybreaks.com/wp-content/uploads/2017/06/636242815115195376924973386_Musicfestival.jpg",
+  "featuredEvent": true
+},{
+  "_id": {
+    "$oid": "625ce4fbd893b4558520c9d1"
+  },
+  "name": "K-Pop Winter 2022",
+  "topic": "Pop",
+  "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "date": "2022-08-12",
+  "startTime": "16:00",
+  "endTime": "19:00",
+  "hostName": "KPopWinter!",
+  "location": "Convention Center, Raleigh, NC",
+  "image": "https://studybreaks.com/wp-content/uploads/2020/01/deserthearts-e1580006981156.jpg",
+  "featuredEvent": true
+},{
+  "_id": {
+    "$oid": "625ce4fbd893b4558520c9d2"
+  },
+  "name": "Grundge Fest 2022",
+  "topic": "Metal",
+  "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "date": "2020-04-15",
+  "startTime": "15:00",
+  "endTime": "17:00",
+  "hostName": "FunTimeGrundge1992",
+  "location": "Underground Shop, Raleigh, NC",
+  "image": "https://theculturetrip.com/wp-content/uploads/2019/04/screaming-trees-rexfeatures_499068go.jpg",
+  "featuredEvent": true
+},{
+  "_id": {
+    "$oid": "625ce4fbd893b4558520c9d3"
+  },
+  "name": "Music Event 2021",
+  "topic": "Pop",
+  "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "date": "2021-08-12",
+  "startTime": "17:00",
+  "endTime": "18:00",
+  "hostName": "NightMusic2021",
+  "location": "Convention Center, Raleigh, NC",
+  "image": "https://blogmedia.evbstatic.com/wp-content/uploads/wpmulti/sites/8/2018/01/19104925/iStock-503526285.jpg",
+  "featuredEvent": true
+},{
+  "_id": {
+    "$oid": "625ce4fbd893b4558520c9d4"
+  },
+  "name": "Pop Fest 2022",
+  "topic": "Pop",
+  "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "date": "2021-06-19",
+  "startTime": "15:00",
+  "endTime": "19:00",
+  "hostName": "Love+Pop2022",
+  "location": "Convention Center, Raleigh, NC",
+  "image": "https://jooinn.com/images/music-event-3.jpg",
+  "featuredEvent": true
+},{
+  "_id": {
+    "$oid": "625ce4fbd893b4558520c9d5"
+  },
+  "name": "Stop Making Sense Live!",
+  "topic": "Rock",
+  "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "date": "2022-08-19",
+  "startTime": "15:00",
+  "endTime": "19:00",
+  "hostName": "TalkingHeads",
+  "location": "Convention Center, Raleigh, NC",
+  "image": "https://www.screenslate.com/sites/default/files/images/Featured-170817-StopMakingSense.jpg",
+  "featuredEvent": true
+},{
+  "_id": {
+    "$oid": "625ce4fbd893b4558520c9d6"
+  },
+  "name": "The Doors live in Miami!",
+  "topic": "Rock",
+  "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "date": "2022-08-19",
+  "startTime": "15:00",
+  "endTime": "18:00",
+  "hostName": "The Doors",
+  "location": "Downtown, Miami, FL",
+  "image": "https://i.ytimg.com/vi/N24Xjd7cYgk/maxresdefault.jpg",
+  "featuredEvent": true
+},{
+  "_id": {
+    "$oid": "626c470327cc6f099ceadb00"
+  },
+  "name": "The Doors. Live.",
+  "topic": "Pop-Rock",
+  "details": "We cannot wait for Record Store Day 2022, the party that’s become the Largest Single Day Music Event in The World. In celebration of the 15th annual celebration, we are thrilled to announce the L.A. Woman Sessions, which is being released as a limited-edition 4-LP set on April 23rd.\r\n\r\nOn a slate chalk board, Jim wrote the words “A Clean Slate,” as to define the moment.\r\n\r\nFor more information on The Doors L.A. Woman Sessions 4-LP RSD Set release",
+  "date": "2022-05-18",
+  "startTime": "20:00",
+  "endTime": "22:15",
+  "location": "The Matrix, San Francisco",
+  "image": "https:&#x2F;&#x2F;thedoors.com&#x2F;wp-content&#x2F;uploads&#x2F;2022&#x2F;02&#x2F;03e9a424-242b-5cd2-f145-3c70ed460cc1.jpg",
+  "hostName": {
+    "$oid": "626c43e327cc6f099ceadae4"
+  },
+  "featuredEvent": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "626c47a827cc6f099ceadb04"
+  },
+  "name": "David Bowie Live!",
+  "topic": "Pop-Rock",
+  "details": "David Bowie supported his eighth studio album Diamond Dogs on the Diamond Dogs Tour, whose first leg lasted from 14 June to 20 July 1974. Co-designed and constructed by Chris Langhart, it featured elaborate set-pieces and cost $250,000. Fritz Lang&#x27;s Metropolis (1927) and Robert Wiene&#x27;s The Cabinet of Dr. Caligari (1920) influenced the tour&#x27;s design, primarily due to Bowie&#x27;s interest in German expressionism.",
+  "date": "2022-06-22",
+  "startTime": "16:00",
+  "endTime": "21:15",
+  "location": "Birmingham, United Kingdom",
+  "image": "https:&#x2F;&#x2F;upload.wikimedia.org&#x2F;wikipedia&#x2F;en&#x2F;4&#x2F;4f&#x2F;Davidlive.jpg",
+  "hostName": {
+    "$oid": "626c43e327cc6f099ceadae4"
+  },
+  "featuredEvent": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "626c487427cc6f099ceadb28"
+  },
+  "name": "Journey Live 2022",
+  "topic": "Pop-Rock",
+  "details": "Live in Houston 1981: The Escape Tour is a live DVD&#x2F;CD package by the American rock band Journey, released in November 2005. The content of the package was also released in May 2006 as a separate CD and separate DVD on the Columbia Records label.\r\n\r\nThe material of the show was recorded and filmed for the then-fledgling MTV network on Journey&#x27;s Escape Tour",
+  "date": "2022-06-09",
+  "startTime": "18:19",
+  "endTime": "20:19",
+  "location": "New York City",
+  "image": "https://upload.wikimedia.org/wikipedia/en/b/b6/Live_in_Houston_1981_-_The_Escape_Tour_%28poster%29.jpg",
+  "hostName": {
+    "$oid": "626c43e327cc6f099ceadae4"
+  },
+  "featuredEvent": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "626c495027cc6f099ceadb48"
+  },
+  "name": "The doors live in Pittsburgh",
+  "topic": "Rock",
+  "details": "The concert is considered one of the better performances by the Doors with lead singer Jim Morrison providing a focused delivery of the songs.[1] The album includes a 22-plus-minute version of &quot;When the Music&#x27;s Over&quot; plus &quot;Five to One&quot; and &quot;Break on Through&quot;. The group also performed covers of Robert Johnson&#x27;s &quot;Cross Road Blues&quot;",
+  "date": "2022-06-02",
+  "startTime": "16:22",
+  "endTime": "19:22",
+  "location": "Civic Arena, Pittsburgh, PA",
+  "image": "https://upload.wikimedia.org/wikipedia/en/7/76/Doorspittsburgh1970.jpg",
+  "hostName": {
+    "$oid": "626c43e327cc6f099ceadae4"
+  },
+  "featuredEvent": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "626c564a45624454cbe2a7c7"
+  },
+  "name": "The Doors live in Detriot",
+  "topic": "Rock",
+  "details": "The concert is one of the longest live performances by the Doors. Among the 25 songs played that night, the group played eight blues standards such as &quot;Back Door Man&quot;, Junior Parker&#x27;s &quot;Mystery Train&quot; and &quot;Crossroads&quot; by Robert Johnson. The band were joined by Lovin&#x27; Spoonful&#x27;s John Sebastian on guitar and harmonica on the L.A. Woman track &quot;Been Down So Long,&quot; &quot;Love Hides&quot;",
+  "date": "2022-06-29",
+  "startTime": "17:19",
+  "endTime": "22:19",
+  "location": "Cobo Hall Detroit, Michigan",
+  "image": "https:&#x2F;&#x2F;upload.wikimedia.org&#x2F;wikipedia&#x2F;en&#x2F;d&#x2F;d3&#x2F;LiveInDetroit_TheDoorsalbum.jpg",
+  "hostName": {
+    "$oid": "626c43e327cc6f099ceadae4"
+  },
+  "featuredEvent": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "626c57d91a2bd82ca14e5ce8"
+  },
+  "name": "The Doors at the Hollywood Bowl",
+  "topic": "Rock",
+  "details": "Live at the Hollywood Bowl is the third official live album by the American rock band the Doors, released in May 1987 by Elektra Records. The concert was recorded on July 5, 1968, at the Hollywood Bowl in Los Angeles, the Doors&#x27; hometown.\r\n\r\nAt a length of 22 minutes and 19 seconds, the 1987 album is the Doors&#x27; shortest official release. A VHS video of the concert was also released, containing 14 songs. The full version of the concert, entitled Live at the Bowl &#x27;68, was released in October 2012 on",
+  "date": "2022-06-15",
+  "startTime": "19:23",
+  "endTime": "22:23",
+  "location": "Los Angeles, California",
+  "image": "https:&#x2F;&#x2F;upload.wikimedia.org&#x2F;wikipedia&#x2F;en&#x2F;c&#x2F;c8&#x2F;TheDoorsLiveAtTheHollywoodBowlalbumcover.jpg",
+  "hostName": {
+    "$oid": "626c43e327cc6f099ceadae4"
+  },
+  "featuredEvent": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "626c5a631a2bd82ca14e5dba"
+  },
+  "name": "Roadhouse Blues",
+  "topic": "Blues",
+  "details": "&quot;Roadhouse Blues&quot; is a song by the American rock band the Doors, and appears on the 1970 album Morrison Hotel. It was released as the B-side of &quot;You Make Me Real&quot;, which peaked at No. 50 on the U.S. Billboard Hot 100.[3] &quot;Roadhouse Blues&quot; charted in its own right on the Cash Box Top 100, peaking at No. 76.[4] The song became a concert staple for the group and it has been covered by numerous artists.\r\n\r\nHailed by sound engineer Bruce Botnick as &quot;the all-time American bar band song,&quot;[5] &quot;Roadhouse Blues&quot;–despite its relatively unsuccessful chart peak–received strong airplay on rock radio stations.[6] The song&#x27;s title was also considered to be the name of the album, but it was eventually changed.",
+  "date": "2022-06-30",
+  "startTime": "20:36",
+  "endTime": "22:36",
+  "location": "Morison Hotel, California, USA",
+  "image": "https:&#x2F;&#x2F;www.morrisonhotelgallery.com&#x2F;images&#x2F;big&#x2F;diltz_Doors_MorrisonHotel.jpg",
+  "hostName": {
+    "$oid": "626c436927cc6f099ceadadd"
+  },
+  "featuredEvent": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "626c5b601a2bd82ca14e5dbe"
+  },
+  "name": "Frank Sinatra - Live",
+  "topic": "Blues",
+  "details": "Summer Wind first recorded by Wayne Newton in 1965 but is most known by Frank Sinatra which was released in 1966 in his album, Strangers in the Night.\r\nMusic: Henry Mayer\r\nLyrics: (By Johnny Mercer)",
+  "date": "2022-06-21",
+  "startTime": "19:40",
+  "endTime": "22:40",
+  "location": "New York City",
+  "image": "https:&#x2F;&#x2F;i.ytimg.com&#x2F;vi&#x2F;Ug8cBIbxDaY&#x2F;hqdefault.jpg",
+  "hostName": {
+    "$oid": "626c436927cc6f099ceadadd"
+  },
+  "featuredEvent": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "626c5d701a2bd82ca14e5df0"
+  },
+  "name": "Frank Sinatra - Blue Moon",
+  "topic": "Blues",
+  "details": "Blue Moon&quot; is a classic popular song written by Richard Rodgers and Lorenz Hart in 1934. This may be the first instance of the familiar &quot;50s progression&quot; in a popular song, and it has become a standard ballad. Early recordings included those by Connee Boswell and by Al Bowlly in 1935. The song was a hit twice in 1949, with successful recordings in the U.S. by Billy Eckstine and Mel Tormé.",
+  "date": "2022-06-13",
+  "startTime": "17:49",
+  "endTime": "22:49",
+  "location": "Las Vegas, Nevada",
+  "image": "https:&#x2F;&#x2F;m.media-amazon.com&#x2F;images&#x2F;I&#x2F;71Uw4Ue4d8L._SS500_.jpg",
+  "hostName": {
+    "$oid": "626c436927cc6f099ceadadd"
+  },
+  "featuredEvent": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "626c5e741a2bd82ca14e5e3b"
+  },
+  "name": "Dave Brubeck Concert",
+  "topic": "Jazz",
+  "details": "At Carnegie Hall is a jazz live album by the Dave Brubeck Quartet. It was recorded at the famed Carnegie Hall in New York City on Friday, February 22, 1963. Critic Thom Jurek described it as &quot;one of the great live jazz albums of the 1960s&quot;.[1] Critic Jim Santella wrote, &quot;This is timeless music from a classic ensemble. Goosebumps are guaranteed.",
+  "date": "2022-07-11",
+  "startTime": "20:53",
+  "endTime": "22:53",
+  "location": "New York City",
+  "image": "https:&#x2F;&#x2F;api.culture.pl&#x2F;sites&#x2F;default&#x2F;files&#x2F;styles&#x2F;1920_auto&#x2F;public&#x2F;2018-10&#x2F;dave_brubeck_gettyimages-129080038.jpg?itok=CiZJvmrJ",
+  "hostName": {
+    "$oid": "626c436927cc6f099ceadadd"
+  },
+  "featuredEvent": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "626c5eba1a2bd82ca14e5e46"
+  },
+  "name": "The Great Concert",
+  "topic": "Jazz",
+  "details": "The Great Concerts is a jazz live album by The Dave Brubeck Quartet. It was originally released on LP and CD under the series Columbia Jazz Masterpieces, in 1988. Then, it was re-released in 1998[1] and again in 2009. It includes live recordings from 1958 and 1963 (see below for an accurate description of the recordings). The pieces were produced by associated producers: the first six tracks were produced by Teo Macero and Mike Berniker; track 7 and 8 by Berniker and Cal Lampley.",
+  "date": "2022-05-01",
+  "startTime": "19:55",
+  "endTime": "21:55",
+  "location": "Germany, Europe",
+  "image": "https:&#x2F;&#x2F;upload.wikimedia.org&#x2F;wikipedia&#x2F;en&#x2F;d&#x2F;d8&#x2F;GreatConcerts_Dave_Brubeck_Quartet.jpg?20171109222336",
+  "hostName": {
+    "$oid": "626c436927cc6f099ceadadd"
+  },
+  "featuredEvent": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "626c5f771a2bd82ca14e5e66"
+  },
+  "name": "Brubeck in Amsterdam",
+  "topic": "Jazz",
+  "details": "Brubeck in Amsterdam is a 1962 live album by Dave Brubeck and his quartet recorded on 3 December at the Concertgebouw in Amsterdam, though unreleased until 1969.[2] Six of the tracks are from Brubeck&#x27;s musical The Real Ambassadors.",
+  "date": "2022-06-14",
+  "startTime": "17:58",
+  "endTime": "21:58",
+  "location": "Amsterdam, Netherlands",
+  "image": "https:&#x2F;&#x2F;upload.wikimedia.org&#x2F;wikipedia&#x2F;en&#x2F;thumb&#x2F;5&#x2F;57&#x2F;Brubeck_Amsterdam.jpeg&#x2F;220px-Brubeck_Amsterdam.jpeg",
+  "hostName": {
+    "$oid": "626c436927cc6f099ceadadd"
+  },
+  "featuredEvent": false,
+  "__v": 0
+}]

@@ -1,0 +1,37 @@
+[{
+  "_id": {
+    "$oid": "626c59cd202ad06cdbd244a8"
+  },
+  "eventRSVP": {
+    "$oid": "626c47a827cc6f099ceadb04"
+  },
+  "userRSVP": {
+    "$oid": "626c436927cc6f099ceadadd"
+  },
+  "__v": 0,
+  "statusRSVP": "yes"
+},{
+  "_id": {
+    "$oid": "626c59df202ad06cdbd244e3"
+  },
+  "eventRSVP": {
+    "$oid": "626c57d91a2bd82ca14e5ce8"
+  },
+  "userRSVP": {
+    "$oid": "626c436927cc6f099ceadadd"
+  },
+  "__v": 0,
+  "statusRSVP": "yes"
+},{
+  "_id": {
+    "$oid": "626c59e1202ad06cdbd24504"
+  },
+  "eventRSVP": {
+    "$oid": "626c495027cc6f099ceadb48"
+  },
+  "userRSVP": {
+    "$oid": "626c436927cc6f099ceadadd"
+  },
+  "__v": 0,
+  "statusRSVP": "yes"
+}]

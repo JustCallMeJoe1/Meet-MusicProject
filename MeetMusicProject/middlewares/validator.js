@@ -83,6 +83,7 @@ exports.validateErrors = (req, res, next) => {
         errorMessages.array().forEach(error => {
             req.flash("error", error.msg);
         });
+        console.log("If you're testing in postman, it cannot properly render a back request. You have to set that up my guy.");
         return res.redirect("back");
     } else {
         return next();

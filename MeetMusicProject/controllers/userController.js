@@ -57,13 +57,12 @@ exports.checkLogin = (req, res, next) => {
     
     //Retreive POST request information
     let submittedEmail = req.body.email;
+    let submittedPassword = req.body.password; 
 
     //Normalize the user login username attempt. Username should be case insensitive. Stored lower case.
     if(submittedEmail) {
         submittedEmail = submittedEmail.toLowerCase();
     }
-
-    let submittedPassword = req.body.password;
     
     //Grab the user based on the submitted email
     User.findOne({email: submittedEmail}).then((user) => {
@@ -82,14 +81,14 @@ exports.checkLogin = (req, res, next) => {
                     res.redirect("/user/login");
                 }
             }).catch(error => { //Error comparing the passwords, default handler
-                next(error);
+                return next(error);
             })
         } else { //User is not found in the database
             req.flash("error", "User not found. Please register first!");
             res.redirect("/user/login");
         }
     }).catch((error) =>{ //Error querying the database for the user. Internal error.
-        next(error);
+        return next(error);
     });
     
 }

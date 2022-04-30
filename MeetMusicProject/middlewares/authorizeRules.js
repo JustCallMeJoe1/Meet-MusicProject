@@ -61,10 +61,10 @@ exports.isEventHost = (req, res, next) => {
         } else { //Event not located with specified ID
             let error = new Error("Cannot find an event with the id of " + eventId);
             error.status = 404;
-            next(error);
+            return next(error);
         }
     }).catch(error => { //Error querying database
-        next(error);
+        return next(error);
     })
 
 };
@@ -96,10 +96,10 @@ exports.isNotEventHost = (req, res, next) => {
         } else { //Event not located with specified ID
             let error = new Error("Cannot find an event with the id of " + eventId);
             error.status = 404;
-            next(error);
+            return next(error);
         }
     }).catch(error => { //Error querying database
-        next(error);
+        return next(error);
     })
 
 };
