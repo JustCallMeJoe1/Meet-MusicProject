@@ -24,23 +24,30 @@ exports.validateEventId = (req, res, next) => {
 
 //Validation and Santization rules for email and password fields inside of req.body. LOGIN SANTIZATION/VALIDATION RULES.
 exports.validateLogin = [
-    body("email", "Email must be a valid email address!").isEmail().trim().escape().normalizeEmail().isLength({min: 5, max: 50}), 
-    body("password", "Password must have at least 8 characters and at most 64 characters!").isLength({min: 8, max: 64}).trim()
+    body("email", "Email must be a valid email address!").isEmail().trim().escape().normalizeEmail().isLength({min: 5, max: 50}),
+    body("password", "Password must have at least 8 characters and at most 64 characters!").isLength({min: 8, max: 64}).trim(),
+    body("password", "You must provide a password!").notEmpty(),
 ];
 
 //Validation and Santization rules for registeration action on the website. REGISTER SANTIZATION/VALIDATION RULES.
 exports.validateRegister = [
     body("firstName", "A proper first name must be provided!").trim().escape().isLength({min: 2, max: 60}),
+    body("firstName", "You must provide a first name!").notEmpty(),
     body("lastName", "A proper last name must be provided!").trim().escape().isLength({min: 2, max: 60}),
+    body("lastName", "You must provide a last name!").notEmpty(),
     body("email", "A proper email address must be provided!").isEmail().trim().escape().normalizeEmail().isLength({min: 5, max: 50}),
-    body("password", "Password must have at least 8 characters and at most 64 characters!").isLength({min: 8, max: 64}).trim()
+    body("password", "Password must have at least 8 characters and at most 64 characters!").isLength({min: 8, max: 64}).trim(),
+    body("password", "You must provide a password!").notEmpty(),
 ];
 
 //Validation and Santization rules for creating a new event on the website. NEW EVENT SANTIZATION/VALIDATION RULES.
 exports.validateEvent = [
     body("name", "A proper event name must be provided!").trim().escape().isLength({min: 1, max: 50}),
+    body("name", "You must provide a name for the event!").notEmpty(),
     body("topic", "A proper event category must be provided!").trim().escape().isLength({min: 1, max: 50}),
+    body("topic", "You must provide a topic for the event!").notEmpty(),
     body("details", "Proper event details must be provided!").trim().escape().isLength({min: 5, max: 900}),
+    body("details", "You must provide details for the event!").notEmpty(),
     body("date", "A proper event date must be provided!").notEmpty().escape().trim().isDate().isAfter(),                //isAfter is very janky, likes to deny within 24 hours....
     body("startTime", "A proper event start time must be provided!").escape().trim().matches(/^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/).notEmpty(),
     body("endTime", "A proper event end time must be provided!").escape().trim().matches(/^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/).notEmpty(),
@@ -65,12 +72,14 @@ exports.validateEvent = [
 
     }),
     body("location", "A proper event location must be provided!").escape().trim().isLength({min: 1, max: 150}),
+    body("location", "You must provide a location for the event!").notEmpty(),
     body("image", "A proper event image must be provided!").notEmpty().trim().escape(),
 ];
 
 //Validation and Santization rules for RSVPing for an event on the website. RSVP ACTION SANTIZATION/VALIDATION RULES.
 exports.validateRSVP = [
-    body("statusRSVP", "A proper RSVP Action status must be provided!").notEmpty().escape().trim().toLowerCase().isIn(["yes","no","maybe"])
+    body("statusRSVP", "A proper RSVP Action status must be provided!").escape().trim().toLowerCase().isIn(["yes","no","maybe"]),
+    body("statusRSVP", "You must provide an RSVP status!").notEmpty()
 ];
 
 //Validation function to return all error messages back to controller to display in a flash message.
